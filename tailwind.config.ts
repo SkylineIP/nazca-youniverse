@@ -26,6 +26,10 @@ export default {
       fontFamily: {
         bricolage: ['bricolage',],
       },
+      backgroundImage: {  
+        'descanso': "url('/descanso/bg.jpg')",
+        'descanso-home' : "url('/descanso/bg-descanso.png')",
+      },
       screens: {
         desktop: { min: "1536px" },
         desktopmini: { min: "901px", max: "1535px" },
