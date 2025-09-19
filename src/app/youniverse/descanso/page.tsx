@@ -10,6 +10,7 @@ import texto from "../../../../public/descanso/texto-apoio-tela-descanso-younive
 import touch from "../../../../public/descanso/touchyouniverse.png";
 import detalhe2 from "../../../../public/descanso/detalhe-cores-youniverse-nazca-2.png";
 import logoyouniverse from "../../../../public/descanso/logoyouniverse.png";
+import { useRouter } from 'next/navigation';
 
 const variations = [
     {
@@ -85,6 +86,7 @@ const Descanso = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isExiting, setIsExiting] = useState(false);
     const [isEntering, setIsEntering] = useState(true);
+    const router = useRouter();
 
     useEffect(() => {
         setIsEntering(true);
@@ -164,6 +166,9 @@ const Descanso = () => {
                 alt="Touch Icon"
                 className={`col-span-4 col-start-11 row-start-20 animate-pulse animate-duration-[2000ms] cursor-pointer hover:scale-105 transition-transform  ease-in-out`}
                 priority
+                onClick={() => {
+                    router.push('/menu-youniverse');
+                }}
             />
         </div>
     );
