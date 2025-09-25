@@ -3,7 +3,6 @@
 import { useRouter } from "next/navigation";
 import * as React from "react";
 import { useState } from "react";
-import { useContextDefault } from "@/context/Context";
 import Image from "next/image";
 import nazcaLogo from "../../public/home/nazcalogo.png";
 import touch from "../../public/home/touch.png"
@@ -11,7 +10,6 @@ import card from "../../public/descanso/card.png"
 
 const Home: React.FC = () => {
   const router = useRouter();
-  const context = useContextDefault();
   const [descanso, setDescanso] = useState(false);
 
   return (

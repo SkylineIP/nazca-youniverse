@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`bg-background text-foreground font-[Questrial]`}>
+      <body className={`bg-background text-foreground font-[Questrial] grid `}>
         <React.StrictMode>
           <ContextDefault>
             <ThemeRegistry>{children}</ThemeRegistry>

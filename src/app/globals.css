@@ -111,6 +111,22 @@ img {/* Para navegadores baseados em WebKit */
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'aviano-sans';
+  src: url("./fonts/Aviano\ Sans\ Regular.otf") format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'impact';
+  src: url("./fonts/impact.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 button {
   cursor: pointer;
 }

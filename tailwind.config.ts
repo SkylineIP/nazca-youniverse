@@ -25,10 +25,13 @@ export default {
       },
       fontFamily: {
         bricolage: ['bricolage',],
+        aviano: ['aviano-sans'],
+        impact: ['impact'],
       },
       backgroundImage: {  
         'descanso': "url('/descanso/bg.jpg')",
         'descanso-home' : "url('/descanso/bg-descanso.png')",
+        'conceito': "url('/conceito/bg.jpg')",
       },
       screens: {
         desktop: { min: "1536px" },

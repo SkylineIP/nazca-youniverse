@@ -16,6 +16,8 @@ export interface Context {
   setAbrirImagensTelaCheia: (abrir: { open: boolean; pathImage: string }) => void;
   playVideo: boolean;
   setVideo: (play: boolean) => void;
+  selectedItem?: string;
+  setSelectedItem?: (item: string) => void;
 }
 
 // Criando o contexto com um valor inicial opcional
@@ -25,6 +27,7 @@ const ContextDef = createContext<Context | undefined>(undefined);
 export const ContextDefault = ({ children }: { children: ReactNode }) => {
   const currenthPath = usePathname();
   const [sound, setSound] = useState(0);
+  const [selectedItem, setSelectedItem] = useState<string | null>('Localização')
   let arrayOfSubmenu = '';
 
   if(menuStructure.find((item: { caminho: string }) => item.caminho == currenthPath)){
@@ -63,6 +66,8 @@ export const ContextDefault = ({ children }: { children: ReactNode }) => {
       abrirImagensTelaCheia,
       setAbrirImagensTelaCheia,
       playVideo,
+      selectedItem: selectedItem || '', // Provide a default empty string if null
+      setSelectedItem: setSelectedItem as (item: string | null) => void, // Allow null
       setVideo,
     }}>
       {children}
