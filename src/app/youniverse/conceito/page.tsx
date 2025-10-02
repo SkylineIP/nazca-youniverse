@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from "next/image";
 import menu1 from "../../../../public/conceito/b-submenu-conceito-nazca-youniverse-6.png";
 import menu2 from "../../../../public/conceito/b-submenu-conceito-nazca-youniverse.png";
@@ -13,6 +13,7 @@ import youwork from "../../../../public/conceito/youwork-nazca-youniverse.png";
 import youstudio from "../../../../public/conceito/studio-nazca-youniverse.png";
 import youplex from "../../../../public/conceito/flex-nazca-youniverse.png";
 import youhome from "../../../../public/conceito/home-nazca-youniverse.png";
+import { useContextDefault } from '@/context/Context';
 
 
 const Conceito = () => {
@@ -31,6 +32,11 @@ const Conceito = () => {
 
     const [selectedMenu, setSelectedMenu] = React.useState(menu1);
     const [showYoushops1, setShowYoushops1] = React.useState(true);
+    const context = useContextDefault();
+    const {setSelectedItem: setSelectedItem } = context || {};
+    useEffect(() => {
+        setSelectedItem?.("Conceito");
+    }, [])
     return (
         <>
             {selectedMenu === menu2 && (

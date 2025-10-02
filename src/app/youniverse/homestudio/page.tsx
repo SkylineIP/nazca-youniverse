@@ -1,7 +1,8 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from "next/image";
 import { useRouter } from 'next/navigation'
+import { useContextDefault } from '@/context/Context';
 
 const HomeStudio = () => {
     const youstsudiologo = "/homestudio/logo-youstudio-youniverse.png";
@@ -28,6 +29,11 @@ const HomeStudio = () => {
     const handleMouseEnter = (route: string) => {
         router.prefetch(route);
     }
+    const context = useContextDefault();
+    const { setSelectedItem: setSideSelectedItem } = context || {};
+    useEffect(() => {
+        setSideSelectedItem?.("home / studio");
+    }, [])
     return (
         <>
             <div className='col-start-19 col-span-6 row-span-24 grid grid-cols-4 grid-rows-24'>

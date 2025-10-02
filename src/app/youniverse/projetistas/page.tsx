@@ -1,6 +1,7 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from "next/image";
+import { useContextDefault } from '@/context/Context';
 
 const ProjetistasPage = () => {
     const outline1 = "/projetistas/outline1.png";
@@ -21,6 +22,11 @@ const ProjetistasPage = () => {
         { name: 'Carlos', image: carlos, outline: outline4, classname: 'pt-6 pl-30' },
         { name: 'Suíte', image: suite, outline: outline5, classname: 'pt-6 pl-40' },
     ];
+    const context = useContextDefault();
+    const { setSelectedItem: setSelectedItem } = context || {};
+    useEffect(() => {
+        setSelectedItem?.("Projetistas");
+    }, [])
     return (
         <>
             {selectedMenu === 'João Armentano' && (

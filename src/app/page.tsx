@@ -4,14 +4,16 @@ import { useRouter } from "next/navigation";
 import * as React from "react";
 import { useState } from "react";
 import Image from "next/image";
+import FullscreenButton from "./components/FullScreenB";
 
 const Home: React.FC = () => {
   const router = useRouter();
   const [descanso, setDescanso] = useState(false);
+  
 
   return (
     <div className="grid grid-cols-24 grid-rows-24 h-screen w-screen bg-descanso bg-cover bg-center bg-no-repeat">
-
+      <FullscreenButton/>
       <>
         <Image
           src="/home/nazcalogo.png"
