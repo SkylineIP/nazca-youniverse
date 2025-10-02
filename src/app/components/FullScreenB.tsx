@@ -3,6 +3,13 @@
 
 import React, { useEffect, useState } from 'react';
 
+declare global {
+  interface HTMLElement {
+    webkitRequestFullscreen?: () => Promise<void>;
+    msRequestFullscreen?: () => Promise<void>;
+  }
+}
+
 export default function FullscreenModal() {
   const [isVisible, setIsVisible] = useState(true);
 
@@ -11,10 +18,10 @@ export default function FullscreenModal() {
 
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
-    } else if ((elem as any).webkitRequestFullscreen) {
-      (elem as any).webkitRequestFullscreen();
-    } else if ((elem as any).msRequestFullscreen) {
-      (elem as any).msRequestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
     }
 
     setIsVisible(false); // Fecha o modal após entrar em fullscreen
