@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregando...</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- CSP to allow require in renderer -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+</head>
+<body>
+    <div class="container">
+        <!-- You can place a logo here if you have one -->
+        <!-- <img src="./logo.png" alt="Logo" class="logo"> -->
+        <h1 class="title">NAZCA YOUNIVERSE</h1>
+        <div id="message" class="message">Inicializando...</div>
+        <div class="progress-bar-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <div id="filename" class="filename"></div>
+    </div>
+
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        const messageEl = document.getElementById('message');
+        const progressBarEl = document.getElementById('progress-bar');
+        const filenameEl = document.getElementById('filename');
+
+        ipcRenderer.on('download-message', (event, message) => {
+            messageEl.textContent = message;
+        });
+
+        ipcRenderer.on('download-progress', (event, { percentage }) => {
+            progressBarEl.style.width = `${percentage}%`;
+        });
+    </script>
+</body>
+</html>

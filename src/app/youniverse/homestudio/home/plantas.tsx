@@ -1,92 +1,92 @@
-import bplanta69612_2 from "../../../../../public/homestudio/plantas/b-planta-69-61-2-youhome-youniverse.png";
-import bplanta69612 from "../../../../../public/homestudio/plantas/b-planta-69-61-youhome-youniverse.png";
-import bplanta69972_2 from "../../../../../public/homestudio/plantas/b-planta-69-97-2-youhome-youniverse.png";
-import bplanta6997 from "../../../../../public/homestudio/plantas/b-planta-69-97-youhome-youniverse.png";
-import bplanta69992_2 from "../../../../../public/homestudio/plantas/b-planta-69-99-2-youhome-youniverse.png";
-import bplanta74122_1 from "../../../../../public/homestudio/plantas/b-planta-74-12-2-youhome-youniverse-1.png";
-import bplanta74122_2 from "../../../../../public/homestudio/plantas/b-planta-74-12-2-youhome-youniverse.png";
-import bplanta75862_2 from "../../../../../public/homestudio/plantas/b-planta-75-86-2-youhome-youniverse.png";
-import bplanta7586 from "../../../../../public/homestudio/plantas/b-planta-75-86-youhome-youniverse.png";
-import bplanta89242_2 from "../../../../../public/homestudio/plantas/b-planta-89-24-2-youhome-youniverse.png";
-import bplanta89 from "../../../../../public/homestudio/plantas/b-planta-89-youhome-youniverse.png";
-import bplanta91232_2 from "../../../../../public/homestudio/plantas/b-planta-91-23-2-youhome-youniverse.png";
-import bplanta9123 from "../../../../../public/homestudio/plantas/b-planta-91-23-youhome-youniverse.png";
-import bplanta9471_1 from "../../../../../public/homestudio/plantas/b-planta-94-71-youhome-youniverse-1.png";
-import bplanta9471 from "../../../../../public/homestudio/plantas/b-planta-94-71-youhome-youniverse.png";
+const bplanta69612_2 = "/homestudio/plantas/b-planta-69-61-2-youhome-youniverse.png";
+const bplanta69612 = "/homestudio/plantas/b-planta-69-61-youhome-youniverse.png";
+const bplanta69972_2 = "/homestudio/plantas/b-planta-69-97-2-youhome-youniverse.png";
+const bplanta6997 = "/homestudio/plantas/b-planta-69-97-youhome-youniverse.png";
+const bplanta69992_2 = "/homestudio/plantas/b-planta-69-99-2-youhome-youniverse.png";
+const bplanta74122_1 = "/homestudio/plantas/b-planta-74-12-2-youhome-youniverse-1.png";
+const bplanta74122_2 = "/homestudio/plantas/b-planta-74-12-2-youhome-youniverse.png";
+const bplanta75862_2 = "/homestudio/plantas/b-planta-75-86-2-youhome-youniverse.png";
+const bplanta7586 = "/homestudio/plantas/b-planta-75-86-youhome-youniverse.png";
+const bplanta89242_2 = "/homestudio/plantas/b-planta-89-24-2-youhome-youniverse.png";
+const bplanta89 = "/homestudio/plantas/b-planta-89-youhome-youniverse.png";
+const bplanta91232_2 = "/homestudio/plantas/b-planta-91-23-2-youhome-youniverse.png";
+const bplanta9123 = "/homestudio/plantas/b-planta-91-23-youhome-youniverse.png";
+const bplanta9471_1 = "/homestudio/plantas/b-planta-94-71-youhome-youniverse-1.png";
+const bplanta9471 = "/homestudio/plantas/b-planta-94-71-youhome-youniverse.png";
 
 // Imports
 
 // 69-99 - ok
-import frame69992_2 from "../../../../../public/homestudio/plantas/planta-69-99-2-youhome.png";
-import planta6999 from "../../../../../public/homestudio/plantas/img-planta-69-99.png";
-import img69991 from "../../../../../public/homestudio/plantas/img-planta-69-opcao.png";
+const frame69992_2 = "/homestudio/plantas/planta-69-99-2-youhome.png";
+const planta6999 = "/homestudio/plantas/img-planta-69-99.png";
+const img69991 = "/homestudio/plantas/img-planta-69-opcao.png";
 
 // 89-243q - ok
-import frame89242_2 from "../../../../../public/homestudio/plantas/planta-89-24-youhome.png";
-import img8924 from "../../../../../public/homestudio/plantas/img-planta-89.png";
-import img8924Opcao from "../../../../../public/homestudio/plantas/img-planta-89-opcao.png";
+const frame89242_2 = "/homestudio/plantas/planta-89-24-youhome.png";
+const img8924 = "/homestudio/plantas/img-planta-89.png";
+const img8924Opcao = "/homestudio/plantas/img-planta-89-opcao.png";
 
 // 69-612q - ok 
 
-import frame69612_2 from "../../../../../public/homestudio/plantas/planta-69-61-youhome.png";
-import img69612 from "../../../../../public/homestudio/plantas/img-planta-69-61.png";
-import img69612Opcao from "../../../../../public/homestudio/plantas/img-planta-69-61-opcao.png";
+const frame69612_2 = "/homestudio/plantas/planta-69-61-youhome.png";
+const img69612 = "/homestudio/plantas/img-planta-69-61.png";
+const img69612Opcao = "/homestudio/plantas/img-planta-69-61-opcao.png";
 
 // 69-97 - ok
-import frame69972_2 from "../../../../../public/homestudio/plantas/planta-69-97-youhome.png";
-import img69971 from "../../../../../public/homestudio/plantas/img-planta-69-97.png";
+const frame69972_2 = "/homestudio/plantas/planta-69-97-youhome.png";
+const img69971 = "/homestudio/plantas/img-planta-69-97.png";
 
 
 // 69-99 - esquerda - ok
-import frame69992 from "../../../../../public/homestudio/plantas/planta-69-99-2-youhome.png";
-import planta69992 from "../../../../../public/homestudio/plantas/img-planta-69-99.png";
+const frame69992 = "/homestudio/plantas/planta-69-99-2-youhome.png";
+const planta69992 = "/homestudio/plantas/img-planta-69-99.png";
 
 // 89-24 - esquerda - ok
-import frame89242 from "../../../../../public/homestudio/plantas/planta-89-24-2-youhome.png";
-import planta89242 from "../../../../../public/homestudio/plantas/img-planta-89-24-2.png";
+const frame89242 = "/homestudio/plantas/planta-89-24-2-youhome.png";
+const planta89242 = "/homestudio/plantas/img-planta-89-24-2.png";
 
 //69-61 - esquerda - ok
-import frame6961 from "../../../../../public/homestudio/plantas/planta-69-61-2-youhome.png";
-import planta6961 from "../../../../../public/homestudio/plantas/img-planta-69-61-2.png";
+const frame6961 = "/homestudio/plantas/planta-69-61-2-youhome.png";
+const planta6961 = "/homestudio/plantas/img-planta-69-61-2.png";
 
 //69-97 - esquerda - ok
-import frame69972_1 from "../../../../../public/homestudio/plantas/planta-69-97-2-youhome.png";
-import planta6997 from "../../../../../public/homestudio/plantas/img-planta-69-97-2.png";
+const frame69972_1 = "/homestudio/plantas/planta-69-97-2-youhome.png";
+const planta6997 = "/homestudio/plantas/img-planta-69-97-2.png";
 
 //75-86 - ok 
-import frame7586 from "../../../../../public/homestudio/plantas/planta-75-86-youhome.png";
-import planta7586 from "../../../../../public/homestudio/plantas/img-planta-75-86.png";
+const frame7586 = "/homestudio/plantas/planta-75-86-youhome.png";
+const planta7586 = "/homestudio/plantas/img-planta-75-86.png";
 
 
 //94-71 - ok 
-import frame9471 from "../../../../../public/homestudio/plantas/planta-94-71-youhome.png";
-import planta9471 from "../../../../../public/homestudio/plantas/img-planta-94-71.png";
+const frame9471 = "/homestudio/plantas/planta-94-71-youhome.png";
+const planta9471 = "/homestudio/plantas/img-planta-94-71.png";
 
 //91-23 - ok
-import frame9123 from "../../../../../public/homestudio/plantas/planta-91-23-youhome.png";
-import planta9123 from "../../../../../public/homestudio/plantas/img-planta-91-23.png";
+const frame9123 = "/homestudio/plantas/planta-91-23-youhome.png";
+const planta9123 = "/homestudio/plantas/img-planta-91-23.png";
 
 //74-12 - ok
-import frame7412 from "../../../../../public/homestudio/plantas/planta-74-12-youhome.png";
-import planta7412 from "../../../../../public/homestudio/plantas/img-planta-74-12.png";
+const frame7412 = "/homestudio/plantas/planta-74-12-youhome.png";
+const planta7412 = "/homestudio/plantas/img-planta-74-12.png";
 
 //75-86 - esquerda
 
-import frame75862 from "../../../../../public/homestudio/plantas/planta-75-86-2-youhome.png";
-import planta75862 from "../../../../../public/homestudio/plantas/img-planta-75-86-2.png";
+const frame75862 = "/homestudio/plantas/planta-75-86-2-youhome.png";
+const planta75862 = "/homestudio/plantas/img-planta-75-86-2.png";
 
 //94-71 - esquerda
 
-import frame94712 from "../../../../../public/homestudio/plantas/planta-94-71-2-youhome.png";
-import planta94712 from "../../../../../public/homestudio/plantas/img-planta-94-71-2.png";
+const frame94712 = "/homestudio/plantas/planta-94-71-2-youhome.png";
+const planta94712 = "/homestudio/plantas/img-planta-94-71-2.png";
 //91-23 - esquerda
 
-import frame91232 from "../../../../../public/homestudio/plantas/planta-91-23-youhome.png";   
-import planta91232 from "../../../../../public/homestudio/plantas/img-planta-91-23-2.png";
+const frame91232 = "/homestudio/plantas/planta-91-23-youhome.png";   
+const planta91232 = "/homestudio/plantas/img-planta-91-23-2.png";
 //74-12 - esquerda
 
-import frame74122 from "../../../../../public/homestudio/plantas/planta-74-12-2-youhome.png";
-import planta74122 from "../../../../../public/homestudio/plantas/img-planta-74-12-2.png";
+const frame74122 = "/homestudio/plantas/planta-74-12-2-youhome.png";
+const planta74122 = "/homestudio/plantas/img-planta-74-12-2.png";
 
 
 // Object linking frames to variants

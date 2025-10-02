@@ -17,12 +17,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={`bg-background text-foreground font-[Questrial] grid `}>
-        <React.StrictMode>
           <ContextDefault>
             <ThemeRegistry>{children}</ThemeRegistry>
             {/* preciso colocar a barra lateral aqui, porque ela aparece em todas as telas, menos na rota '/' e na rota '/menu'*/}
           </ContextDefault>
-        </React.StrictMode>
       </body>
     </html>
   );

@@ -17,7 +17,7 @@ const GoogleMap = () => {
     <div className="relative w-full h-full">
       <APIProvider apiKey={API_KEY}>
         <Map
-          style={{ width: "100%", height: "100vh" }}
+          style={{ width: "100%", height: "100%" }}
           defaultCenter={{ lat: -22.739496629856745, lng: -41.944472392281355 }}
           // coordenadas do centro do mapa
           // você pode substituir por outras coordenadas
@@ -33,7 +33,7 @@ const GoogleMap = () => {
           <Marker
             // marcador no mapa
             icon={{
-              url: "/local/pin-resid.svg", // caminho do ícone
+              url: "/localizacao/pin.png", // caminho do ícone
             }}
             position={{ lat: -22.739496629856745, lng: -41.944472392281355 }}
           />
@@ -42,11 +42,11 @@ const GoogleMap = () => {
 
       {/* Botão de alternância do mapa */}
       <button
-        className="absolute bottom-0 right-0 cursor-pointer"
+        className="absolute bottom-10 left-20 cursor-pointer"
         onClick={() => setIsSatellite(!isSatellite)}
       >
         <Image
-          src={isSatellite ? "/local/mapa2d.svg" : "local/mapa-satelite.svg"}
+          src={isSatellite ? "/localizacao/b-mapa-2d-quadria.svg" : "/localizacao/b-satelite-quadria.svg"}
           width={200}
           height={200}
           alt="mudar mapa entre 2d e satélite"

@@ -1,19 +1,29 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode, useMemo } from "react";
 import { usePathname } from "next/navigation";
 import menuStructure from "../app/utils/menuStructure";
+import { StaticImageData } from "next/image";
+
+
+
+export interface AbrirImagensTelaCheia {
+  open: boolean;
+  pathImage?: string;
+  images?: { src: StaticImageData; alt: string }[];
+  currentIndex?: number;
+}
 
 export interface Context {
   sound: number;
-  toogleSound: (path:string) => void;
+  toogleSound: (path: string) => void;
   submenu: string;
   selected: string;
   setSubmenuAndSelected: (submenu: string, selected: string) => void;
   openMenu: boolean;
   setOpenMenu: (open: boolean) => void;
-  abrirImagensTelaCheia: { open: boolean; pathImage: string };
-  setAbrirImagensTelaCheia: (abrir: { open: boolean; pathImage: string }) => void;
+  abrirImagensTelaCheia: AbrirImagensTelaCheia;
+  setAbrirImagensTelaCheia: (abrir: AbrirImagensTelaCheia) => void;
   playVideo: boolean;
   setVideo: (play: boolean) => void;
   selectedItem?: string;
@@ -26,21 +36,21 @@ const ContextDef = createContext<Context | undefined>(undefined);
 // Criando o provider
 export const ContextDefault = ({ children }: { children: ReactNode }) => {
   const currenthPath = usePathname();
-  const [sound, setSound] = useState(0);
+  const [sound, setSound] = useState(1);
   const [selectedItem, setSelectedItem] = useState<string | null>('Localização')
-  let arrayOfSubmenu = '';
-
-  if(menuStructure.find((item: { caminho: string }) => item.caminho == currenthPath)){
-    //acha dentro do menuStructure a rota que ele está, e seleciona o primeiro submenu da primeira opção
-  const indexSelected = menuStructure.findIndex((item: { caminho: string }) => item.caminho == currenthPath);
-  // Se não encontrar, retorna um array vazio
-  arrayOfSubmenu = menuStructure[indexSelected].submenu?.[0] || '';
-  //isso serve para rota a pessoa entrar na página de fotos, já abrir o submenu de fotos
-  }
+  const arrayOfSubmenu = useMemo(() => {
+    const foundItem = menuStructure.find((item: { caminho: string }) => item.caminho == currenthPath);
+    return foundItem ? foundItem.submenu?.[0] || '' : '';
+  }, [currenthPath]);
 
   const [menu, setMenu] = useState({ submenu: arrayOfSubmenu, selected: currenthPath });
   const [openMenu, setOpenMenu] = useState(true);
-  const [abrirImagensTelaCheia, setAbrirImagensTelaCheia] = useState({open: false, pathImage: ""});
+  const [abrirImagensTelaCheia, setAbrirImagensTelaCheia] = useState<AbrirImagensTelaCheia>({
+    open: false,
+    pathImage: "",
+    images: [],
+    currentIndex: 0
+  });
   const [playVideo, setVideo] = useState(false);
 
 
@@ -52,14 +62,14 @@ export const ContextDefault = ({ children }: { children: ReactNode }) => {
     setSound?.(sound == 0 ? 1 : 0); // Alterna o som entre 0 e 1
   }
 
-  
+
 
   return (
-    <ContextDef.Provider value={{ 
-      sound, 
-      toogleSound, 
-      submenu: menu.submenu, 
-      selected: menu.selected, 
+    <ContextDef.Provider value={{
+      sound,
+      toogleSound,
+      submenu: menu.submenu,
+      selected: menu.selected,
       setSubmenuAndSelected,
       openMenu,
       setOpenMenu,

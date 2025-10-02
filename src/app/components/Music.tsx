@@ -28,7 +28,7 @@ const Music = () => {
 
   return (
     <div className="hidden h-0 w-0">
-      <audio ref={audioRef} src="/praia.mp3" />
+      <audio ref={audioRef} src="/sound.wav" />
     </div>
   );
 };

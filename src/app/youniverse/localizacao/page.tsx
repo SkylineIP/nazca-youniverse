@@ -1,20 +1,21 @@
 'use client'
 import React from 'react'
-import proximidades from "../../../../public/localizacao/proximidades.png"
-import mapailustrado from "../../../../public/localizacao/mapa.png"
-import Image from 'next/image'
-import outline1 from "../../../../public/localizacao/outline1.png"
-import outline2 from "../../../../public/localizacao/outline2.png"
-import outline3 from "../../../../public/localizacao/outline3.png"
+import Image from "next/image";
+import GoogleMap from '@/app/components/GoogleMaps';
 
 const LocalizacaoPage = () => {
+  const proximidades = "/localizacao/proximidades.png";
+  const mapailustrado = "/localizacao/mapa.png";
+  const outline1 = "/localizacao/outline1.png";
+  const outline2 = "/localizacao/outline2.png";
+  const outline3 = "/localizacao/outline3.png";
+
   const [selectedMenu, setSelectedMenu] = React.useState('Proximidades');
   const menuItems = [
     { name: 'Proximidades', outline: outline1 },
     { name: 'Mapa Ilustrado', outline: outline2 },
     { name: 'Mapas', outline: outline3 },
   ];
-
   return (
     <>
       {selectedMenu === 'Proximidades' && (
@@ -22,7 +23,8 @@ const LocalizacaoPage = () => {
           src={proximidades}
           alt="Proximidades"
           className='col-start-6 col-span-19 row-start-3 row-span-18 w-full h-full object-cover animate-fade-down animate-duration-[2000ms] duration-1000'
-          priority
+          width={1920}
+          height={1080}
         />
       )}
       {selectedMenu === 'Mapa Ilustrado' && (
@@ -30,8 +32,15 @@ const LocalizacaoPage = () => {
           src={mapailustrado}
           alt="Mapa Ilustrado"
           className='col-start-6 col-span-19 row-start-3 row-span-18 w-full h-full object-cover animate-fade-down animate-duration-[2000ms] duration-1000'
-          priority
+          width={1920}
+          height={1080}
         />
+      )}
+      {selectedMenu === 'Mapas' && (
+        <div className='col-start-6 col-span-19 row-span-22'>
+          <GoogleMap />
+        </div>
+
       )}
       <div className='relative col-span-19 row-span-2 row-start-23 col-start-6 flex justify-around items-center gap-4 px-32'>
         {menuItems.map(item => (
@@ -39,7 +48,7 @@ const LocalizacaoPage = () => {
             key={item.name + "-bg"}
             className="absolute inset-0 transition-opacity duration-300 ease-in-out"
             style={{
-              backgroundImage: `url(${item.outline.src})`,
+              backgroundImage: `url(${item.outline})`,
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
               backgroundSize: 'contain',

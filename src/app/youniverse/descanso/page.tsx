@@ -1,23 +1,14 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import grafismo1 from "../../../../public/descanso/grafismo1.png";
-import grafismo2 from "../../../../public/descanso/grafismo2.png";
-import detalhe3 from "../../../../public/descanso/detalhe3.png";
-import grafismo4 from "../../../../public/descanso/grafismo-youniverse-nazca-4.png";
-import imagem from "../../../../public/descanso/imagem-apoio-youniverse-nazca.png";
-import texto from "../../../../public/descanso/texto-apoio-tela-descanso-youniverse-nazca.png";
-import touch from "../../../../public/descanso/touchyouniverse.png";
-import detalhe2 from "../../../../public/descanso/detalhe-cores-youniverse-nazca-2.png";
-import logoyouniverse from "../../../../public/descanso/logoyouniverse.png";
+import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
 const variations = [
     {
         id: 1,
-        image: grafismo1,
+        image: "/descanso/grafismo1.png",
         alt: "Grafismo 1",
-        image2: logoyouniverse,
+        image2: "/descanso/logoyouniverse.png",
         alt2: "Logo Youniverse",
         classnames: {
             first: "col-span-24 row-start-2  animate-fade-in",
@@ -26,9 +17,9 @@ const variations = [
     },
     {
         id: 2,
-        image: grafismo2,
+        image: "/descanso/grafismo2.png",
         alt: "Grafismo 2",
-        image2: logoyouniverse,
+        image2: "/descanso/logoyouniverse.png",
         alt2: "Logo Youniverse",
         classnames: {
             first: "col-span-24 row-start-9",
@@ -37,9 +28,9 @@ const variations = [
     },
     {
         id: 3,
-        image: detalhe3,
-        image2: grafismo2,
-        image3: logoyouniverse,
+        image: "/descanso/detalhe3.png",
+        image2: "/descanso/grafismo2.png",
+        image3: "/descanso/logoyouniverse.png",
         alt: "Detalhe 3",
         alt3: "Logo Youniverse",
         classnames: {
@@ -51,15 +42,15 @@ const variations = [
     },
     {
         id: 4,
-        image: grafismo4,
+        image: "/descanso/grafismo-youniverse-nazca-4.png",
         alt: "Grafismo 4",
-        image2: imagem,
+        image2: "/descanso/imagem-apoio-youniverse-nazca.png",
         alt2: "Imagem",
-        image3: texto,
+        image3: "/descanso/texto-apoio-tela-descanso-youniverse-nazca.png",
         alt3: "Texto",
-        image4: detalhe2,
+        image4: "/descanso/detalhe-cores-youniverse-nazca-2.png",
         alt4: "Detalhe 2",
-        image5: logoyouniverse,
+        image5: "/descanso/logoyouniverse.png",
         alt5: "Logo Youniverse",
         classnames: {
             first: "col-span-24 row-start-11 z-10  animate-fade-in",   
@@ -102,7 +93,7 @@ const Descanso = () => {
                 setCurrentIndex(prev => (prev + 1) % variations.length);
                 setIsExiting(false);
             }, 1000); // This should match the transition duration
-        }, 10000);
+        }, 5000);
 
         return () => {
             clearInterval(mainInterval);
@@ -122,7 +113,8 @@ const Descanso = () => {
                     src={currentVariation.image}
                     alt={currentVariation.alt}
                     className={getAnimationClass(currentVariation.classnames.first, isExiting, isEntering)}
-                    priority
+                    width={1920}
+                    height={1080}
                 />
             )}
             {currentVariation.image2 && (
@@ -131,7 +123,8 @@ const Descanso = () => {
                     src={currentVariation.image2}
                     alt={currentVariation.alt2}
                     className={getAnimationClass(currentVariation.classnames.second, isExiting, isEntering)}
-                    priority
+                    width={1920}
+                    height={1080}
                 />
             )}
             {currentVariation.image3 && (
@@ -140,7 +133,8 @@ const Descanso = () => {
                     src={currentVariation.image3}
                     alt={currentVariation.alt3}
                     className={getAnimationClass(currentVariation.classnames.third, isExiting, isEntering)}
-                    priority
+                    width={1920}
+                    height={1080}
                 />
             )}
             {currentVariation.image4 && (
@@ -149,7 +143,8 @@ const Descanso = () => {
                     src={currentVariation.image4}
                     alt={currentVariation.alt4}
                     className={getAnimationClass(currentVariation.classnames.fourth, isExiting, isEntering)}
-                    priority
+                    width={1920}
+                    height={1080}
                 />
             )}
             {currentVariation.image5 && (
@@ -158,14 +153,16 @@ const Descanso = () => {
                     src={currentVariation.image5}
                     alt={currentVariation.alt5}
                     className={getAnimationClass(currentVariation.classnames.fifth, isExiting, isEntering)}
-                    priority
+                    width={1920}
+                    height={1080}
                 />
             )}
             <Image
-                src={touch}
+                src="/descanso/touchyouniverse.png"
                 alt="Touch Icon"
-                className={`col-span-4 col-start-11 row-start-20 animate-pulse animate-duration-[2000ms] cursor-pointer hover:scale-105 transition-transform  ease-in-out`}
-                priority
+                className={`col-span-4 col-start-11 row-start-20 animate-pulse animate-duration-[2000ms] z-50 cursor-pointer hover:scale-105 transition-transform  ease-in-out`}
+                width={200}
+                height={200}
                 onClick={() => {
                     router.push('/menu-youniverse');
                 }}

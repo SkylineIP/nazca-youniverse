@@ -1,18 +1,18 @@
 'use client'
 import React from 'react'
-import outline1 from "../../../../public/projetistas/outline1.png"
-import outline2 from "../../../../public/projetistas/outline2.png"
-import outline3 from "../../../../public/projetistas/outline3.png"
-import outline4 from "../../../../public/projetistas/outline4.png"
-import outline5 from "../../../../public/projetistas/outline5.png"
-import joao from "../../../../public/projetistas/joao-armentano-nazca.png"
-import dg from "../../../../public/projetistas/dg-nazca.png"
-import ricardo from "../../../../public/projetistas/ricardo-nazca.png"
-import carlos from "../../../../public/projetistas/carlos-nazca.png"
-import suite from "../../../../public/projetistas/suite-nazca.png"
-import Image from 'next/image'
+import Image from "next/image";
 
 const ProjetistasPage = () => {
+    const outline1 = "/projetistas/outline1.png";
+    const outline2 = "/projetistas/outline2.png";
+    const outline3 = "/projetistas/outline3.png";
+    const outline4 = "/projetistas/outline4.png";
+    const outline5 = "/projetistas/outline5.png";
+    const joao = "/projetistas/joao-armentano-nazca.png";
+    const dg = "/projetistas/dg-nazca.png";
+    const ricardo = "/projetistas/ricardo-nazca.png";
+    const carlos = "/projetistas/carlos-nazca.png";
+    const suite = "/projetistas/suite-nazca.png";
     const [selectedMenu, setSelectedMenu] = React.useState('João Armentano');
     const menuItems = [
         { name: 'João Armentano', image: joao, outline: outline1, classname: `col-start-2 pt-6 pl-14 ${selectedMenu !== "João Armentano" ? '-translate-x-10' : ""}` },
@@ -28,7 +28,8 @@ const ProjetistasPage = () => {
                     src={joao}
                     alt="João Armentano"
                     className='col-start-6 col-span-19 row-span-19 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000'
-                    priority
+                    width={1920}
+                    height={1080}
                 />
             )}
             {selectedMenu === 'D.G. Projetos' && (
@@ -36,7 +37,8 @@ const ProjetistasPage = () => {
                     src={dg}
                     alt="D.G. Projetos"
                     className='col-start-6 col-span-19 row-span-19 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000'
-                    priority
+                    width={1920}
+                    height={1080}
                 />
             )}
             {selectedMenu === 'Ricardo' && (
@@ -44,7 +46,8 @@ const ProjetistasPage = () => {
                     src={ricardo}
                     alt="Ricardo"
                     className='col-start-6 col-span-19 row-span-19 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000'
-                    priority
+                    width={1920}
+                    height={1080}
                 />
             )}
             {selectedMenu === 'Carlos' && (
@@ -52,7 +55,8 @@ const ProjetistasPage = () => {
                     src={carlos}
                     alt="Carlos"
                     className='col-start-6 col-span-19 row-span-19 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000'
-                    priority
+                    width={1920}
+                    height={1080}
                 />
             )}
             {selectedMenu === 'Suíte' && (
@@ -60,7 +64,8 @@ const ProjetistasPage = () => {
                     src={suite}
                     alt="Suíte"
                     className='col-start-6 col-span-19 row-span-19 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000'
-                    priority
+                    width={1920}
+                    height={1080}
                 />
             )}
             <div className='relative col-span-19 row-span-2 row-start-23 col-start-6 grid grid-cols-24 grid-rows-2'>
@@ -69,7 +74,7 @@ const ProjetistasPage = () => {
                         key={item.name + "-bg"}
                         className="absolute inset-0 transition-opacity duration-300 ease-in-out"
                         style={{
-                            backgroundImage: `url(${item.outline.src})`,
+                            backgroundImage: `url(${item.outline})`,
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center',
                             backgroundSize: 'contain',

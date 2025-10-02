@@ -2,17 +2,35 @@
 
 import { useContextDefault } from "@/context/Context";
 import Image from "next/image";
-import { memo, useRef, useState } from "react";
-import SignatureCanvas from "react-signature-canvas";
+import { memo, useEffect, useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
+import { usePathname } from "next/navigation";
+
+type AbrirImagensTelaCheia = {
+  open: boolean;
+  pathImage?: string;
+};
+
+type ExtendedAbrirImagensTelaCheia = AbrirImagensTelaCheia & {
+  images?: { src: string; alt?: string }[];
+  currentIndex?: number;
+};
 
 // Componente principal, memoizado para evitar renders desnecessários
 const TelaCheia: React.FC = memo(() => {
   // Contexto para controlar abertura da tela cheia e imagem exibida
   const context = useContextDefault();
-  const abrirImagensTelaCheia = context?.abrirImagensTelaCheia;
-  const setAbrirImagensTelaCheia = context?.setAbrirImagensTelaCheia;
+  const abrirImagensTelaCheia = context?.abrirImagensTelaCheia as ExtendedAbrirImagensTelaCheia;
+  const setAbrirImagensTelaCheia = context?.setAbrirImagensTelaCheia as ((value: ExtendedAbrirImagensTelaCheia) => void) | undefined;
+  const images = abrirImagensTelaCheia?.images ?? [];
+  const [currentIndex, setCurrentIndex] = useState(abrirImagensTelaCheia?.currentIndex ?? 0);
+  const currentPath = usePathname();
+
+  const isStudioPage = currentPath.includes('/youniverse/homestudio/studio');
+  const activeColor = isStudioPage ? '#CC654B' : '#A39126';
+
+  const currentImage = images[currentIndex];
 
   // Referência para a imagem exibida
   const imgRef = useRef<HTMLImageElement>(null);
@@ -37,11 +55,12 @@ const TelaCheia: React.FC = memo(() => {
   // Fator de zoom acumulado para suavizar o pinch
   const [zoomFactor, setZoomFactor] = useState(1);
 
-  // Estado para ativar/desativar modo de desenho
-  const [isDrawing, setIsDrawing] = useState(false);
-
-  // Referência para o canvas de assinatura/desenho
-  const canvasRef = useRef<SignatureCanvas>(null);
+  useEffect(() => {
+    setCurrentIndex(abrirImagensTelaCheia?.currentIndex ?? 0);
+    setScale(1);
+    setPosition({ x: 0, y: 0 });
+    setLastPosition({ x: 0, y: 0 });
+  }, [abrirImagensTelaCheia?.currentIndex, abrirImagensTelaCheia?.open]);
 
   // Função para calcular a distância entre dois pontos de toque (pinça)
   const getDistance = (touches: Touch[]) => {
@@ -123,60 +142,84 @@ const TelaCheia: React.FC = memo(() => {
     setTouchStart(null);
   };
 
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : images.length - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex < images.length - 1 ? prevIndex + 1 : 0));
+  };
+
   return (
     <div className="fixed top-0 left-0 w-full h-screen bg-black/90 z-50 flex flex-col justify-center items-center font-[Montserrat] p-16 gap-y-8">
       {/* Área da imagem em tela cheia */}
       <div className="w-full h-full rounded-3xl relative text-white">
-        <Image
+        <div
           ref={imgRef}
-          src={abrirImagensTelaCheia?.pathImage || ""}
-          alt="Imagem Ampliada"
           style={{
+            width: "100%",
+            height: "100%",
+            position: "relative",
             transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
             transition: "transform 0.1s ease-out",
           }}
-          fill
-          className="object-contain object-top"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-        />
-      </div>
-      {/* Botões de ação (desenhar, apagar, fechar) */}
-      <div className="absolute right-8 top-8 flex justify-between items-center gap-x-8">
-        {isDrawing && (
-          <button onClick={() => canvasRef.current?.clear()}>
-            <Image
-              src="/apagador.svg"
-              alt="botao para fechar"
-              aria-label="fechar"
-              width={50}
-              height={50}
-              className="object-contain z-50 relative"
-            />
-          </button>
-        )}
-
-        <button onClick={() => setIsDrawing(!isDrawing)}>
+        >
           <Image
-            src={isDrawing ? "/pencil-pressed.svg" : "/pencil.svg"}
+            src={currentImage?.src || ""}
+            alt="Imagem Ampliada"
+            fill
+            className="object-contain object-top"
+          />
+        </div>
+        <span
+          className={`absolute top-1 left-52 text-xl uppercase tracking-widest font-impact px-4 py-2 text-white transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 after:right-[-22px] after:border-t-[22px] after:border-b-[22px] after:border-l-[22px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300`}
+          style={{ backgroundColor: activeColor, '--arrow-color': activeColor } as React.CSSProperties}
+        >
+          {currentImage?.alt}
+        </span>
+        <style>{`:root { --arrow-color: ${activeColor}; } span::after { border-left-color: var(--arrow-color); }`}</style>
+      </div>
+      <div className="absolute right-8 top-8 flex justify-between items-center gap-x-8">
+      </div>
+      <div className="flex items-center gap-4">
+        <button
+          onClick={() => {
+            handlePrev();
+          }}
+        >
+          <Image
+            src="/homestudio/imagens/Frame 1467.png"
             alt="botao para fechar"
             aria-label="fechar"
             width={50}
             height={50}
-            className="object-contain z-50 relative"
+            className="object-contain"
           />
         </button>
-
         <button
-          style={{ zIndex: 100 }}
           onClick={() => {
-            setAbrirImagensTelaCheia?.({ open: false, pathImage: "" });
-            setIsDrawing(!isDrawing);
+            setAbrirImagensTelaCheia?.({ open: false, pathImage: "", images: [], currentIndex: 0 });
           }}
         >
           <Image
-            src="/menu/max-pressed.svg"
+            src="/homestudio/imagens/Frame 1509.png"
+            alt="botao para fechar"
+            aria-label="fechar"
+            width={50}
+            height={50}
+            className="object-contain"
+          />
+        </button>
+        <button
+          onClick={() => {
+            handleNext();
+          }}
+        >
+          <Image
+            src="/homestudio/imagens/Frame 1510.png"
             alt="botao para fechar"
             aria-label="fechar"
             width={50}
@@ -185,18 +228,6 @@ const TelaCheia: React.FC = memo(() => {
           />
         </button>
       </div>
-      {/* Canvas de desenho sobre a imagem */}
-      {isDrawing && (
-        <div className="absolute inset-0">
-          <SignatureCanvas
-            ref={canvasRef}
-            penColor="red"
-            canvasProps={{
-              className: "w-full h-full bg-transparent",
-            }}
-          />
-        </div>
-      )}
       {/* Slider de zoom */}
       <Box
         sx={{ width: 300, zIndex: 100 }}

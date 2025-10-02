@@ -1,0 +1,119 @@
+import React, { useEffect, useRef, useState } from 'react'
+import Image from "next/image";
+import { Svg } from '../Svg';
+
+const ImplantacaoView = () => {
+    const touch = "/homestudio/implantacao/aviso-uso-bolotario.png";
+    const image1 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-1.png";
+    const image2 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-2.png";
+    const image3 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-3.png";
+    const image4 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-4.png";
+    const image5 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-5.png";
+    const image6 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-6.png";
+    const image7 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-7.png";
+    const image8 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-8.png";
+    const image9 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-9.png";
+    const image10 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-10.png";
+    const image11 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-11.png";
+    const implantacao = "/homestudio/youstudio/implantacao/implantacao-3-pavimento.png";
+
+    const [menuSelected, setMenuSelected] = useState("");
+
+    const prevMenuSelectedRef = useRef<string>("");
+
+    useEffect(() => {
+        prevMenuSelectedRef.current = menuSelected;
+    }, [menuSelected]);
+
+    const prevMenuSelected = prevMenuSelectedRef.current;
+    const menuButtons = [
+        { name: "1 hall social", image: image1 },
+        { name: "2 espaço gourmet", image: image2 },
+        { name: "3 fit studio", image: image3 },
+        { name: "4 repouso", image: image4 },
+        { name: "5 piscina aquecida", image: image5 },
+        { name: "6 sauna", image: image6 },
+        { name: "7 ducha", image: image7 },
+        { name: "8 sanitários", image: image8 },
+        { name: "9 reunião", image: image9 },
+        { name: "10 coworking", image: image10 },
+        { name: "11 lavanderia", image: image11 },
+    ]
+    const svgViewBoxes: { [key: string]: string } = {
+        "1 hall social": "1335 -133 400 970",
+        "2 espaço gourmet": "968 -310 400 970",
+        "3 fit studio": "1105 -353 400 970",
+        "4 repouso": "1425 -445 400 970",
+        "5 piscina aquecida": "1555 -380 400 970",
+        "6 sauna": "1355 -433 400 970",
+        "7 ducha": "1332 -375 400 970",
+        "8 sanitários": "1302 -240 400 970",
+        "9 reunião": "1480 -230 400 970",
+        "10 coworking": "1620 -150 400 970",
+        "11 lavanderia": "1630 -5 400 970",
+    };
+
+    const toViewBox = svgViewBoxes[menuSelected];
+    const fromViewBox = (prevMenuSelected && svgViewBoxes[prevMenuSelected]) || toViewBox;
+    const selectedMenuButton = menuButtons.find(button => button.name === menuSelected)?.image;
+    return (
+        <>
+            <span className='col-start-7 col-span-8 uppercase row-start-3 text-5xl text-[#414042] font-impact animate-fade-down animate-duration-[2000ms] duration-1000'>
+                Implantação do 3º Pavimento
+                <span className='block text-xl mt-2 text-right font-aviano'>
+                    Youstudio/YOuplex
+                </span>
+            </span>
+            <div className="relative col-start-8 col-span-15 row-start-5 row-span-13">
+                <Image
+                    src={implantacao}
+                    alt="Rooftop"
+                    className={`w-full h-full object-contain animate-fade-up animate-duration-[2000ms] duration-1000 transition-transform ease-in-out ${menuSelected !== "" ? "scale-[70%] -translate-x-50" : ""}`}
+                    width={1920}
+                    height={1080}
+                />
+                {selectedMenuButton && (
+                    <Image
+                        src={selectedMenuButton}
+                        alt={menuSelected}
+                        className='object-contain w-[500px] transform translate-x-[800px] -translate-y-[500px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000'
+                        width={500}
+                        height={500}
+                    />
+                )}
+                {menuSelected && toViewBox && (
+                    <div className="absolute inset-0 z-10 ">
+                        <Svg from={fromViewBox} to={toViewBox} />
+                    </div>
+                )}
+            </div>
+            <div className='row-start-18 col-start-10 col-span-11 row-span-4 grid grid-flow-col grid-rows-4 gap-x-4 gap-y-2'>
+                {menuButtons.map((button, index) => (
+                    <button
+                        key={index}
+                        onClick={() => { setMenuSelected(button.name); }}
+                        className="cursor-pointer transition-all ease-in-out animate-fade-up duration-1000"
+                    >
+                        <span
+                            className={`relative text-xl uppercase font-aviano px-4 py-2 transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 after:right-[-20px] after:border-t-[20px] after:border-b-[20px] after:border-l-[20px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 ${menuSelected === button.name
+                                ? "bg-[#CC654B] text-white after:border-l-[#CC654B]"
+                                : "text-black after:border-l-transparent"}`}
+                        >
+                            {button.name}
+                        </span>
+                    </button>
+
+                ))}
+            </div>
+            <Image
+                src={touch}
+                alt="Touch"
+                className='absolute bottom-0 right-4 w-[350px] h-[150px] object-contain animate-fade animate-delay-500 duration-1000'
+                width={350}
+                height={150}
+            />
+        </>
+    )
+}
+
+export default ImplantacaoView
