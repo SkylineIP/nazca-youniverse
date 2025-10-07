@@ -2,7 +2,7 @@ import React from 'react'
 import Image from "next/image";
 import { plantasYouHome, plantasYouHomeButtons } from '../plantas'
 import { Slider } from '@mui/material'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 
 const PlantasView = () => {
@@ -38,6 +38,12 @@ const PlantasView = () => {
         setScrollValue(clampedPercentage);
     };
     const [selectedPlantaKey, setSelectedPlantaKey] = useState<PlantasYouHomeKey>(plantasYouHomeButtons[0].frameKey as PlantasYouHomeKey);
+    const [currentPlantaImageIndex, setCurrentPlantaImageIndex] = useState(0);
+
+    const selectedPlanta = plantasYouHome[selectedPlantaKey];
+    useEffect(() => {
+        setCurrentPlantaImageIndex(0);
+    }, [selectedPlantaKey]);
 
     return (
         <>
@@ -49,13 +55,27 @@ const PlantasView = () => {
                 height={1080}
             />
             <Image
-                src={plantasYouHome[selectedPlantaKey].plantas[0]}
+                key={selectedPlantaKey + currentPlantaImageIndex}
+                src={selectedPlanta.plantas[currentPlantaImageIndex]}
                 alt="plantas"
                 className='object-contain col-span-10 row-span-14 col-start-6 row-start-6 translate-x-[380px] relative animate-fade-down animate-duration-[2000ms] duration-1000 z-10'
                 width={1920}
                 height={1080}
-
             />
+            {selectedPlanta.plantas.length > 1 && (
+                <button
+                    onClick={() => setCurrentPlantaImageIndex(prev => (prev + 1) % selectedPlanta.plantas.length)}
+                    className="absolute z-20 bottom-1/6 right-0"
+                >
+                    <Image
+                        src={currentPlantaImageIndex === 0 ? "/homestudio/buttons/b-ver-opcao-decorado.png" : "/homestudio/buttons/b-voltar.png"}
+                        alt={currentPlantaImageIndex === 0 ? "Ver opção 2" : "Ver opção 1"}
+                        width={372}
+                        height={103}
+                        className="object-contain hover:cursor-pointer transition-transform"
+                    />
+                </button>
+            )}
             <div className='col-span-19 row-span-4 col-start-6 row-start-21 flex flex-col overflow-x-scroll justify-start items-center animate-fade-down animate-duration-[2000ms] duration-1000 gap-2 px-10 no-scrollbar pb-4'>
                 <Slider
                     value={scrollValue}
