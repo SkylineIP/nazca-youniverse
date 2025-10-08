@@ -32,7 +32,7 @@ const PlantasView = () => {
                     setInferior(!inferior)
                     setImage(inferior ? psuperior : pinferior)
                 }}
-                className='col-span-5 row-span-1 row-start-21 col-start-20'
+                className='col-span-5 row-span-1 row-start-21 col-start-22'
             >
                 <Image
                     key={image}

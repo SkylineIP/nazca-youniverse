@@ -49,28 +49,38 @@ const bplanta3994 = "/homestudio/youstudio/plantas/b-planta-39-94-youstudio-youn
 
 
 export const plantasYouHomeButtons = [
-  { buttonImage: bplanta3923_2, frameKey: "39-23-esquerda" },
-  { buttonImage: bplanta3923, frameKey: "39-23" },
-
-  { buttonImage: bplanta3924_2, frameKey: "39-24-esquerda" },
-  { buttonImage: bplanta3924, frameKey: "39-24" },
-
-  { buttonImage: bplanta3945_2, frameKey: "39-45-esquerda" },
-  { buttonImage: bplanta3945, frameKey: "39-45" },
-
-  { buttonImage: bplanta3963_2, frameKey: "39-63-esquerda" },
-  { buttonImage: bplanta3963, frameKey: "39-63" },
-
   { buttonImage: bplanta3982, frameKey: "39-82" },
-
-  { buttonImage: bplanta3990_2, frameKey: "39-90-esquerda" },
-  { buttonImage: bplanta3990, frameKey: "39-90" },
-
-  { buttonImage: bplanta3993_2, frameKey: "39-93-esquerda" },
-  { buttonImage: bplanta3993, frameKey: "39-93" },
-
-  { buttonImage: bplanta3994_2, frameKey: "39-94-esquerda" },
+  { buttonImage: bplanta3924, frameKey: "39-24" },
   { buttonImage: bplanta3994, frameKey: "39-94" },
+  { buttonImage: bplanta3990, frameKey: "39-90" },
+  { buttonImage: bplanta3945, frameKey: "39-45" },
+  { buttonImage: bplanta3993, frameKey: "39-93" },
+  { buttonImage: bplanta3963, frameKey: "39-63" },
+  { buttonImage: bplanta3923, frameKey: "39-23" },
+  //3982
+  { buttonImage: bplanta3924_2, frameKey: "39-24-esquerda" },
+  { buttonImage: bplanta3994_2, frameKey: "39-94-esquerda" },
+  { buttonImage: bplanta3990_2, frameKey: "39-90-esquerda" },
+  { buttonImage: bplanta3945_2, frameKey: "39-45-esquerda" },
+  { buttonImage: bplanta3993_2, frameKey: "39-93-esquerda" },
+  { buttonImage: bplanta3963_2, frameKey: "39-63-esquerda" },
+  { buttonImage: bplanta3923_2, frameKey: "39-23-esquerda" },
+  //4483
+  //4747
+  //4920
+  //5276
+  //4661
+  //5878
+  //5607
+  //6071
+  //4483 esq
+  //4747 esq
+  //4920 esq
+  //5276 esq
+  //4661 esq
+  //5110 esq
+  //5607 esq
+  //6071 esq
 ];
 
 
@@ -93,7 +103,7 @@ const img39242 = "/homestudio/youstudio/plantas/img-planta-39-24-2.png";
 const img39242_1 = "/homestudio/youstudio/plantas/img-planta-39-24-2-1.png";
 
 // 39-45
-const frame3945 = "/homestudio/youstudio/plantas/planta-39-45-2-youstudio.png";
+const frame3945 = "/homestudio/youstudio/plantas/planta-39-45-youstudio.png";
 const frame39452 = "/homestudio/youstudio/plantas/planta-39-45-2-youstudio.png";
 
 const img3945 = "/homestudio/youstudio/plantas/img-planta-39-45.png";
@@ -151,6 +161,10 @@ const img39942Opcao = "/homestudio/youstudio/plantas/img-planta-39-94-2-opcao.pn
 
 // Object linking frames to variants - YouStudio
 export const plantasYouStudio = {
+  "39-82": {
+    frame: frame3982,
+    plantas: [img3982, img3982Opcao],
+  },
   "39-23": {
     frame: frame3923,
     plantas: [img3923, img3923Opcao],
@@ -182,10 +196,6 @@ export const plantasYouStudio = {
   "39-63-esquerda": {
     frame: frame39632,
     plantas: [img39632, img39632Opcao],
-  },
-  "39-82": {
-    frame: frame3982,
-    plantas: [img3982, img3982Opcao],
   },
   "39-82-esquerda": {
     frame: frame39822,

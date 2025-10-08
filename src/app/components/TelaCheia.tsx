@@ -28,7 +28,8 @@ const TelaCheia: React.FC = memo(() => {
   const currentPath = usePathname();
 
   const isStudioPage = currentPath.includes('/youniverse/homestudio/studio');
-  const activeColor = isStudioPage ? '#CC654B' : '#A39126';
+  const isPlexPage = currentPath.includes('/youniverse/homestudio/plex');
+  const activeColor = isStudioPage ? '#CC654B' : isPlexPage ? '#939598' : '#A39126';
 
   const currentImage = images[currentIndex];
 
