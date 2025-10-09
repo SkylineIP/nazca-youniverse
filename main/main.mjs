@@ -1,4 +1,5 @@
-import { app, BrowserWindow, ipcMain, shell, protocol } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
+import serve from "electron-serve";
 import path from "path";
 import { fileURLToPath } from "url";
 import updater from "electron-updater";
@@ -13,6 +14,13 @@ app.commandLine.appendSwitch("enable-features", "StorageAccessAPI");
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const appServe = app.isPackaged
+  ? serve({
+      scheme: "app",
+      directory: path.join(__dirname, "../out"),
+    })
+  : null;
+
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 3840,
@@ -23,7 +31,6 @@ const createWindow = () => {
       // importante:
       contextIsolation: true,
       nodeIntegration: false,
-      preload: path.join(__dirname, "preload.js"),
       // sandbox: false  // (opcional, deixe false se estiver usando contextBridge)
     },
   });
@@ -34,10 +41,12 @@ const createWindow = () => {
   });
 
   if (app.isPackaged) {
-    win.loadURL("app://./index.html");
+    appServe(win).then(() => {
+      win.loadURL("app://-/#/");
+    });
   } else {
     win.loadURL("http://localhost:3000");
-    //win.webContents.openDevTools();
+    win.webContents.openDevTools();
     win.webContents.on("did-fail-load", (e, code, desc) => {
       win.webContents.reloadIgnoringCache();
     });
@@ -47,21 +56,6 @@ const createWindow = () => {
 };
 
 app.on("ready", () => {
-  if (app.isPackaged) {
-    // Register a custom protocol handler for 'app://'
-    protocol.registerFileProtocol("app", (request, callback) => {
-      const url = request.url.slice("app://".length);
-      let filePath = path.join(app.getAppPath(), "out", url);
-
-      // On Windows, file paths with backslashes can be problematic for URLs.
-      // We normalize it to be safe.
-      filePath = path.normalize(filePath);
-
-      console.log(`Serving file: ${filePath}`); // Helpful for debugging
-      callback({ path: filePath });
-    });
-  }
-
   createWindow();
   autoUpdater.checkForUpdatesAndNotify();
 
@@ -90,11 +84,6 @@ ipcMain.on("open-keyboard", () => {
   );
 });
 
-ipcMain.handle("get-app-version", () => {
-  console.log("Main process received get-app-version request.");
-  return app.getVersion();
-});
-
 ipcMain.on("close-keyboard", () => {
   exec("taskkill /IM osk.exe /F",
     (err) => {
@@ -103,4 +92,4 @@ ipcMain.on("close-keyboard", () => {
       }
     }
   );
-});
+}); 
