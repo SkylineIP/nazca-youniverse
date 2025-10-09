@@ -54,6 +54,22 @@ const ImplantacaoView = () => {
     const touch = "/homestudio/implantacao/aviso-uso-bolotario.png";
     const implantacao = "/homestudio/implantacao/implantacao-rooftop.png";
     const implantacao6 = "/homestudio/implantacao/implantacao-6-pavimento.png";
+    const expanded6pav1 = "/homestudio/implantacao/bolotario6/expImages/1.png";
+    const expanded6pav2 = "/homestudio/implantacao/bolotario6/expImages/2.png";
+    const expanded6pav3 = "/homestudio/implantacao/bolotario6/expImages/3.png";
+    const expanded6pav4 = "/homestudio/implantacao/bolotario6/expImages/4.png";
+    const expanded6pav5 = "/homestudio/implantacao/bolotario6/expImages/5.png";
+    const expanded6pav6 = "/homestudio/implantacao/bolotario6/expImages/6.png";
+    const expanded6pav7 = "/homestudio/implantacao/bolotario6/expImages/7.png";
+    const expanded6pav8 = "/homestudio/implantacao/bolotario6/expImages/8.png";
+    const expanded6pav9 = "/homestudio/implantacao/bolotario6/expImages/9.png";
+    const expanded6pav10 = "/homestudio/implantacao/bolotario6/expImages/10.png";
+    const expanded6pav11 = "/homestudio/implantacao/bolotario6/expImages/11.png";
+    const expanded6pav12 = "/homestudio/implantacao/bolotario6/expImages/12.png";
+    const expanded6pav13 = "/homestudio/implantacao/bolotario6/expImages/13.png";
+    const expanded6pav14 = "/homestudio/implantacao/bolotario6/expImages/14.png";
+    const expanded6pav15 = "/homestudio/implantacao/bolotario6/expImages/15.png";
+    const expanded6pav16 = "/homestudio/implantacao/bolotario6/expImages/16.png";
 
     const submenuButtons = [
         { name: 'rooftop', outline: outline1, classname: '' },
@@ -84,6 +100,27 @@ const ImplantacaoView = () => {
         {name: "spa interno", image: expImage7},
     ]
 
+
+    // NOTE: I've created this array for the 6th floor. You should replace the placeholder `image` values with the actual paths to the expanded images.
+    const pavimento6ExpImages = [
+        { name: "salão de jogos", image: expanded6pav1 },
+        { name: "hub de jogos", image: expanded6pav2 },
+        { name: "pet care", image: expanded6pav3 },
+        { name: "salão de festas", image: expanded6pav4 },
+        { name: "lavanderia", image: expanded6pav5 },
+        { name: "wine lounge", image: expanded6pav6 },
+        { name: "sala de reunião", image: expanded6pav7 },
+        { name: "coworking", image: expanded6pav8 },
+        { name: "espaço gourmet", image: expanded6pav9 },
+        { name: "brinquedoteca", image: expanded6pav10 },
+        { name: "pet place", image: expanded6pav11 },
+        { name: "grill space", image: expanded6pav12 },
+        { name: "quadra recreativa", image: expanded6pav13 },
+        { name: "piscina adulto", image: expanded6pav14 },
+        { name: "pool house", image: expanded6pav15 },
+        { name: "minimercado", image: expanded6pav16 },
+    ]
+
     const menu6implantacao = [
         { name: "1 hall social", image: bolotario1 },
         { name: "2 salão de jogos teen", image: bolotario2 },
@@ -101,15 +138,15 @@ const ImplantacaoView = () => {
         { name: "14 praça", image: bolotario14 },
         { name: "15 pet place", image: bolotario15 },
         { name: "16 playground", image: bolotario16 },
-        { name: "17 grill space", image: bolotario17 },
-        { name: "18 quadra recreativa", image: bolotario18 },
-        { name: "19 piscina adulto", image: bolotario19 },
-        { name: "20 pool house", image: bolotario20 },
-        { name: "21 spa", image: bolotario21 },
-        { name: "22 solarium", image: bolotario22 },
-        { name: "23 piscina infantil", image: bolotario23 },
-        { name: "24 deck molhado", image: bolotario24 },
-        { name: "25 minimercado", image: bolotario25 },
+        { name: "17 grill space", image: bolotario16 },
+        { name: "18 quadra recreativa", image: bolotario17 },
+        { name: "19 piscina adulto", image: bolotario18 },
+        { name: "20 pool house", image: bolotario19 },
+        { name: "21 spa", image: bolotario20 },
+        { name: "22 solarium", image: bolotario21 },
+        { name: "23 piscina infantil", image: bolotario22 },
+        { name: "24 deck molhado", image: bolotario23 },
+        { name: "25 minimercado", image: bolotario24 },
         { name: "26 compartilhamento", image: bolotario25 },
     ];
     const svgViewBoxes: { [key: string]: string } = {
@@ -193,19 +230,24 @@ const ImplantacaoView = () => {
                     <button
                         className='object-contain w-[500px] transform translate-x-[800px] -translate-y-[500px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000'
                         onClick={() => {
+                            const imageSet = submenuSelected === 'rooftop' ? rooftopExpImages : pavimento6ExpImages;
                             const expImageName = menuSelected.split(" ").slice(1).join(" ");
-                            const expImageIndex = rooftopExpImages.findIndex(img => expImageName.includes(img.name));
+                            const expImageIndex = imageSet.findIndex(img => expImageName.includes(img.name));
 
-                            if (setAbrirImagensTelaCheia && expImageIndex !== -1) {
-                                const imagesForFullscreen = rooftopExpImages.map(img => ({
+                            // Only open if the selected item has an expandable image
+                            if (setAbrirImagensTelaCheia && expImageIndex > -1) {
+                                const imagesForFullscreen = imageSet.map(img => ({
                                     src: img.image as unknown as StaticImageData,
                                     alt: img.name
                                 }));
+
                                 setAbrirImagensTelaCheia({
                                     open: true,
                                     images: imagesForFullscreen,
                                     currentIndex: expImageIndex
                                 });
+                            } else {
+                                console.log("No expandable image found for:", menuSelected);
                             }
                         }}>
                         <Image src={selectedMenuButton} alt={menuSelected} width={1920} height={1080} className='object-contain' />

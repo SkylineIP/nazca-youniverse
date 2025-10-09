@@ -18,18 +18,11 @@ const HomeStudioSidebar = ({ logo, buttons, selectedItem, onSelectItem, color }:
   return (
     <div className='col-span-5 row-span-24 grid grid-cols-4 grid-rows-24 border-r border-[#12100B] '>
       <Image
-        src="/util/detalhe-youhome-menu-lateral.png"
-        alt="Detalhe"
-        className="w-12"
-        width={48}
-        height={48}
-      />
-      <Image
         src={logo}
         alt="Nazca Logo"
-        className=' col-span-5 row-span-2 row-start-3 p-1 transition-transform animate-fade-down animate-duration-[2000ms] duration-1000 px-10'
-        width={500}
-        height={200}
+        className=' col-span-5 row-span-2 row-start-3 transition-transform animate-fade-down animate-duration-[2000ms] duration-1000 '
+        width={800}
+        height={180}
       />
       <div className='grid grid-cols-4 grid-rows-12 col-span-5 row-span-10 row-start-9'>
         {sidebarButtons.map((button, index) => (

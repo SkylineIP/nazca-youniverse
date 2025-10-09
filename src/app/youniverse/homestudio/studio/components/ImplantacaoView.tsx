@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Image from "next/image";
 import { Svg } from '../Svg';
+import { useContextDefault } from '@/context/Context';
+import { StaticImageData } from 'next/image';
 
 const ImplantacaoView = () => {
     const touch = "/homestudio/implantacao/aviso-uso-bolotario.png";
@@ -16,6 +18,19 @@ const ImplantacaoView = () => {
     const image10 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-10.png";
     const image11 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-11.png";
     const implantacao = "/homestudio/youstudio/implantacao/implantacao-3-pavimento.png";
+
+    const expandedImg1 = "/homestudio/youstudio/implantacao/expanded/1.png";
+    const expandedImg2 = "/homestudio/youstudio/implantacao/expanded/2.png";
+    const expandedImg3 = "/homestudio/youstudio/implantacao/expanded/3.png";
+    const expandedImg4 = "/homestudio/youstudio/implantacao/expanded/4.png";
+    const expandedImg5 = "/homestudio/youstudio/implantacao/expanded/5.png";
+    const expandedImg6 = "/homestudio/youstudio/implantacao/expanded/6.png";
+    const expandedImg7 = "/homestudio/youstudio/implantacao/expanded/7.png";
+    const expandedImg8 = "/homestudio/youstudio/implantacao/expanded/8.png";
+    const expandedImg9 = "/homestudio/youstudio/implantacao/expanded/9.png";
+    const expandedImg10 = "/homestudio/youstudio/implantacao/expanded/10.png";
+    const expandedImg11 = "/homestudio/youstudio/implantacao/expanded/11.png";
+
 
     const [menuSelected, setMenuSelected] = useState("");
 
@@ -53,7 +68,23 @@ const ImplantacaoView = () => {
         "11 lavanderia": "1630 -5 400 970",
     };
 
+    const expImages = [
+        { name: "1 hall social", image: image1 },
+        { name: "2 espaço gourmet", image: expandedImg2 },
+        { name: "3 fit studio", image: expandedImg3 },
+        { name: "4 repouso", image: expandedImg4 },
+        { name: "5 piscina aquecida", image: expandedImg5 },
+        { name: "6 sauna", image: expandedImg6 },
+        { name: "7 ducha", image: image7 },
+        { name: "8 sanitários", image: image8 },
+        { name: "9 reunião", image: image9 },
+        { name: "10 coworking", image: expandedImg10 },
+        { name: "11 lavanderia", image: expandedImg11 },
+    ]
+
     const toViewBox = svgViewBoxes[menuSelected];
+    const context = useContextDefault()
+    const setAbrirImagensTelaCheia = context?.setAbrirImagensTelaCheia;
     const fromViewBox = (prevMenuSelected && svgViewBoxes[prevMenuSelected]) || toViewBox;
     const selectedMenuButton = menuButtons.find(button => button.name === menuSelected)?.image;
     return (
@@ -73,13 +104,22 @@ const ImplantacaoView = () => {
                     height={1080}
                 />
                 {selectedMenuButton && (
-                    <Image
-                        src={selectedMenuButton}
-                        alt={menuSelected}
-                        className='object-contain w-[500px] transform translate-x-[800px] -translate-y-[500px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000'
-                        width={500}
-                        height={500}
-                    />
+                    <button
+                        className='object-contain w-[500px] transform translate-x-[800px] -translate-y-[500px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000 ease-in-out'
+                        onClick={() => {
+                            if (setAbrirImagensTelaCheia) {
+                                const imagesForFullscreen = expImages.map(img => ({ src: img.image as unknown as StaticImageData, alt: img.name }));
+                                const initialIndex = expImages.findIndex(img => img.name === menuSelected);
+                                setAbrirImagensTelaCheia({
+                                    open: true,
+                                    images: imagesForFullscreen,
+                                    currentIndex: initialIndex > -1 ? initialIndex : 0
+                                });
+                            }
+                        }}
+                    >
+                        <Image src={selectedMenuButton} alt={menuSelected} width={1920} height={1080} className='object-contain' />
+                    </button>
                 )}
                 {menuSelected && toViewBox && (
                     <div className="absolute inset-0 z-10 ">
