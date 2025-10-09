@@ -19,15 +19,11 @@ const ImplantacaoView = () => {
     const image11 = "/homestudio/youstudio/implantacao/img-implantacao-youstudio-11.png";
     const implantacao = "/homestudio/youstudio/implantacao/implantacao-3-pavimento.png";
 
-    const expandedImg1 = "/homestudio/youstudio/implantacao/expanded/1.png";
     const expandedImg2 = "/homestudio/youstudio/implantacao/expanded/2.png";
     const expandedImg3 = "/homestudio/youstudio/implantacao/expanded/3.png";
     const expandedImg4 = "/homestudio/youstudio/implantacao/expanded/4.png";
     const expandedImg5 = "/homestudio/youstudio/implantacao/expanded/5.png";
     const expandedImg6 = "/homestudio/youstudio/implantacao/expanded/6.png";
-    const expandedImg7 = "/homestudio/youstudio/implantacao/expanded/7.png";
-    const expandedImg8 = "/homestudio/youstudio/implantacao/expanded/8.png";
-    const expandedImg9 = "/homestudio/youstudio/implantacao/expanded/9.png";
     const expandedImg10 = "/homestudio/youstudio/implantacao/expanded/10.png";
     const expandedImg11 = "/homestudio/youstudio/implantacao/expanded/11.png";
 
