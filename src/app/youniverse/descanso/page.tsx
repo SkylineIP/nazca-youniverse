@@ -8,35 +8,35 @@ const variations = [
         id: 1,
         image: "/descanso/grafismo1.png",
         alt: "Grafismo 1",
-        image2: "/descanso/logoyouniverse.png",
+        image2: "/descanso/logo-youniverse-nazca-1.png",
         alt2: "Logo Youniverse",
         classnames: {
-            first: "col-span-24 row-start-2  animate-fade-in",
-            second: "col-span-16 col-start-6 row-start-10 z-50  animate-fade-in",
+            first: "col-span-24 row-start-2",
+            second: "col-span-16 col-start-6 row-start-11 z-50",
         }
     },
     {
         id: 2,
         image: "/descanso/grafismo2.png",
         alt: "Grafismo 2",
-        image2: "/descanso/logoyouniverse.png",
-        alt2: "Logo Youniverse",
+        image2: "/descanso/logo-youniverse-nazca-2.png", // This seems to be a duplicate, but keeping as is.
+        alt2: "Logo Youniverse", // This seems to be a duplicate, but keeping as is.
         classnames: {
             first: "col-span-24 row-start-9",
-            second: "col-span-13 col-start-8 row-start-10 z-50 animate-fade-in",
+            second: "col-span-13 col-start-8 row-start-11 z-50",
         }
     },
     {
         id: 3,
         image: "/descanso/detalhe3.png",
         image2: "/descanso/grafismo2.png",
-        image3: "/descanso/logoyouniverse.png",
+        image3: "/descanso/logo-youniverse-nazca-3.png",
         alt: "Detalhe 3",
         alt3: "Logo Youniverse",
         classnames: {
-            first: "col-span-7 col-start-18 z-50  animate-fade-in",
-            second: "col-span-24 row-start-9 animate-fade-in",
-            third: "col-span-8 col-start-9 row-start-10 z-50 animate-fade-in",
+            first: "col-span-7 col-start-18 z-50",
+            second: "col-span-24 row-start-9",
+            third: "col-span-8 col-start-9 row-start-11 z-50",
         },
         alt2: "Detalhe 3",
     },
@@ -50,58 +50,58 @@ const variations = [
         alt3: "Texto",
         image4: "/descanso/detalhe-cores-youniverse-nazca-2.png",
         alt4: "Detalhe 2",
-        image5: "/descanso/logoyouniverse.png",
+        image5: "/descanso/logo-youniverse-nazca-4.png",
         alt5: "Logo Youniverse",
         classnames: {
-            first: "col-span-24 row-start-11 z-10  animate-fade-in",   
-            second: "col-span-4 col-start-18 row-start-1 z-30  animate-fade-in",
-            third: "col-span-9 col-start-12 row-start-3 z-20  animate-fade-in",
-            fourth: "col-span-4 z-50 animate-fade-in ",
-            fifth: "col-span-6 row-start-12 col-start-6 z-50 animate-fade-in",
+            first: "col-span-24 row-start-11 z-10",
+            second: "col-span-4 col-start-18 row-start-1 z-30",
+            third: "col-span-9 col-start-12 row-start-3 z-20",
+            fourth: "col-span-4 z-50",
+            fifth: "col-span-6 row-start-12 col-start-6 z-50",
         }
     }
 ];
 
-const getAnimationClass = (originalClass: string, isExiting: boolean, isEntering: boolean) => {
+const getAnimationClass = (originalClass: string, isVisible: boolean) => {
     if (!originalClass) return '';
-
-    const transitionClasses = 'transition-opacity duration-1000';
-
-    if (isExiting || isEntering) {
-        return `${originalClass} ${transitionClasses} opacity-0`;
-    }
-    return `${originalClass} ${transitionClasses} opacity-100`;
+    return `${originalClass} transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`;
 };
 
 const Descanso = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isExiting, setIsExiting] = useState(false);
-    const [isEntering, setIsEntering] = useState(true);
+    const [isVisible, setIsVisible] = useState(false);
     const router = useRouter();
 
+    // Effect for the main interval timer
     useEffect(() => {
-        setIsEntering(true);
-        const timer = setTimeout(() => setIsEntering(false), 50);
-        return () => clearTimeout(timer);
-    }, [currentIndex]);
+        // Initial fade-in
+        const initialTimeout = setTimeout(() => setIsVisible(true), 50);
 
-    useEffect(() => {
-        let transitionTimeout: NodeJS.Timeout;
-        const mainInterval = setInterval(() => {
-            setIsExiting(true);
-            transitionTimeout = setTimeout(() => {
-                setCurrentIndex(prev => (prev + 1) % variations.length);
-                setIsExiting(false);
-            }, 1000); // This should match the transition duration
+        const interval = setInterval(() => {
+            setIsVisible(false); // Start fade-out
         }, 5000);
 
         return () => {
-            clearInterval(mainInterval);
-            if (transitionTimeout) {
-                clearTimeout(transitionTimeout);
-            }
+            clearTimeout(initialTimeout);
+            clearInterval(interval);
         };
     }, []);
+
+    // Effect to change the slide after fade-out is complete
+    useEffect(() => {
+        if (isVisible) {
+            return; // Do nothing on fade-in
+        }
+
+        // After the fade-out duration (1000ms), update the index.
+        const timeout = setTimeout(() => {
+            setCurrentIndex(prev => (prev + 1) % variations.length);
+            // Trigger fade-in for the new slide
+            setIsVisible(true);
+        }, 1000); // Must match the CSS transition duration
+
+        return () => clearTimeout(timeout);
+    }, [isVisible]);
 
     const currentVariation = variations[currentIndex];
 
@@ -109,50 +109,50 @@ const Descanso = () => {
         <div className="grid grid-cols-24 grid-rows-24 h-screen w-screen bg-descanso-home bg-cover bg-center bg-no-repeat">
             {currentVariation.image && (
                 <Image
-                    key={`${currentVariation.id}-1`}
+                    key={`${currentVariation.id}-1-${currentIndex}`}
                     src={currentVariation.image}
                     alt={currentVariation.alt}
-                    className={getAnimationClass(currentVariation.classnames.first, isExiting, isEntering)}
+                    className={getAnimationClass(currentVariation.classnames.first, isVisible)}
                     width={1920}
                     height={1080}
                 />
             )}
             {currentVariation.image2 && (
                 <Image
-                    key={`${currentVariation.id}-2`}
+                    key={`${currentVariation.id}-2-${currentIndex}`}
                     src={currentVariation.image2}
                     alt={currentVariation.alt2}
-                    className={getAnimationClass(currentVariation.classnames.second, isExiting, isEntering)}
+                    className={getAnimationClass(currentVariation.classnames.second, isVisible)}
                     width={1920}
                     height={1080}
                 />
             )}
             {currentVariation.image3 && (
                 <Image
-                    key={`${currentVariation.id}-3`}
+                    key={`${currentVariation.id}-3-${currentIndex}`}
                     src={currentVariation.image3}
                     alt={currentVariation.alt3}
-                    className={getAnimationClass(currentVariation.classnames.third, isExiting, isEntering)}
+                    className={getAnimationClass(currentVariation.classnames.third, isVisible)}
                     width={1920}
                     height={1080}
                 />
             )}
             {currentVariation.image4 && (
                 <Image
-                    key={`${currentVariation.id}-4`}
+                    key={`${currentVariation.id}-4-${currentIndex}`}
                     src={currentVariation.image4}
                     alt={currentVariation.alt4}
-                    className={getAnimationClass(currentVariation.classnames.fourth, isExiting, isEntering)}
+                    className={getAnimationClass(currentVariation.classnames.fourth, isVisible)}
                     width={1920}
                     height={1080}
                 />
             )}
             {currentVariation.image5 && (
                 <Image
-                    key={`${currentVariation.id}-5`}
+                    key={`${currentVariation.id}-5-${currentIndex}`}
                     src={currentVariation.image5}
                     alt={currentVariation.alt5}
-                    className={getAnimationClass(currentVariation.classnames.fifth, isExiting, isEntering)}
+                    className={getAnimationClass(currentVariation.classnames.fifth, isVisible)}
                     width={1920}
                     height={1080}
                 />

@@ -3,18 +3,29 @@
   "version": "1.0.0",
   "private": true,
   "main": "main/main.mjs",
+  "author": {
+    "name": "Skyline IP",
+    "url": "https://skylineip.com"
+  },
+  "description": "Tela interativa Nazca Youniverse",
   "type": "module",
   "scripts": {
-    "dev": "node server.mjs",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "electron": "cross-env NODE_ENV=development electron .",
-    "electron-dev": "concurrently \"npm:dev\" \"wait-on http://localhost:3000 && npm:electron\"",
-    "build-electron": "dotenv -e .env -- electron-builder --config electron-builder.json --publish never",
-    "build-electron-full": "npm run build && dotenv -e .env -- electron-builder --config electron-builder.json --publish never",
-    "dist": "npm run build && electron-builder --publish=never",
-    "pack": "electron-builder --dir"
+    "build-electron": "dotenv -e .env -- electron-builder --publish never"
+  },
+  "build": {
+    "files": [
+      "main/preload.js",
+      "main/main.mjs",
+      "dist/**",
+      "out/**",
+      "public/**",
+      "node_modules/**",
+      "package.json"
+    ]
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -44,8 +55,8 @@
     "concurrently": "^9.2.1",
     "cross-env": "^10.0.0",
     "dotenv-cli": "^10.0.0",
-    "electron": "^38.1.2",
-    "electron-builder": "^25.1.8",
+    "electron": "^38.2.2",
+    "electron-builder": "^26.0.12",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "next": ">=15.3.4",

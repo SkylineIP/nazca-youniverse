@@ -27,18 +27,8 @@ node_modules
 
 .next
 
-/heavy-assets
-
 /.next
 
 /out
 
-/main
-
 /dist
-
-/android
-
-/public/horizon/lancamento.mp4
-
-public/horizon/video-lancamento.mp4

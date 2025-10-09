@@ -46,7 +46,10 @@ const Sidebar = () => {
         {sidebarButtons.map((button, index) => (
           <div
             key={index}
-            className={`row-span-2 col-span-4 col-start-2 flex ${button.name === "parceiros" && "opacity-40 cursor-default"} items-center pr-16 justify-center cursor-pointer transition-transform duration-300 ease-in-out animate-fade-up animate-delay-[${index * 200}ms] duration-1000 relative`}
+            style={{
+              animationDelay: `${index * 0.4}s`,
+            }}
+            className={`row-span-2 col-span-4 col-start-2 flex ${button.name === "parceiros" && "opacity-40 cursor-default"} items-center pr-16 justify-center cursor-pointer transition-transform duration-300 ease-in-out animate-fade-right duration-1000 relative`}
             onClick={() => {
               if(button.name !== "parceiros"){ 
                 setSelectedItem?.(button.name)

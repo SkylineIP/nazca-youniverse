@@ -5,7 +5,7 @@ import Image from "next/image";
 import { memo, useEffect, useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 type AbrirImagensTelaCheia = {
   open: boolean;
@@ -26,6 +26,7 @@ const TelaCheia: React.FC = memo(() => {
   const images = abrirImagensTelaCheia?.images ?? [];
   const [currentIndex, setCurrentIndex] = useState(abrirImagensTelaCheia?.currentIndex ?? 0);
   const currentPath = usePathname();
+  const searchParams = useSearchParams();
 
   const isStudioPage = currentPath.includes('/youniverse/homestudio/studio');
   const isPlexPage = currentPath.includes('/youniverse/homestudio/plex');
@@ -151,6 +152,37 @@ const TelaCheia: React.FC = memo(() => {
     setCurrentIndex((prevIndex) => (prevIndex < images.length - 1 ? prevIndex + 1 : 0));
   };
 
+  const isImplantacaoView = currentPath.includes('/youniverse/homestudio/home') && searchParams.get('view') === 'implantacao';
+  const showNavigation = searchParams.get('view') === 'implantacao';
+  const shouldShowTitle = !isImplantacaoView;
+
+  const closeImages = {
+    home: "/homestudio/imagens/b-fechar-imagem-expandida-home.png",
+    plex: "/homestudio/imagens/b-fechar-imagem-expandida-plex.png",
+    studio: "/homestudio/imagens/b-fechar-imagem-expandida-studio.png"
+  };
+
+  const navigationImages = {
+    home: {
+      back: "/homestudio/imagens/back-home.png",
+      next: "/homestudio/imagens/next-home.png",
+      close: "/homestudio/imagens/close-home.png",
+    },
+    plex: {
+      back: "/homestudio/imagens/back-plex.png",
+      next: "/homestudio/imagens/next-plex.png",
+      close: "/homestudio/imagens/close-plex.png",
+    },
+    studio: {
+      back: "/homestudio/imagens/back-studio.png",
+      next: "/homestudio/imagens/next-studio.png",
+      close: "/homestudio/imagens/close-studio.png"
+    }
+  }
+
+  const closeImageSrc = isImplantacaoView ? (isStudioPage ? closeImages.studio : isPlexPage ? closeImages.plex : closeImages.home) : (isStudioPage ? navigationImages.studio.close : isPlexPage ? navigationImages.plex.close : navigationImages.home.close);
+  const navImageSet = isStudioPage ? navigationImages.studio : isPlexPage ? navigationImages.plex : navigationImages.home;
+
   return (
     <div className="fixed top-0 left-0 w-full h-screen bg-black/90 z-50 flex flex-col justify-center items-center font-[Montserrat] p-16 gap-y-8">
       {/* Área da imagem em tela cheia */}
@@ -175,38 +207,42 @@ const TelaCheia: React.FC = memo(() => {
             className="object-contain object-top"
           />
         </div>
-        <span
-          className={`absolute top-1 left-52 text-xl uppercase tracking-widest font-impact px-4 py-2 text-white transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 after:right-[-22px] after:border-t-[22px] after:border-b-[22px] after:border-l-[22px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300`}
-          style={{ backgroundColor: activeColor, '--arrow-color': activeColor } as React.CSSProperties}
-        >
-          {currentImage?.alt}
-        </span>
+        {shouldShowTitle && (
+          <span
+            className={`absolute top-1 left-52 text-xl uppercase tracking-widest font-impact px-4 py-2 text-white transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 after:right-[-22px] after:border-t-[22px] after:border-b-[22px] after:border-l-[22px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300`}
+            style={{ backgroundColor: activeColor, '--arrow-color': activeColor } as React.CSSProperties}
+          >
+            {currentImage?.alt}
+          </span>
+        )}
         <style>{`:root { --arrow-color: ${activeColor}; } span::after { border-left-color: var(--arrow-color); }`}</style>
       </div>
       <div className="absolute right-8 top-8 flex justify-between items-center gap-x-8">
       </div>
       <div className="flex items-center gap-4">
-        <button
-          onClick={() => {
-            handlePrev();
-          }}
-        >
-          <Image
-            src="/homestudio/imagens/Frame 1467.png"
-            alt="botao para fechar"
-            aria-label="fechar"
-            width={50}
-            height={50}
-            className="object-contain"
-          />
-        </button>
+        {!showNavigation && (
+          <button
+            onClick={() => {
+              handlePrev();
+            }}
+          >
+            <Image
+              src={navImageSet.back}
+              alt="botao para fechar"
+              aria-label="fechar"
+              width={50}
+              height={50}
+              className="object-contain"
+            />
+          </button>
+        )}
         <button
           onClick={() => {
             setAbrirImagensTelaCheia?.({ open: false, pathImage: "", images: [], currentIndex: 0 });
           }}
         >
           <Image
-            src="/homestudio/imagens/Frame 1509.png"
+            src={closeImageSrc}
             alt="botao para fechar"
             aria-label="fechar"
             width={50}
@@ -214,20 +250,22 @@ const TelaCheia: React.FC = memo(() => {
             className="object-contain"
           />
         </button>
-        <button
-          onClick={() => {
-            handleNext();
-          }}
-        >
-          <Image
-            src="/homestudio/imagens/Frame 1510.png"
-            alt="botao para fechar"
-            aria-label="fechar"
-            width={50}
-            height={50}
-            className="object-contain"
-          />
-        </button>
+        {!showNavigation && (
+          <button
+            onClick={() => {
+              handleNext();
+            }}
+          >
+            <Image
+              src={navImageSet.next}
+              alt="botao para fechar"
+              aria-label="fechar"
+              width={50}
+              height={50}
+              className="object-contain"
+            />
+          </button>
+        )}
       </div>
       {/* Slider de zoom */}
       <Box
