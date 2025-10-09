@@ -5,8 +5,8 @@ import { ContextDefault } from "../context/Context";
 import ThemeRegistry from "./materialUITheme";
 
 export const metadata: Metadata = {
-  title: "Skyline",
-  description: "Modelo de Replicação apoiado na Documentação feita para o setor",
+  title: "Nazca Youniverse",
+  description: "Nazca Youniverse",
 };
 
 export default function RootLayout({

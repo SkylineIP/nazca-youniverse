@@ -10,6 +10,11 @@ const ImagensView = dynamic(() => import('../plex/components/ImagensView'),
   { ssr: false }
 );
 
+const ImplantacaoView = dynamic(() => import('../plex/components/ImplantacaoView'),
+  { ssr: false }
+);
+
+
 const PlantasView = dynamic(() => import('../plex/components/PlantasView'),
   { ssr: false }
 );
@@ -23,6 +28,7 @@ const PlexPage = () => {
   const [currentView, setCurrentView] = useState(view);
 
   const sidebarButtons = [
+    { name: 'Implantação', value: 'implantacao' },
     { name: 'Imagens', value: 'imagens' },
     { name: 'Plantas', value: 'plantas' },
   ];
@@ -37,6 +43,8 @@ const PlexPage = () => {
         return <ImagensView />;
       case 'plantas':
         return <PlantasView />;
+      case 'implantacao':
+        return <ImplantacaoView />;
       default:
         return <ImagensView />;
     }

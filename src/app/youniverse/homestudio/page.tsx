@@ -17,6 +17,7 @@ const HomeStudio = () => {
     const plantashome = "/homestudio/buttons/b-parceiros-youniverse-nazca.png";
     const imagensplex = "/homestudio/buttons/b-diferenciais-youniverse-nazca-youplex.png";
     const plantasplex = "/homestudio/buttons/b-parceiros-youniverse-nazca-youplex.png";
+    const implantacaoplex = "/homestudio/buttons/b-implantacao-youniverse-nazca-implantacao.png";
     const bgfachada = "/homestudio/fachada/bgfachada.png";
     const studio = "/homestudio/fachada/studio.png";
     const studiocolored = "/homestudio/fachada/youstudiocolor.png";
@@ -93,9 +94,19 @@ const HomeStudio = () => {
                         />
                         <div className='col-span-4 row-span-4 col-start-1 row-start-12 flex flex-col items-center justify-center gap-16'>
                             <Image
+                                src={implantacaoplex}
+                                alt="Plantas"
+                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-300'
+                                width={500}
+                                height={500}
+                                onClick={() => {
+                                    router.push('/youniverse/homestudio/plex?view=implantacao')
+                                }}
+                            />
+                            <Image
                                 src={imagensplex}
                                 alt="Imagens"
-                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-300'
+                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-500'
                                 width={500}
                                 height={500}
                                 onClick={() => {
@@ -105,7 +116,7 @@ const HomeStudio = () => {
                             <Image
                                 src={plantasplex}
                                 alt="Plantas"
-                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-500'
+                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-700'
                                 width={500}
                                 height={500}
                                 onClick={() => {
