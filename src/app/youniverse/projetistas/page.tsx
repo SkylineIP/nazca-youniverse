@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from "next/image";
 import { useContextDefault } from '@/context/Context';
 
@@ -27,6 +27,15 @@ const ProjetistasPage = () => {
     useEffect(() => {
         setSelectedItem?.("Projetistas");
     }, [])
+    const [is4k, setIs4k] = useState(false);
+
+    useEffect(() => {
+        const check = () => setIs4k(window.innerWidth >= 3840);
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+        
+    }, []);
     return (
         <>
             {selectedMenu === 'João Armentano' && (
@@ -34,8 +43,8 @@ const ProjetistasPage = () => {
                     src={joao}
                     alt="João Armentano"
                     className='col-start-6 col-span-19 row-span-19 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000'
-                    width={1920}
-                    height={1080}
+                    width={3840}
+                    height={2160}
                 />
             )}
             {selectedMenu === 'D.G. Projetos' && (
@@ -43,8 +52,8 @@ const ProjetistasPage = () => {
                     src={dg}
                     alt="D.G. Projetos"
                     className='col-start-6 col-span-19 row-span-19 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000'
-                    width={1920}
-                    height={1080}
+                    width={3840}
+                    height={2160}
                 />
             )}
             {selectedMenu === 'Ricardo' && (
@@ -52,8 +61,8 @@ const ProjetistasPage = () => {
                     src={ricardo}
                     alt="Ricardo"
                     className='col-start-6 col-span-19 row-span-19 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000'
-                    width={1920}
-                    height={1080}
+                    width={3840}
+                    height={2160}
                 />
             )}
             {selectedMenu === 'Carlos' && (
@@ -61,8 +70,8 @@ const ProjetistasPage = () => {
                     src={carlos}
                     alt="Carlos"
                     className='col-start-6 col-span-19 row-span-19 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000'
-                    width={1920}
-                    height={1080}
+                    width={3840}
+                    height={2160}
                 />
             )}
             {selectedMenu === 'Suíte' && (
@@ -70,11 +79,11 @@ const ProjetistasPage = () => {
                     src={suite}
                     alt="Suíte"
                     className='col-start-6 col-span-19 row-span-19 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000'
-                    width={1920}
-                    height={1080}
+                    width={3840}
+                    height={2160}
                 />
             )}
-            <div className='relative col-span-19 row-span-2 row-start-23 col-start-6 grid grid-cols-24 grid-rows-2'>
+            <div className='relative col-span-19 4k:text-5xl text-[24px] row-span-2 row-start-23 col-start-6 grid grid-cols-24 grid-rows-2'>
                 {menuItems.map(item => (
                     <div
                         key={item.name + "-bg"}
@@ -88,13 +97,18 @@ const ProjetistasPage = () => {
                         }}
                     ></div>
                 ))}
-                {menuItems.map((item) => (
+                {menuItems.map((item, index) => (
                     <div
                         key={item.name}
-                        className={`relative cursor-pointer p-4 col-span-4 row-span-2 ${item.classname}`}
+                        className={`relative cursor-pointer p-4 4k:pt-18 col-span-4 row-span-2 ${item.classname}`}
                         onClick={() => setSelectedMenu(item.name)}
+                        style={{
+                            marginLeft: is4k
+                                ? (index === 0 ? "20px" : index === 2 ? "60px" : index === 3 ? "80px" : index === 4 ? "120px" : "0px")
+                                : (index === 0 ? "-30px" :  index === 1 ? "-30px" : index === 2 ? "-30px" : index === 3 ? "-30px" : index === 4 ? "-40px" : "0px")
+                        }}
                     >
-                        <span className={`text-[24px] relative uppercase whitespace-nowrap ${selectedMenu === item.name ? 'font-impact text-[#12100B] ' : 'font-aviano text-[#12100B]'} transition-colors duration-300 ease-in-out`}>
+                        <span className={` relative uppercase whitespace-nowrap ml-8 ${selectedMenu === item.name ? 'font-impact text-[#12100B] ' : 'font-aviano text-[#12100B]'} transition-colors duration-300 ease-in-out`}>
                             {item.name}
                         </span>
                     </div>

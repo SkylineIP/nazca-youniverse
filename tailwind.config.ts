@@ -30,14 +30,18 @@ export default {
       },
       backgroundImage: {  
         'descanso': "url('/descanso/bg.jpg')",
-        'descanso-home' : "url('/descanso/bg-descanso.png')",
+        'descanso-home' : "url('/descanso/bg-home.png')",
         'conceito': "url('/conceito/bg.jpg')",
+      },
+      backgroundSize: {
+        '4k': '3840px 2160px',
       },
       screens: {
         desktop: { min: "1536px" },
         desktopmini: { min: "901px", max: "1535px" },
         tablet: { min: "601px", max: "900px" },
         mobile: { max: "600px" },
+        '4k': { min: '3840px' },
       },
       animation: {
         'spin-slow': 'spin 10s linear infinite',

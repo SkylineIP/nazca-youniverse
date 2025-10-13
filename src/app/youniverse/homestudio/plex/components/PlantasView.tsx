@@ -23,8 +23,8 @@ const PlantasView = () => {
                 src={image}
                 alt='Planta'
                 className='col-span-11 col-start-9 row-start-3 transition-opacity duration-[1s] ease-in-out opacity-0 data-[loaded=true]:opacity-100'
-                height={1080}
-                width={1920}
+                height={2160}
+                width={3840}
                 onLoad={(e) => e.currentTarget.setAttribute("data-loaded", "true")}
             />
             <button
@@ -39,7 +39,7 @@ const PlantasView = () => {
                     src={inferior ? binferior : bsuperior}
                     alt='Planta'
                     className="transition-opacity duration-500 ease-in-out opacity-0 data-[loaded=true]:opacity-100"
-                    width={300}
+                    width={800}
                     height={100}
                     onLoad={(e) => e.currentTarget.setAttribute("data-loaded", "true")}
                 />

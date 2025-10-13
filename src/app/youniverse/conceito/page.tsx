@@ -104,19 +104,19 @@ const Conceito = () => {
                 <button className='absolute top-0 w-1/7 h-full' onClick={() => setSelectedMenu(menu1)}>
 
                 </button>
-                <button className='absolute top-0 left-60 w-1/7 h-full ' onClick={() => setSelectedMenu(menu2)}>
+                <button className='absolute  top-0 4k:left-[470px] left-[240px] w-1/7 h-full ' onClick={() => setSelectedMenu(menu2)}>
 
                 </button>
-                <button className='absolute top-0 left-[490px] w-1/7 h-full ' onClick={() => setSelectedMenu(menu3)}>
+                <button className='absolute  top-0 4k:left-[990px] right-[810px] w-1/7 h-full ' onClick={() => setSelectedMenu(menu3)}>
 
                 </button>
-                <button className='absolute top-0 left-[765px] w-1/7 h-full ' onClick={() => setSelectedMenu(menu4)}>
+                <button className='absolute  top-0 4k:right-[1080px] right-[540px] w-1/7 h-full ' onClick={() => setSelectedMenu(menu4)}>
 
                 </button>
-                <button className='absolute top-0 left-[1020px] w-1/7 h-full ' onClick={() => setSelectedMenu(menu5)}>
+                <button className='absolute  top-0 4k:right-[550px] right-70 w-1/7 h-full ' onClick={() => setSelectedMenu(menu5)}>
 
                 </button>
-                <button className='absolute top-0 left-[1280px] w-1/7 h-full ' onClick={() => setSelectedMenu(menu6)}>
+                <button className='absolute  top-0 4k:right-20 right-10 w-1/7 h-full ' onClick={() => setSelectedMenu(menu6)}>
 
                 </button>
             </div>

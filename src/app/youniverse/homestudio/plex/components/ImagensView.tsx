@@ -69,8 +69,15 @@ const ImagensView = () => {
                     height={2161}
                 />
                 <span
-                    className={`text-xl uppercase tracking-widest font-impact px-4 py-2 transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 after:right-[-22px] after:border-t-[22px] after:border-b-[22px] after:border-l-[22px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 
-                                                bg-[#939598] text-white after:border-l-[#939598] absolute top-48 left-0`}
+                    className={`text-xl 4k:text-6xl uppercase tracking-widest font-impact px-4 py-2 4k:px-16 4k:py-8 transition-colors duration-300 ease-in-out 
+                after:content-[''] after:absolute after:top-0 
+                after:right-[-22px] 4k:after:right-[-62px] 
+                after:border-t-[22px] after:border-b-[22px] after:border-l-[22px] 
+                4k:after:border-t-[62px] 4k:after:border-b-[62px] 4k:after:border-l-[62px] 
+                after:border-t-transparent after:border-b-transparent 
+                after:transition-colors after:ease-in-out after:duration-300 
+                bg-[#939598] text-white after:border-l-[#939598] 
+                absolute top-48 left-0`}
                 >
                     {images[currentIndexToShow].alt}
                 </span>

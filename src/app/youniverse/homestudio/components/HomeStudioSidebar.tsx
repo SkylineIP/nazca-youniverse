@@ -24,7 +24,7 @@ const HomeStudioSidebar = ({ logo, buttons, selectedItem, onSelectItem, color }:
         width={800}
         height={180}
       />
-      <div className='grid grid-cols-4 grid-rows-12 col-span-5 row-span-10 row-start-9'>
+      <div className='grid grid-cols-4 grid-rows-12 col-span-5 row-span-10 row-start-9 4k:text-5xl text-[24px]'>
         {sidebarButtons.map((button, index) => (
           <div
             key={index}
@@ -44,7 +44,7 @@ const HomeStudioSidebar = ({ logo, buttons, selectedItem, onSelectItem, color }:
               objectFit="contain"
               className={`transition-opacity duration-300 ease-in-out ${selectedItem === button.value ? 'opacity-100' : 'opacity-0'}`}
             />
-            <span className={`text-[#4A4F54] text-[24px] relative uppercase ${selectedItem === button.value ? 'font-impact' : 'font-aviano'} `}>
+            <span className={`text-[#4A4F54] relative uppercase ${selectedItem === button.value ? 'font-impact' : 'font-aviano'} `}>
               {button.name}
             </span>
           </div>
@@ -54,7 +54,7 @@ const HomeStudioSidebar = ({ logo, buttons, selectedItem, onSelectItem, color }:
         onClick={() => {
           router.push('/youniverse/homestudio')
         }}
-        className='col-span-2 row-span-2 flex items-start row-start-19 cursor-pointer transition-transform duration-300 ease-in-out animate-fade-right animate-delay-[1200ms] duration-1000'
+        className='col-span-2 row-span-1 flex items-start row-start-19 cursor-pointer transition-transform duration-300 ease-in-out animate-fade-right animate-delay-[1200ms] duration-1000'
       >
         <span
           style={{ 
@@ -62,13 +62,13 @@ const HomeStudioSidebar = ({ logo, buttons, selectedItem, onSelectItem, color }:
             '--arrow-color': color 
           } as React.CSSProperties}
           className={`
-                            relative px-8 py-4 
-                            text-xl uppercase font-impact 
+                            relative px-8 py-4 h-full w-full 
+                            text-xl 4k:text-5xl uppercase font-impact 
                             text-white
                             transition-colors duration-300 ease-in-out
-                            after:content-[''] after:absolute after:top-0 after:right-[-30px] 
+                            after:content-[''] after:absolute after:top-0 after:right-[-45px] 
                             after:w-0 after:h-0 tracking-[8px]
-                            after:border-t-[30px] after:border-b-[30px] after:border-l-[30px]
+                            after:border-t-[45px] after:border-b-[45px] after:border-l-[45px]
                             after:border-t-transparent after:border-b-transparent after:border-l-[var(--arrow-color)]
                             `}
         >

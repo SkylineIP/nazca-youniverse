@@ -214,21 +214,21 @@ const ImplantacaoView = () => {
 
     return (
         <>
-            <span className='col-start-7 col-span-7 uppercase row-start-3 text-4xl text-[#414042] font-impact animate-fade-down animate-duration-[2000ms] duration-1000'>
+            <span className='col-start-7 col-span-7 uppercase row-start-3 text-4xl 4k:text-8xl text-[#414042] font-impact animate-fade-down animate-duration-[2000ms] duration-1000'>
                 {submenuSelected === 'rooftop' ? 'Implantação do Rooftop ' : "Implantação do 6º pavimento"}
             </span>
             <div className="relative col-start-8 col-span-15 row-start-5 row-span-13">
                 <Image
                     src={submenuSelected === 'rooftop' ? implantacao : implantacao6}
                     alt="Rooftop"
-                    className={`w-full h-full object-contain animate-fade-up animate-duration-[2000ms] duration-1000 transition-transform ease-in-out ${menuSelected !== "" ? "scale-[70%] -translate-x-50" : ""}`}
+                    className={`w-full h-full object-contain animate-fade-up animate-duration-[2000ms] duration-1000 transition-transform ease-in-out ${menuSelected !== "" ? "scale-[70%] -translate-x-100" : ""}`}
 
-                    width={1920}
-                    height={1080}
+                    width={3840}
+                    height={2160}
                 />
                 {selectedMenuButton && (
                     <button
-                        className='object-contain w-[500px] transform translate-x-[800px] -translate-y-[500px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000'
+                        className='object-contain w-[1020px] transform translate-x-[1600px] -translate-y-[1000px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000'
                         onClick={() => {
                             const imageSet = submenuSelected === 'rooftop' ? rooftopExpImages : pavimento6ExpImages;
                             const expImageName = menuSelected.split(" ").slice(1).join(" ");
@@ -250,7 +250,7 @@ const ImplantacaoView = () => {
                                 console.log("No expandable image found for:", menuSelected);
                             }
                         }}>
-                        <Image src={selectedMenuButton} alt={menuSelected} width={1920} height={1080} className='object-contain' />
+                        <Image src={selectedMenuButton} alt={menuSelected} width={3840} height={2160} className='object-contain' />
                     </button>
                 )}
                 {menuSelected && toViewBox && (
@@ -268,7 +268,7 @@ const ImplantacaoView = () => {
                             className="cursor-pointer transition-all ease-in-out animate-fade-up duration-1000"
                         >
                             <span
-                                className={`relative text-xl uppercase font-aviano px-4 py-2 transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 after:right-[-20px] after:border-t-[20px] after:border-b-[20px] after:border-l-[20px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 ${menuSelected === button.name
+                                className={`relative 4k:text-3xl uppercase font-aviano px-4 py-2 transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 after:right-[-20px] after:border-t-[20px] after:border-b-[20px] after:border-l-[20px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 ${menuSelected === button.name
                                     ? "bg-[#A39126] text-white after:border-l-[#A39126]"
                                     : "text-black after:border-l-transparent"}`}
                             >
@@ -288,7 +288,7 @@ const ImplantacaoView = () => {
                             className="cursor-pointer transition-all ease-in-out animate-fade-up duration-1000"
                         >
                             <span
-                                className={`relative text-md uppercase font-aviano px-4 text-center transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 after:right-[-9px] after:border-t-[9px] after:border-b-[9px] after:border-l-[9px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 ${menuSelected === button.name
+                                className={`relative text-md 4k:text-3xl uppercase font-aviano px-4 text-center transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 after:right-[-9px] after:border-t-[9px] after:border-b-[9px] after:border-l-[9px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 ${menuSelected === button.name
                                     ? "bg-[#A39126] text-white after:border-l-[#A39126]"
                                     : "text-black after:border-l-transparent"}`}
                             >
@@ -324,9 +324,12 @@ const ImplantacaoView = () => {
                     <div
                         key={item.name}
                         className="relative cursor-pointer p-4"
+                        style={{
+                            marginLeft: item.name === "rooftop" ? '16rem' : '15rem',
+                        }}
                         onClick={() => { setSubmenuSelected(item.name); setMenuSelected(""); setMenuToMap(item.name === 'rooftop' ? menuButtons : menu6implantacao) }}
                     >
-                        <span className={`text-[24px] relative uppercase ${submenuSelected === item.name ? 'font-impact text-[#12100B]' : 'font-aviano text-[#12100B]'} transition-colors duration-300 ease-in-out`}>
+                        <span className={`text-[24px] 4k:text-5xl relative uppercase ${submenuSelected === item.name ? 'font-impact text-[#12100B]' : 'font-aviano text-[#12100B]'} transition-colors duration-300 ease-in-out`}>
                             {item.name}
                         </span>
                     </div>

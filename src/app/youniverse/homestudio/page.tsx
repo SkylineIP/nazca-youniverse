@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Image from "next/image";
 import { useRouter } from 'next/navigation'
 import { useContextDefault } from '@/context/Context';
+import PositionedImage from './components/PositionedImage';
 
 const HomeStudio = () => {
     const youstsudiologo = "/homestudio/logo-youstudio-youniverse.png";
@@ -32,6 +33,14 @@ const HomeStudio = () => {
     }
     const context = useContextDefault();
     const { setSelectedItem: setSideSelectedItem } = context || {};
+    type resType = "4k" | "fullhd";
+    const [currentResolution, setCurrentResolution] = useState<resType>("4k");
+    useEffect(() => {
+        const check = () => setCurrentResolution(window.innerWidth >= 3840 ? "4k" : "fullhd");
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+    }, []);
     useEffect(() => {
         setSideSelectedItem?.("home / studio");
     }, [])
@@ -44,7 +53,7 @@ const HomeStudio = () => {
                             src={youhomelogo}
                             alt="YouHome Logo"
                             className={`col-span-6 row-start-5 animate-fade-down animate-duration-[2000ms] duration-1000`}
-                            width={500}
+                            width={960}
                             height={500}
                             key={"youhomelogo"}
                         />
@@ -53,7 +62,7 @@ const HomeStudio = () => {
                                 src={implantacaohome}
                                 alt="Implantação"
                                 className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-100'
-                                width={500}
+                                width={960}
                                 height={500}
                                 onClick={() => {
                                     router.push('/youniverse/homestudio/home?view=implantacao')
@@ -63,7 +72,7 @@ const HomeStudio = () => {
                                 src={imagenshome}
                                 alt="Imagens"
                                 className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-300'
-                                width={500}
+                                width={960}
                                 height={500}
                                 onClick={() => {
                                     router.push('/youniverse/homestudio/home?view=imagens')
@@ -73,7 +82,7 @@ const HomeStudio = () => {
                                 src={plantashome}
                                 alt="Plantas"
                                 className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-500'
-                                width={500}
+                                width={960}
                                 height={500}
                                 onClick={() => {
                                     router.push('/youniverse/homestudio/home?view=plantas')
@@ -88,7 +97,7 @@ const HomeStudio = () => {
                             src={youplexlogo}
                             alt="YouPlex Logo"
                             className={`col-span-6 row-start-5 animate-fade-right animate-duration-[2000ms] duration-1000`}
-                            width={500}
+                            width={960}
                             height={500}
                             key={"youplexlogo"}
                         />
@@ -97,7 +106,7 @@ const HomeStudio = () => {
                                 src={implantacaoplex}
                                 alt="Plantas"
                                 className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-300'
-                                width={500}
+                                width={960}
                                 height={500}
                                 onClick={() => {
                                     router.push('/youniverse/homestudio/plex?view=implantacao')
@@ -107,7 +116,7 @@ const HomeStudio = () => {
                                 src={imagensplex}
                                 alt="Imagens"
                                 className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-500'
-                                width={500}
+                                width={960}
                                 height={500}
                                 onClick={() => {
                                     router.push('/youniverse/homestudio/plex?view=imagens')
@@ -117,7 +126,7 @@ const HomeStudio = () => {
                                 src={plantasplex}
                                 alt="Plantas"
                                 className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-700'
-                                width={500}
+                                width={960}
                                 height={500}
                                 onClick={() => {
                                     router.push('/youniverse/homestudio/plex?view=plantas')
@@ -132,7 +141,7 @@ const HomeStudio = () => {
                             src={youstsudiologo}
                             alt="YouStudio Logo"
                             className={`col-span-6 row-start-5 animate-fade-up animate-duration-[2000ms] duration-1000`}
-                            width={500}
+                            width={960}
                             height={200}
                             key={"youstsudiologo"}
                         />
@@ -141,7 +150,7 @@ const HomeStudio = () => {
                                 src={implantacaostudio}
                                 alt="Implantação"
                                 className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-100'
-                                width={500}
+                                width={960}
                                 height={500}
                                 onClick={() => {
                                     router.push('/youniverse/homestudio/studio?view=implantacao')
@@ -151,7 +160,7 @@ const HomeStudio = () => {
                                 src={imagensstudio}
                                 alt="Imagens"
                                 className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-300'
-                                width={500}
+                                width={960}
                                 height={500}
                                 onClick={() => {
                                     router.push('/youniverse/homestudio/studio?view=imagens')
@@ -161,7 +170,7 @@ const HomeStudio = () => {
                                 src={plantas}
                                 alt="Plantas"
                                 className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-500'
-                                width={500}
+                                width={960}
                                 height={500}
                                 onClick={() => {
                                     router.push('/youniverse/homestudio/studio?view=plantas')
@@ -175,8 +184,8 @@ const HomeStudio = () => {
                 <Image
                     src={touch}
                     alt="Touch Icon"
-                    className={`col-start-1 row-start-1 translate-x-[1070px] translate-y-[950px] w-[400px]`}
-                    width={400}
+                    className={`col-start-1 row-start-1 4k:translate-x-[2170px] 4k:w-[800px] w-[400px] 4k:translate-y-[1850px] translate-x-[1070px] translate-y-[890px]`}
+                    width={800}
                     height={200}
                 />
                 <>
@@ -186,66 +195,27 @@ const HomeStudio = () => {
                         fill
                         className="object-fit col-start-1 row-start-1 animate-fade animate-duration-[2000ms] duration-1000"
                     />
-                    <Image
+                    <PositionedImage
+                        name="YouStudio"
                         src={selectedItem === "YouStudio" ? studiocolored : studio}
-                        alt="Studio"
-                        className={`w-[400px] absolute bottom-[10px] right-[337px] z-20  
-                                ${selectedItem === 'YouStudio' ? ' -translate-y-10' : ''} 
-                                ${selectedItem === 'YouPlex' ? ' -translate-y-0' : ''}
-                                ${selectedItem === 'YouHome' ? ' -translate-y-0' : ''}
-                            transition-all duration-500 ease-in-out animate-fade-down animate-duration-[2000ms] duration-1000`
-                        }
-                        width={400}
-                        height={400}
+                        selectedItem={selectedItem}
+                        setSelectedItem={setSelectedItem}
+                        resolution={currentResolution}
                     />
-                    <Image
+                    <PositionedImage
+                        name="YouPlex"
                         src={selectedItem === "YouPlex" ? plexcolored : plex}
-                        alt="Plex"
-                        className={`w-[320px] absolute bottom-[257px] right-[349px] z-10 
-                                ${selectedItem === 'YouStudio' ? ' -translate-y-20' : ''} 
-                                ${selectedItem === 'YouHome' ? '' : ''}
-                                ${selectedItem === 'YouPlex' ? ' -translate-y-10 ' : ''}
-                            transition-all duration-500 ease-in-out animate-delay-300 animate-fade-down animate-duration-[2000ms] duration-1000`
-                        }
-                        width={320}
-                        height={320}
+                        selectedItem={selectedItem}
+                        setSelectedItem={setSelectedItem}
+                        resolution={currentResolution}
                     />
-                    <Image
+                    <PositionedImage
+                        name="YouHome"
                         src={selectedItem === "YouHome" ? homecolored : home}
-                        alt="Home"
-                        className={`w-[330px] absolute bottom-[345px] right-[345px] 
-                                ${selectedItem === 'YouStudio' ? ' -translate-y-20' : ''} 
-                                ${selectedItem === 'YouHome' ? ' -translate-y-10' : ''}
-                                ${selectedItem === 'YouPlex' ? ' -translate-y-20' : ''}
-                                transition-all duration-500 ease-in-out animate-delay-[600ms] animate-fade-down animate-duration-[2000ms] duration-1000`
-                        }
-                        width={330}
-                        height={330}
+                        selectedItem={selectedItem}
+                        setSelectedItem={setSelectedItem}
+                        resolution={currentResolution}
                     />
-                    <button
-                        onMouseEnter={() => handleMouseEnter('/youniverse/homestudio/home')}
-                        onClick={() => {
-                            setSelectedItem('YouHome');
-                        }}
-                        className="z-50 w-[400px]  h-[190px] col-start-1 row-start-1 self-center justify-self-center translate-x-[340px]"
-                    >
-                    </button>
-                    <button
-                        onMouseEnter={() => handleMouseEnter('/youniverse/homestudio/plex')}
-                        onClick={() => {
-                            setSelectedItem('YouPlex');
-                        }}
-                        className="z-50 w-[400px]  h-[120px] col-start-1 row-start-1 self-center justify-self-center translate-x-[340px] translate-y-[160px]"
-                    >
-                    </button>
-                    <button
-                        onMouseEnter={() => handleMouseEnter('/youniverse/homestudio/studio')}
-                        onClick={() => {
-                            setSelectedItem('YouStudio');
-                        }}
-                        className="z-50 w-[400px]  h-[120px] col-start-1 row-start-1 self-center justify-self-center translate-x-[340px] translate-y-[290px]"
-                    >
-                    </button>
                 </>
             </div>
         </>
