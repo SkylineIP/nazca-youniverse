@@ -14,6 +14,13 @@ interface HomeStudioSidebarProps {
 const HomeStudioSidebar = ({ logo, buttons, selectedItem, onSelectItem, color }: HomeStudioSidebarProps) => {
   const router = useRouter();
   const sidebarButtons = buttons
+  const [buttonSize, setButtonSize] = React.useState<number>(30);
+  React.useEffect(() => {
+    const check = () => setButtonSize(window.innerWidth >= 3840 ? 60 : 30);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   return (
     <div className='col-span-5 row-span-24 grid grid-cols-4 grid-rows-24 border-r border-[#12100B] '>
@@ -78,9 +85,9 @@ const HomeStudioSidebar = ({ logo, buttons, selectedItem, onSelectItem, color }:
       <div className='col-span-5 row-span-1 flex row-start-23 justify-center items-center gap-4'>
         <Image onClick={() => {
           router.push('/menu-youniverse')
-        }} src="/util/b-home-youniverse-nazca.svg" key={"home"} alt="Home" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2 w-[30px] animate-fade-up animate-delay-100 duration-1000' width={30} height={30} />
-        <Image src="/util/b-duvida-youniverse-nazca.svg" key={"duvida"} alt="Dúvidas" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2 w-[30px] animate-fade-up animate-delay-300 duration-1000' width={30} height={30} />
-        <Image src="/util/b-som-youniverse-nazca.svg" key={"som"} alt="Som" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2 w-[30px] animate-fade-up animate-delay-500 duration-1000' width={30} height={30} />
+        }} src="/util/b-home-youniverse-nazca.svg" key={"home"} alt="Home" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-100 duration-1000' width={buttonSize} height={buttonSize} />
+        <Image src="/util/b-duvida-youniverse-nazca.svg" key={"duvida"} alt="Dúvidas" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-300 duration-1000' width={buttonSize} height={buttonSize} />
+        <Image src="/util/b-som-youniverse-nazca.svg" key={"som"} alt="Som" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-500 duration-1000' width={buttonSize} height={buttonSize} />
       </div>
     </div>
   )

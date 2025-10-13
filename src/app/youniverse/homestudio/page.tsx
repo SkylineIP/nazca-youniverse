@@ -180,7 +180,7 @@ const HomeStudio = () => {
                     </>
                 )}
             </div>
-            <div className="col-start-6 col-span-13 row-span-24 relative grid">
+            <div className="col-start-6 col-span-13 row-span-24 relative grid bg-black">
                 <Image
                     src={touch}
                     alt="Touch Icon"
