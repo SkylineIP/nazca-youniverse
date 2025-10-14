@@ -69,7 +69,7 @@ const HomeStudioSidebar = ({ logo, buttons, selectedItem, onSelectItem, color }:
             '--arrow-color': color 
           } as React.CSSProperties}
           className={`
-                            relative px-8 py-2 h-full w-full 
+                            relative px-8 py-2 4k:py-4 h-full w-full 
                             text-2xl 4k:text-5xl uppercase font-impact 
                             text-white
                             transition-colors duration-300 ease-in-out

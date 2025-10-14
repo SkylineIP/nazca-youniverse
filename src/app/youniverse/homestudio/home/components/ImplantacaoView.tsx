@@ -272,7 +272,7 @@ const ImplantacaoView = () => {
                             className="cursor-pointer transition-all ease-in-out animate-fade-up duration-1000"
                         >
                             <span
-                                className={`relative 4k:text-3xl uppercase font-aviano px-4 py-2 transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 after:right-[-20px] after:border-t-[20px] after:border-b-[20px] after:border-l-[20px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 ${menuSelected === button.name
+                                className={`relative text-xl 4k:text-3xl uppercase font-aviano px-4 py-2 transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 4k:after:right-[-25px] 4k:after:border-t-[25px] 4k:after:border-b-[25px] 4k:after:border-l-[25px] after:right-[-20px] after:border-t-[20px] after:border-b-[20px] after:border-l-[20px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 ${menuSelected === button.name
                                     ? "bg-[#A39126] text-white after:border-l-[#A39126]"
                                     : "text-black after:border-l-transparent"}`}
                             >
@@ -284,7 +284,7 @@ const ImplantacaoView = () => {
                 </div>
             )}
             {submenuSelected === '6º pavimento' && (
-                <div className='row-start-18 col-start-7 col-span-17 row-span-5 grid grid-flow-col grid-rows-7 gap-x-4'>
+                <div className='row-start-18 col-start-7 col-span-17 row-span-5 grid grid-flow-col grid-rows-7 gap-x-4 gap-y-3'>
                     {menu6implantacao.map((button, index) => (
                         <button
                             key={index}
@@ -292,7 +292,7 @@ const ImplantacaoView = () => {
                             className="cursor-pointer transition-all ease-in-out animate-fade-up duration-1000"
                         >
                             <span
-                                className={`relative text-md 4k:text-3xl uppercase font-aviano px-4 text-center transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 after:right-[-9px] after:border-t-[9px] after:border-b-[9px] after:border-l-[9px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 ${menuSelected === button.name
+                                className={`relative text-md 4k:text-3xl uppercase font-aviano px-4 py-2 transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 4k:after:right-[-25px] 4k:after:border-t-[25px] 4k:after:border-b-[25px] 4k:after:border-l-[25px] after:right-[-17px] after:border-t-[17px] after:border-b-[17px] after:border-l-[17px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 ${menuSelected === button.name
                                     ? "bg-[#A39126] text-white after:border-l-[#A39126]"
                                     : "text-black after:border-l-transparent"}`}
                             >
@@ -306,7 +306,7 @@ const ImplantacaoView = () => {
             <Image
                 src={touch}
                 alt="Touch"
-                className='absolute bottom-0 right-4 w-[350px] h-[150px] object-contain animate-fade animate-delay-500 duration-1000'
+                className='absolute bottom-0 4k:bottom-10 right-4 w-[350px] 4k:w-[800px] h-[150px] object-contain animate-fade animate-delay-500 duration-1000'
                 width={350}
                 height={150}
             />
