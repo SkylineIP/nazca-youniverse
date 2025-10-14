@@ -40,15 +40,15 @@ const OrientationWarning = () => (
 );
 
 const FullscreenPrompt = ({ onEnter }: { onEnter: () => void }) => (
-  <div className="fixed inset-0 z-[9999] font-aviano bg-black/70 flex items-center justify-center">
-    <div className="bg-white p-8 rounded-lg shadow-lg text-center flex flex-col items-center gap-4">
-      <h2 className="text-2xl font-bold text-gray-800">Melhor Experiência em Tela Cheia</h2>
-      <p className="text-gray-600">
+  <div className="fixed inset-0 z-[9999] font-aviano bg-black/70  flex items-center justify-center">
+    <div className="bg-white p-8 4k:p-16 rounded-lg shadow-lg text-center flex flex-col items-center gap-4 4k:gap-8">
+      <h2 className="text-2xl 4k:text-6xl font-bold text-gray-800">Melhor Experiência em Tela Cheia</h2>
+      <p className="text-gray-600 4k:text-4xl">
         Para uma visualização imersiva, recomendamos ativar o modo de tela cheia.
       </p>
       <button
         onClick={onEnter}
-        className="mt-4 px-6 py-2 bg-[#00a0dfda] text-white font-semibold rounded-lg hover:bg-[#048abede] transition-colors"
+        className="mt-4 px-6 py-2 4k:py-6 bg-[#00a0dfda] 4k:text-3xl text-white font-semibold rounded-lg hover:bg-[#048abede] transition-colors"
       >
         Entrar em Tela Cheia
       </button>
