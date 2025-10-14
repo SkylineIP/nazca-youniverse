@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createTheme } from "@mui/material/styles";
 import useOrientation from "./components/verificaOrientacao";
 import { ThemeProvider } from "@mui/material/styles";
@@ -39,14 +39,52 @@ const OrientationWarning = () => (
   </div>
 );
 
+const FullscreenPrompt = ({ onEnter }: { onEnter: () => void }) => (
+  <div className="fixed inset-0 z-[9999] font-aviano bg-black/70 flex items-center justify-center">
+    <div className="bg-white p-8 rounded-lg shadow-lg text-center flex flex-col items-center gap-4">
+      <h2 className="text-2xl font-bold text-gray-800">Melhor Experiência em Tela Cheia</h2>
+      <p className="text-gray-600">
+        Para uma visualização imersiva, recomendamos ativar o modo de tela cheia.
+      </p>
+      <button
+        onClick={onEnter}
+        className="mt-4 px-6 py-2 bg-[#00a0dfda] text-white font-semibold rounded-lg hover:bg-[#048abede] transition-colors"
+      >
+        Entrar em Tela Cheia
+      </button>
+    </div>
+  </div>
+);
+
 export default function ThemeRegistry({ children }: { children: React.ReactNode }) {
   const isLandscape = useOrientation();
   const context = useContextDefault();
   const abrirImagensTelaCheia = context?.abrirImagensTelaCheia;
+  const [isFullscreen, setIsFullscreen] = useState(true);
 
+  useEffect(() => {
+    const checkFullscreen = () => {
+      const currentlyFullscreen = !!document.fullscreenElement;
+      setIsFullscreen(currentlyFullscreen);
+    };
+    const timer = setTimeout(checkFullscreen, 500);
+
+    // Listen for changes in fullscreen status.
+    document.addEventListener("fullscreenchange", checkFullscreen);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("fullscreenchange", checkFullscreen);
+    };
+  }, []); // Empty dependency array ensures this runs only once on mount.
+
+  const handleEnterFullscreen = () => {
+    document.documentElement.requestFullscreen().catch(console.error);
+  };
   return (
     <ThemeProvider theme={theme}>
       {/* pathname === '/' || pathname === '/menu' ? '' : <BarraLateral /> */}
+      {!isFullscreen && <FullscreenPrompt onEnter={handleEnterFullscreen} />}
       {isLandscape ? children : <OrientationWarning />}
       {abrirImagensTelaCheia?.open && (<TelaCheia />)}
       <Music />
