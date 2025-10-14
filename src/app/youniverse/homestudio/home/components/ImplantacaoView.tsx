@@ -211,12 +211,6 @@ const ImplantacaoView = () => {
         prevMenuSelectedRef.current = menuSelected;
     }, [menuSelected]);
 
-    const selectedStyle = {
-        "4k": "scale-[70%] -translate-x-100",
-        "default": "scale-[70%] -translate-x-100"
-    }
-
-
     return (
         <>
             <span className='col-start-7 col-span-7 uppercase row-start-3 text-4xl 4k:text-8xl text-[#414042] font-impact animate-fade-down animate-duration-[2000ms] duration-1000'>
