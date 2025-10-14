@@ -34,14 +34,14 @@ const MenuYou = () => {
                     router.push('/youniverse/homestudio')
                 }} src="/menu/homestudio.png" key={"homestudio"} alt="Home Studio" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out animate-fade-right animate-delay-1000 duration-1000' width={3840} height={2160} />
                 <Image onClick={() => {
-                    // router.push('/youniverse/parceiros')s
+                    // router.push('/youniverse/parceiros')
                 }} src="/menu/parceiros.png" key={"parceiros"} alt="Parceiros" className='transition-transform blur-xs duration-300 ease-in-out animate-fade-left animate-delay-[1200ms] duration-1000' width={3840} height={2160} />
                 <div className='flex w-full justify-center items-center gap-4'>
                     <Image onClick={() => {
                         router.push('/')
-                    }} src="/util/b-home-youniverse-nazca.svg" key={"home"} alt="Home" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2 w-[30px] animate-fade-up animate-delay-100 duration-1000' width={buttonSize} height={buttonSize} />
-                    <Image src="/util/b-duvida-youniverse-nazca.svg" key={"duvida"} alt="Dúvidas" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2 w-[30px] animate-fade-up animate-delay-300 duration-1000' width={buttonSize} height={buttonSize} />
-                    <Image src="/util/b-som-youniverse-nazca.svg" key={"som"} alt="Som" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2 w-[30px] animate-fade-up animate-delay-500 duration-1000' width={buttonSize} height={buttonSize} />
+                    }} src="/util/b-home-youniverse-nazca.svg" key={"home"} alt="Home" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-100 duration-1000' width={buttonSize} height={buttonSize} />
+                    <Image src="/util/b-duvida-youniverse-nazca.svg" key={"duvida"} alt="Dúvidas" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-300 duration-1000' width={buttonSize} height={buttonSize} />
+                    <Image src="/util/b-som-youniverse-nazca.svg" key={"som"} alt="Som" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-500 duration-1000' width={buttonSize} height={buttonSize} />
                 </div>
             </div>
         </div>

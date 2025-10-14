@@ -68,7 +68,7 @@ const getAnimationClass = (originalClass: string, isVisible: boolean) => {
 };
 
 const Descanso = () => {
-    const [currentIndex, setCurrentIndex] = useState(3);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
     const router = useRouter();
 
@@ -79,7 +79,7 @@ const Descanso = () => {
 
         const interval = setInterval(() => {
             setIsVisible(false); // Start fade-out
-        }, 50000);
+        }, 5000);
 
         return () => {
             clearTimeout(initialTimeout);
@@ -98,7 +98,7 @@ const Descanso = () => {
             setCurrentIndex(prev => (prev + 1) % variations.length);
             // Trigger fade-in for the new slide
             setIsVisible(true);
-        }, 100000); // Must match the CSS transition duration
+        }, 1000); // Must match the CSS transition duration
 
         return () => clearTimeout(timeout);
     }, [isVisible]);

@@ -17,18 +17,6 @@ import { useContextDefault } from '@/context/Context';
 
 
 const Conceito = () => {
-    // const menu1 = "/conceito/b-submenu-conceito-nazca-youniverse-6.png";
-    // const menu2 = "/conceito/b-submenu-conceito-nazca-youniverse.png";
-    // const menu3 = "/conceito/b-submenu-conceito-nazca-youniverse-1.png";
-    // const menu4 = "/conceito/b-submenu-conceito-nazca-youniverse-2.png";
-    // const menu5 = "/conceito/b-submenu-conceito-nazca-youniverse-3.png";
-    // const menu6 = "/conceito/b-submenu-conceito-nazca-youniverse-4.png";
-    // const youshops1 = "/conceito/youshops-nazca-youniverse.png";
-    // const youshops2 = "/conceito/youshops2-nazca-youniverse.png";
-    // const youwork = "/conceito/youwork-nazca-youniverse.png";
-    // const youstudio = "/conceito/studio-nazca-youniverse.png";
-    // const youplex = "/conceito/flex-nazca-youniverse.png";
-    // const youhome = "/conceito/home-nazca-youniverse.png";
 
     const [selectedMenu, setSelectedMenu] = React.useState(menu1);
     const [showYoushops1, setShowYoushops1] = React.useState(true);
