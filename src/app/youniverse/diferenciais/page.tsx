@@ -13,7 +13,7 @@ const DiferenciaisPage = () => {
     <Image
       src="/diferenciais/diferenciais-youniverse-nazca.png"
       alt="Diferenciais"
-      className='col-start-6 col-span-19 row-start-3 row-span-24 w-full h-full object-cover animate-fade-down animate-duration-[2000ms] duration-1000'
+      className='col-start-6 col-span-19 row-start-3 row-span-24 w-full h-full object-contain animate-fade-down animate-duration-[2000ms] duration-1000'
       width={3840}
       height={2160}
     />
