@@ -1,6 +1,6 @@
 {
   "name": "nazca-youniverse",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "main": "main/main.mjs",
   "author": {
@@ -14,18 +14,23 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build-electron": "dotenv -e .env -- electron-builder --publish never"
+    "build-electron": "dotenv -e .env -- electron-builder --publish always"
   },
   "build": {
+    "appId": "com.skylineip.nazca",
+    "productName": "Nazca Youniverse",
+    "directories": {
+      "output": "dist"
+    },
     "files": [
-      "main/preload.js",
-      "main/main.mjs",
-      "dist/**",
-      "out/**",
-      "public/**",
-      "node_modules/**",
+      "main/**/*",
+      "out/**/*",
       "package.json"
-    ]
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "/public/icon.ico"
+    }
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

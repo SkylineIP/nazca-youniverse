@@ -4,15 +4,15 @@
   "directories": {
     "output": "dist"
   },
-  "forceCodeSigning": false,
   "files": [
-    "main",
-    "out",
-    "main/preload.js",
-    "package.json"
+    "main/**/*",
+    "out/**/*",
+    "package.json",
+    "node_modules/**/*"
   ],
   "win": {
     "target": "nsis",
     "icon": "/public/icon.ico"
   }
 }
+

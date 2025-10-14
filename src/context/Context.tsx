@@ -16,7 +16,7 @@ export interface AbrirImagensTelaCheia {
 
 export interface Context {
   sound: number;
-  toogleSound: (path: string) => void;
+  toogleSound: () => void;
   submenu: string;
   selected: string;
   setSubmenuAndSelected: (submenu: string, selected: string) => void;

@@ -24,7 +24,7 @@ export default function ScrollSlider({
     const scrollRef = useRef<HTMLDivElement>(null);
     const [scrollValue, setScrollValue] = useState(100);
 
-    const thumbHeight = 120;
+    const thumbHeight = 230;
 
     const handleSliderChange = (_: Event, newValue: number | number[]) => {
     if (!scrollRef.current) return;
@@ -55,7 +55,7 @@ export default function ScrollSlider({
     setScrollValue(clampedPercentage);
 };
     return (
-        <div className="flex gap-4 h-full">
+        <div className="flex gap-4 h-full ml-40">
             <div
                 ref={scrollRef}
                 onScroll={handleScroll}
@@ -70,8 +70,8 @@ export default function ScrollSlider({
                         <Image
                             src={img.src}
                             alt={img.alt || `Image ${index + 1}`}
-                            width={200}
-                            height={200}
+                            width={350}
+                            height={400}
                             className="object-contain hover:scale-105 transition-transform duration-300"
                         />
                     </button>
@@ -91,7 +91,8 @@ export default function ScrollSlider({
                     "& .MuiSlider-thumb": {
                         ...(thumbImage
                             ? {
-                                height: 120,
+                                height: 230,
+                                width: 40,
                                 backgroundImage: `url(${thumbImage})`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
@@ -109,7 +110,7 @@ export default function ScrollSlider({
                     "& .MuiSlider-rail": {
                         opacity: 1,
                         backgroundColor: color,
-                        width: 10
+                        width: 20
                     },
                 }}
                 onChange={handleSliderChange}

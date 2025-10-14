@@ -85,9 +85,9 @@ const ImplantacaoView = () => {
     const selectedMenuButton = menuButtons.find(button => button.name === menuSelected)?.image;
     return (
         <>
-            <span className='col-start-7 col-span-8 uppercase row-start-3 text-5xl text-[#414042] font-impact animate-fade-down animate-duration-[2000ms] duration-1000'>
+            <span className='col-start-7 col-span-8 uppercase row-start-3 text-5xl 4k:text-8xl text-[#414042] font-impact animate-fade-down animate-duration-[2000ms] duration-1000'>
                 Implantação do 3º Pavimento
-                <span className='block text-xl mt-2 text-right font-aviano'>
+                <span className='block text-xl 4k:text-5xl mt-2 text-right font-aviano'>
                     Youstudio/YOuplex
                 </span>
             </span>
@@ -95,13 +95,13 @@ const ImplantacaoView = () => {
                 <Image
                     src={implantacao}
                     alt="Rooftop"
-                    className={`w-full h-full object-contain animate-fade-up animate-duration-[2000ms] duration-1000 transition-transform ease-in-out ${menuSelected !== "" ? "scale-[70%] -translate-x-50" : ""}`}
-                    width={1920}
-                    height={1080}
+                    className={`w-full h-full object-contain animate-fade-up animate-duration-[2000ms] duration-1000 transition-transform ease-in-out ${menuSelected !== "" ? "scale-[70%] -translate-x-100" : ""}`}
+                    width={3840}
+                    height={2160}
                 />
                 {selectedMenuButton && (
                     <button
-                        className='object-contain w-[500px] transform translate-x-[800px] -translate-y-[500px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000 ease-in-out'
+                        className='object-contain w-[1000px] transform translate-x-[1500px] -translate-y-[1000px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000 ease-in-out'
                         onClick={() => {
                             if (setAbrirImagensTelaCheia) {
                                 const imagesForFullscreen = expImages.map(img => ({ src: img.image as unknown as StaticImageData, alt: img.name }));
@@ -114,7 +114,7 @@ const ImplantacaoView = () => {
                             }
                         }}
                     >
-                        <Image src={selectedMenuButton} alt={menuSelected} width={1920} height={1080} className='object-contain' />
+                        <Image src={selectedMenuButton} alt={menuSelected} width={3840} height={2160} className='object-contain' />
                     </button>
                 )}
                 {menuSelected && toViewBox && (
@@ -131,9 +131,17 @@ const ImplantacaoView = () => {
                         className="cursor-pointer transition-all ease-in-out animate-fade-up duration-1000"
                     >
                         <span
-                            className={`relative text-xl uppercase font-aviano px-4 py-2 transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 after:right-[-20px] after:border-t-[20px] after:border-b-[20px] after:border-l-[20px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 ${menuSelected === button.name
-                                ? "bg-[#CC654B] text-white after:border-l-[#CC654B]"
-                                : "text-black after:border-l-transparent"}`}
+                            className={`relative text-xl 4k:text-3xl uppercase font-aviano px-4 py-2 4k:px-8 4k:py-4 
+        transition-colors duration-300 ease-in-out 
+        after:content-[''] after:absolute after:top-0 
+        after:right-[-20px] 4k:after:right-[-33px] 
+        after:border-t-[20px] after:border-b-[20px] after:border-l-[20px] 
+        4k:after:border-t-[33px] 4k:after:border-b-[33px] 4k:after:border-l-[33px] 
+        after:border-t-transparent after:border-b-transparent 
+        after:transition-colors after:ease-in-out after:duration-300 
+        ${menuSelected === button.name
+                                    ? "bg-[#CC654B] text-white after:border-l-[#CC654B]"
+                                    : "text-black after:border-l-transparent"}`}
                         >
                             {button.name}
                         </span>
@@ -144,9 +152,9 @@ const ImplantacaoView = () => {
             <Image
                 src={touch}
                 alt="Touch"
-                className='absolute bottom-0 right-4 w-[350px] h-[150px] object-contain animate-fade animate-delay-500 duration-1000'
-                width={350}
-                height={150}
+                className='absolute bottom-20 right-4 object-contain animate-fade animate-delay-500 duration-1000'
+                width={800}
+                height={250}
             />
         </>
     )

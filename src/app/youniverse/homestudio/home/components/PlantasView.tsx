@@ -51,16 +51,16 @@ const PlantasView = () => {
                 src={plantasYouHome[selectedPlantaKey].frame}
                 alt="plantas"
                 className='object-contain col-span-19 row-span-17 col-start-6 row-start-2 relative animate-fade-down animate-duration-[2000ms] duration-1000'
-                width={1920}
-                height={1080}
+                width={3840}
+                height={2160}
             />
             <Image
                 key={selectedPlantaKey + currentPlantaImageIndex}
                 src={selectedPlanta.plantas[currentPlantaImageIndex]}
                 alt="plantas"
-                className='object-contain col-span-10 row-span-14 col-start-6 row-start-6 translate-x-[380px] relative animate-fade-down animate-duration-[2000ms] duration-1000 z-10'
-                width={1920}
-                height={1080}
+                className='object-contain col-span-10 4k:translate-x-[800px] row-span-14 col-start-6 row-start-6 translate-x-[380px] relative animate-fade-down animate-duration-[2000ms] duration-1000 z-10'
+                width={3840}
+                height={2160}
             />
             {selectedPlanta.plantas.length > 1 && (
                 <button
@@ -70,7 +70,7 @@ const PlantasView = () => {
                     <Image
                         src={currentPlantaImageIndex === 0 ? "/homestudio/buttons/b-ver-opcao-decorado.png" : "/homestudio/buttons/b-voltar.png"}
                         alt={currentPlantaImageIndex === 0 ? "Ver opção 2" : "Ver opção 1"}
-                        width={372}
+                        width={600}
                         height={103}
                         className="object-contain hover:cursor-pointer transition-transform"
                     />

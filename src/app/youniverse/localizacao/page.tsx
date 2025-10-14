@@ -23,8 +23,8 @@ const LocalizacaoPage = () => {
           src={proximidades}
           alt="Proximidades"
           className='col-start-6 col-span-19 row-start-3 row-span-18 w-full h-full object-cover animate-fade-down animate-duration-[2000ms] duration-1000'
-          width={1920}
-          height={1080}
+          width={3840}
+          height={2160}
         />
       )}
       {selectedMenu === 'Mapa Ilustrado' && (
@@ -32,8 +32,8 @@ const LocalizacaoPage = () => {
           src={mapailustrado}
           alt="Mapa Ilustrado"
           className='col-start-6 col-span-19 row-start-3 row-span-18 w-full h-full object-cover animate-fade-down animate-duration-[2000ms] duration-1000'
-          width={1920}
-          height={1080}
+          width={3840}
+          height={2160}
         />
       )}
       {selectedMenu === 'Mapas' && (
@@ -42,7 +42,7 @@ const LocalizacaoPage = () => {
         </div>
 
       )}
-      <div className='relative col-span-19 row-span-2 row-start-23 col-start-6 flex justify-around items-center gap-4 px-32'>
+      <div className='relative col-span-19 row-span-2 row-start-23 4k:text-5xl text-[24px] col-start-6 flex justify-around items-center gap-4 px-32'>
         {menuItems.map(item => (
           <div
             key={item.name + "-bg"}
@@ -62,7 +62,7 @@ const LocalizacaoPage = () => {
             className="relative cursor-pointer p-4"
             onClick={() => setSelectedMenu(item.name)}
           >
-            <span className={`text-[24px] relative uppercase ${selectedMenu === item.name ? 'font-impact text-[#12100B]' : 'font-aviano text-[#12100B]'} transition-colors duration-300 ease-in-out`}>
+            <span className={` relative uppercase ${selectedMenu === item.name ? 'font-impact text-[#12100B]' : 'font-aviano text-[#12100B]'} transition-colors duration-300 ease-in-out`}>
               {item.name}
             </span>
           </div>

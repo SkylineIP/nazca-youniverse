@@ -68,7 +68,7 @@ const getAnimationClass = (originalClass: string, isVisible: boolean) => {
 };
 
 const Descanso = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(3);
     const [isVisible, setIsVisible] = useState(false);
     const router = useRouter();
 
@@ -79,7 +79,7 @@ const Descanso = () => {
 
         const interval = setInterval(() => {
             setIsVisible(false); // Start fade-out
-        }, 5000);
+        }, 50000);
 
         return () => {
             clearTimeout(initialTimeout);
@@ -98,7 +98,7 @@ const Descanso = () => {
             setCurrentIndex(prev => (prev + 1) % variations.length);
             // Trigger fade-in for the new slide
             setIsVisible(true);
-        }, 1000); // Must match the CSS transition duration
+        }, 100000); // Must match the CSS transition duration
 
         return () => clearTimeout(timeout);
     }, [isVisible]);
@@ -113,8 +113,8 @@ const Descanso = () => {
                     src={currentVariation.image}
                     alt={currentVariation.alt}
                     className={getAnimationClass(currentVariation.classnames.first, isVisible)}
-                    width={1920}
-                    height={1080}
+                    width={3840}
+                    height={2160}
                 />
             )}
             {currentVariation.image2 && (
@@ -123,8 +123,8 @@ const Descanso = () => {
                     src={currentVariation.image2}
                     alt={currentVariation.alt2}
                     className={getAnimationClass(currentVariation.classnames.second, isVisible)}
-                    width={1920}
-                    height={1080}
+                    width={3840}
+                    height={2160}
                 />
             )}
             {currentVariation.image3 && (
@@ -133,8 +133,8 @@ const Descanso = () => {
                     src={currentVariation.image3}
                     alt={currentVariation.alt3}
                     className={getAnimationClass(currentVariation.classnames.third, isVisible)}
-                    width={1920}
-                    height={1080}
+                    width={3840}
+                    height={2160}
                 />
             )}
             {currentVariation.image4 && (
@@ -143,8 +143,8 @@ const Descanso = () => {
                     src={currentVariation.image4}
                     alt={currentVariation.alt4}
                     className={getAnimationClass(currentVariation.classnames.fourth, isVisible)}
-                    width={1920}
-                    height={1080}
+                    width={3840}
+                    height={2160}
                 />
             )}
             {currentVariation.image5 && (
@@ -153,16 +153,16 @@ const Descanso = () => {
                     src={currentVariation.image5}
                     alt={currentVariation.alt5}
                     className={getAnimationClass(currentVariation.classnames.fifth, isVisible)}
-                    width={1920}
-                    height={1080}
+                    width={3840}
+                    height={2160}
                 />
             )}
             <Image
                 src="/descanso/touchyouniverse.png"
                 alt="Touch Icon"
                 className={`col-span-4 col-start-11 row-start-20 animate-pulse animate-duration-[2000ms] z-50 cursor-pointer hover:scale-105 transition-transform  ease-in-out`}
-                width={200}
-                height={200}
+                width={640}
+                height={270}
                 onClick={() => {
                     router.push('/menu-youniverse');
                 }}
