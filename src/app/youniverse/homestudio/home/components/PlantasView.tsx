@@ -72,7 +72,7 @@ const PlantasView = () => {
                         alt={currentPlantaImageIndex === 0 ? "Ver opção 2" : "Ver opção 1"}
                         width={600}
                         height={103}
-                        className="object-contain hover:cursor-pointer transition-transform"
+                        className="object-contain hover:cursor-pointer transition-transform 4k:w-[600px] w-[300px] "
                     />
                 </button>
             )}

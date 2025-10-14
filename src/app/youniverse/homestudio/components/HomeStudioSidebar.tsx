@@ -61,7 +61,7 @@ const HomeStudioSidebar = ({ logo, buttons, selectedItem, onSelectItem, color }:
         onClick={() => {
           router.push('/youniverse/homestudio')
         }}
-        className='col-span-2 row-span-1 flex items-start row-start-19 cursor-pointer transition-transform duration-300 ease-in-out animate-fade-right animate-delay-[1200ms] duration-1000'
+        className='col-span-2 row-span-1 flex items-center row-start-19 cursor-pointer transition-transform duration-300 ease-in-out animate-fade-right animate-delay-[1200ms] duration-1000'
       >
         <span
           style={{ 
@@ -69,13 +69,13 @@ const HomeStudioSidebar = ({ logo, buttons, selectedItem, onSelectItem, color }:
             '--arrow-color': color 
           } as React.CSSProperties}
           className={`
-                            relative px-8 py-4 h-full w-full 
-                            text-xl 4k:text-5xl uppercase font-impact 
+                            relative px-8 py-2 h-full w-full 
+                            text-2xl 4k:text-5xl uppercase font-impact 
                             text-white
                             transition-colors duration-300 ease-in-out
-                            after:content-[''] after:absolute after:top-0 after:right-[-45px] 
+                            after:content-[''] after:absolute after:top-0 4k:after:right-[-45px] after:right-[-21px] after:border-t-[21px] after:border-l-[21px] after:border-b-[21px]
                             after:w-0 after:h-0 tracking-[8px]
-                            after:border-t-[45px] after:border-b-[45px] after:border-l-[45px]
+                            4k:after:border-t-[45px] 4k:after:border-b-[45px] 4k:after:border-l-[45px]
                             after:border-t-transparent after:border-b-transparent after:border-l-[var(--arrow-color)]
                             `}
         >

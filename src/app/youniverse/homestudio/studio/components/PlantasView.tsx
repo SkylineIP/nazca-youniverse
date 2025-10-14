@@ -55,7 +55,7 @@ const PlantasView = () => {
                 src={selectedPlanta.plantas[currentPlantaImageIndex]}
                 key={selectedPlantaKey + currentPlantaImageIndex}
                 alt="plantas"
-                className="object-contain col-span-10 row-span-14 col-start-6 row-start-6 translate-x-[650px] relative animate-fade-down animate-duration-[2000ms] duration-1000 z-10"
+                className="object-contain col-span-10 row-span-14 col-start-6 row-start-6 4k:translate-x-[650px] translate-x-[300px] relative animate-fade-down animate-duration-[2000ms] duration-1000 z-10"
                 width={3840}
                 height={2160}
 
@@ -70,7 +70,7 @@ const PlantasView = () => {
                         alt={currentPlantaImageIndex === 0 ? "Ver opção 2" : "Ver opção 1"}
                         width={600}
                         height={103}
-                        className="object-contain hover:cursor-pointer transition-transform"
+                        className="object-contain hover:cursor-pointer transition-transform 4k:w-[600px] w-[300px]"
                     />
                 </button>
             )}

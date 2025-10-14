@@ -95,13 +95,13 @@ const ImplantacaoView = () => {
                 <Image
                     src={implantacao}
                     alt="Rooftop"
-                    className={`w-full h-full object-contain animate-fade-up animate-duration-[2000ms] duration-1000 transition-transform ease-in-out ${menuSelected !== "" ? "scale-[70%] -translate-x-100" : ""}`}
+                    className={`w-full h-full object-contain animate-fade-up animate-duration-[2000ms] duration-1000 transition-transform ease-in-out ${menuSelected !== "" ? "scale-[70%] -translate-x-50 4k:scale-[70%] 4k:-translate-x-100" : ""}`}
                     width={3840}
                     height={2160}
                 />
                 {selectedMenuButton && (
                     <button
-                        className='object-contain w-[1000px] transform translate-x-[1500px] -translate-y-[1000px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000 ease-in-out'
+                        className='object-contain  4k:w-[1020px] w-[400px] transform 4k:translate-x-[1600px] translate-x-[890px] 4k:-translate-y-[1000px] -translate-y-[430px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000'
                         onClick={() => {
                             if (setAbrirImagensTelaCheia) {
                                 const imagesForFullscreen = expImages.map(img => ({ src: img.image as unknown as StaticImageData, alt: img.name }));
@@ -152,7 +152,7 @@ const ImplantacaoView = () => {
             <Image
                 src={touch}
                 alt="Touch"
-                className='absolute bottom-20 right-4 object-contain animate-fade animate-delay-500 duration-1000'
+                className='absolute bottom-20 right-4 object-contain animate-fade animate-delay-500 duration-1000 4k:w-[800px] w-[400px]'
                 width={800}
                 height={250}
             />

@@ -91,13 +91,13 @@ const ImplantacaoView = () => {
     ]
 
     const rooftopExpImages = [
-        {name: "hall", image: expImage1},
-        {name: "fitness", image: expImage2},
-        {name: "piscina", image: expImage3},
-        {name: "descanso", image: expImage4},
-        {name: "massagem", image: expImage5},
-        {name: "sauna", image: expImage6},
-        {name: "spa interno", image: expImage7},
+        { name: "hall", image: expImage1 },
+        { name: "fitness", image: expImage2 },
+        { name: "piscina", image: expImage3 },
+        { name: "descanso", image: expImage4 },
+        { name: "massagem", image: expImage5 },
+        { name: "sauna", image: expImage6 },
+        { name: "spa interno", image: expImage7 },
     ]
 
 
@@ -211,6 +211,11 @@ const ImplantacaoView = () => {
         prevMenuSelectedRef.current = menuSelected;
     }, [menuSelected]);
 
+    const selectedStyle = {
+        "4k": "scale-[70%] -translate-x-100",
+        "default": "scale-[70%] -translate-x-100"
+    }
+
 
     return (
         <>
@@ -221,14 +226,19 @@ const ImplantacaoView = () => {
                 <Image
                     src={submenuSelected === 'rooftop' ? implantacao : implantacao6}
                     alt="Rooftop"
-                    className={`w-full h-full object-contain animate-fade-up animate-duration-[2000ms] duration-1000 transition-transform ease-in-out ${menuSelected !== "" ? "scale-[70%] -translate-x-100" : ""}`}
+                    className={`
+                    w-full h-full object-contain 
+                    animate-fade-up animate-duration-[2000ms] 
+                    duration-1000 transition-transform ease-in-out
+                    ${menuSelected !== "" ? "scale-[70%] -translate-x-50 4k:scale-[70%] 4k:-translate-x-100" : ""}
+                    `}
 
                     width={3840}
                     height={2160}
                 />
                 {selectedMenuButton && (
                     <button
-                        className='object-contain w-[1020px] transform translate-x-[1600px] -translate-y-[1000px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000'
+                        className='object-contain 4k:w-[1020px] w-[400px] transform 4k:translate-x-[1600px] translate-x-[890px] 4k:-translate-y-[1000px] -translate-y-[430px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000'
                         onClick={() => {
                             const imageSet = submenuSelected === 'rooftop' ? rooftopExpImages : pavimento6ExpImages;
                             const expImageName = menuSelected.split(" ").slice(1).join(" ");
@@ -323,10 +333,12 @@ const ImplantacaoView = () => {
                 {submenuButtons.map((item) => (
                     <div
                         key={item.name}
-                        className="relative cursor-pointer p-4"
-                        style={{
-                            marginLeft: item.name === "rooftop" ? '16rem' : '15rem',
-                        }}
+                        className={`
+                            relative cursor-pointer p-4
+                            ${item.name === 'rooftop'
+                                ? '4k:ml-[16rem]'
+                                : '4k:ml-[15rem]'}
+                            `}
                         onClick={() => { setSubmenuSelected(item.name); setMenuSelected(""); setMenuToMap(item.name === 'rooftop' ? menuButtons : menu6implantacao) }}
                     >
                         <span className={`text-[24px] 4k:text-5xl relative uppercase ${submenuSelected === item.name ? 'font-impact text-[#12100B]' : 'font-aviano text-[#12100B]'} transition-colors duration-300 ease-in-out`}>

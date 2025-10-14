@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import Slider from "@mui/material/Slider";
+import useIs4k from "../hooks/useis4k";
 
 type ScrollSliderProps = {
     images: { src: string; alt?: string }[];
@@ -23,8 +24,9 @@ export default function ScrollSlider({
 }: ScrollSliderProps) {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [scrollValue, setScrollValue] = useState(100);
+    const is4k = useIs4k();
 
-    const thumbHeight = 230;
+    const thumbHeight = is4k ? 230 : 120; 
 
     const handleSliderChange = (_: Event, newValue: number | number[]) => {
     if (!scrollRef.current) return;
@@ -55,7 +57,7 @@ export default function ScrollSlider({
     setScrollValue(clampedPercentage);
 };
     return (
-        <div className="flex gap-4 h-full ml-40">
+        <div className="flex gap-4 h-full 4k:ml-40">
             <div
                 ref={scrollRef}
                 onScroll={handleScroll}
@@ -91,8 +93,8 @@ export default function ScrollSlider({
                     "& .MuiSlider-thumb": {
                         ...(thumbImage
                             ? {
-                                height: 230,
-                                width: 40,
+                                height: is4k ? 230 : 120,
+                                width: is4k ? 40 : 20,
                                 backgroundImage: `url(${thumbImage})`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
@@ -110,7 +112,7 @@ export default function ScrollSlider({
                     "& .MuiSlider-rail": {
                         opacity: 1,
                         backgroundColor: color,
-                        width: 20
+                        width: is4k ? 20 : 10
                     },
                 }}
                 onChange={handleSliderChange}
