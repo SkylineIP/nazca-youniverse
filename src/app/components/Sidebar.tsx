@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Image from "next/image";
 import { useContextDefault } from '@/context/Context'
 import { usePathname, useRouter } from 'next/navigation'
@@ -29,9 +29,6 @@ const Sidebar = () => {
 
   const underMenuSidebar = sidebarRoutes.includes(safePath);
 
-  if (!underMenuSidebar) {
-    return null; // Não renderiza o sidebar se não estiver em uma das rotas especificadas
-  }
   const sidebarButtons = [
     { name: 'Localização', link: '/youniverse/localizacao' },
     { name: 'Projetistas', link: '/youniverse/projetistas' },
@@ -42,14 +39,17 @@ const Sidebar = () => {
   ]
 
   const is4k = typeof window !== 'undefined' && window.innerWidth >= 3840;
-  const [buttonSize, setButtonSize] = React.useState<number>(30);
-  React.useEffect(() => {
+  const [buttonSize, setButtonSize] = useState<number>(30);
+  useEffect(() => {
     const check = () => setButtonSize(window.innerWidth >= 3840 ? 60 : 30);
     check();
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
-
+  
+  if (!underMenuSidebar) {
+    return null; // Não renderiza o sidebar se não estiver em uma das rotas especificadas
+  }
   return (
     <div className='col-span-5 row-span-24 grid grid-cols-5 grid-rows-24 border-r border-[#12100B] 4k:text-5xl text-[24px]'>
       <Image

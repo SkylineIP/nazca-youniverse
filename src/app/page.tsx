@@ -1,10 +1,10 @@
 "use client";
 
-import { redirect, useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import * as React from "react";
-import { useState } from "react";
-import Image from "next/image";
-import FullscreenButton from "./components/FullScreenB";
+// import { useState } from "react";
+// import Image from "next/image";
+// import FullscreenButton from "./components/FullScreenB";
 
 // const Home: React.FC = () => {
 //   const router = useRouter();
