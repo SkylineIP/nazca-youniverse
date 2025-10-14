@@ -68,21 +68,6 @@ img {/* Para navegadores baseados em WebKit */
   .prevent-clicks {
     pointer-events: none;
   }
-  
-  :root {
-    --telainicial: #080830;
-    --telamenu: #1C1463;
-    --background: #2824B4;
-    --foreground: #80FFF8;
-    --menu: #EBF7FD;
-    --menuText: #080830;
-    --submenuimagens: #2824B4;
-    --personalize: #1C1463;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  }
 
   /* @media (prefers-color-scheme: dark) {
     :root {
