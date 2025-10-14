@@ -3,6 +3,7 @@ import "./globals.css";
 import React from "react";
 import { ContextDefault } from "../context/Context";
 import ThemeRegistry from "./materialUITheme";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "Nazca Youniverse",
@@ -17,10 +18,11 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={`bg-background text-foreground font-[Questrial] grid `}>
-          <ContextDefault>
-            <ThemeRegistry>{children}</ThemeRegistry>
-            {/* preciso colocar a barra lateral aqui, porque ela aparece em todas as telas, menos na rota '/' e na rota '/menu'*/}
-          </ContextDefault>
+        <Analytics />
+        <ContextDefault>
+          <ThemeRegistry>{children}</ThemeRegistry>
+          {/* preciso colocar a barra lateral aqui, porque ela aparece em todas as telas, menos na rota '/' e na rota '/menu'*/}
+        </ContextDefault>
       </body>
     </html>
   );
