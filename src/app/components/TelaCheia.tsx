@@ -6,6 +6,7 @@ import { memo, useEffect, useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { usePathname, useSearchParams } from "next/navigation";
+import useIs4k from "../hooks/useis4k";
 
 type AbrirImagensTelaCheia = {
   open: boolean;
@@ -27,6 +28,7 @@ const TelaCheia: React.FC = memo(() => {
   const [currentIndex, setCurrentIndex] = useState(abrirImagensTelaCheia?.currentIndex ?? 0);
   const currentPath = usePathname();
   const searchParams = useSearchParams();
+  const is4k = useIs4k();
 
   const isStudioPage = currentPath.includes('/youniverse/homestudio/studio');
   const isPlexPage = currentPath.includes('/youniverse/homestudio/plex');
@@ -228,8 +230,8 @@ const TelaCheia: React.FC = memo(() => {
           >
             <Image
               src={navImageSet.back}
-              alt="botao para fechar"
-              aria-label="fechar"
+              alt="botao para voltar"
+              aria-label="voltar"
               width={50}
               height={50}
               className="object-contain"
@@ -245,8 +247,8 @@ const TelaCheia: React.FC = memo(() => {
             src={closeImageSrc}
             alt="botao para fechar"
             aria-label="fechar"
-            width={50}
-            height={50}
+            width={is4k ? 150 : 50}
+            height={ is4k ? 150 : 50}
             className="object-contain"
           />
         </button>
@@ -258,8 +260,8 @@ const TelaCheia: React.FC = memo(() => {
           >
             <Image
               src={navImageSet.next}
-              alt="botao para fechar"
-              aria-label="fechar"
+              alt="botao para proximo"
+              aria-label="proximo"
               width={50}
               height={50}
               className="object-contain"
