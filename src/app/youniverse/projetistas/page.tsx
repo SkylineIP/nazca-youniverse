@@ -16,11 +16,12 @@ const ProjetistasPage = () => {
     const suite = "/projetistas/suite-nazca.png";
     const [selectedMenu, setSelectedMenu] = React.useState('João Armentano');
     const menuItems = [
-        { name: 'João Armentano', image: joao, outline: outline1, classname: `col-start-2 pt-6 pl-14 ${selectedMenu !== "João Armentano" ? '-translate-x-10' : ""}` },
-        { name: 'D.G. Projetos', image: dg, outline: outline2, classname: 'col-start-7 pt-6 pl-8' },
-        { name: 'Ricardo', image: ricardo, outline: outline3, classname: 'pt-6 pl-18' },
-        { name: 'Carlos', image: carlos, outline: outline4, classname: 'pt-6 pl-30' },
-        { name: 'Suíte', image: suite, outline: outline5, classname: 'pt-6 pl-40' },
+        // { name: 'João Armentano', image: joao, outline: outline1, classname: `col-start-2 ${selectedMenu !== "João Armentano" ? '-translate-x-10' : ""}` },
+        { name: 'João Armentano', image: joao, outline: outline1, classname: `col-start-2 col-span-3 ${selectedMenu == "João Armentano" ? '' : "xl:-ml-10"}`},
+        { name: 'D.G. Projetos', image: dg, outline: outline2, classname: 'col-start-6 col-span-2' },
+        { name: 'Ricardo Cardim', image: ricardo, outline: outline3, classname: 'col-start-9 col-span-3' },
+        { name: 'Carlos Rossi', image: carlos, outline: outline4, classname: `col-start-12 col-span-3 ${selectedMenu == "Carlos Rossi" ? 'xl:pl-20' : "xl:pl-10"}`  },
+        { name: 'Suíte Arquitetos', image: suite, outline: outline5, classname: `col-start-15 col-span-3 pl-6 xl:col-start-16 ${selectedMenu == "Suíte Arquitetos" ? '' : "xl:-ml-5"}` },
     ];
     const context = useContextDefault();
     const { setSelectedItem: setSelectedItem } = context || {};
@@ -56,10 +57,10 @@ const ProjetistasPage = () => {
                     height={2160}
                 />
             )}
-            {selectedMenu === 'Ricardo' && (
+            {selectedMenu === 'Ricardo Cardim' && (
                 <Image
                     src={ricardo}
-                    alt="Ricardo"
+                    alt="Ricardo Cardim"
                     className='col-start-6 col-span-19 row-span-19 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000'
                     width={3840}
                     height={2160}
@@ -68,13 +69,13 @@ const ProjetistasPage = () => {
             {selectedMenu === 'Carlos' && (
                 <Image
                     src={carlos}
-                    alt="Carlos"
+                    alt="Carlos Rossi"
                     className='col-start-6 col-span-19 row-span-19 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000'
                     width={3840}
                     height={2160}
                 />
             )}
-            {selectedMenu === 'Suíte' && (
+            {selectedMenu === 'Suíte Arquitetos' && (
                 <Image
                     src={suite}
                     alt="Suíte"
@@ -83,16 +84,17 @@ const ProjetistasPage = () => {
                     height={2160}
                 />
             )}
-            <div className='relative col-span-19 4k:text-5xl text-[24px] row-span-2 row-start-23 col-start-6 grid grid-cols-24 grid-rows-2'>
+            <div className='relative col-span-19 row-span-2 row-start-23 col-start-6 grid grid-cols-19 grid-rows-2'>
                 {menuItems.map(item => (
                     <div
                         key={item.name + "-bg"}
-                        className="absolute inset-0 transition-opacity duration-300 ease-in-out"
+                        // className="absolute inset-0 transition-opacity duration-300 ease-in-out"
+                        className="absolute inset-0 col-span-full row-span-2 transition-opacity duration-300 ease-in-out"
                         style={{
                             backgroundImage: `url(${item.outline})`,
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center',
-                            backgroundSize: 'contain',
+                            backgroundSize: '100% 100%',
                             opacity: selectedMenu === item.name ? 1 : 0,
                         }}
                     ></div>
@@ -100,15 +102,15 @@ const ProjetistasPage = () => {
                 {menuItems.map((item, index) => (
                     <div
                         key={item.name}
-                        className={`relative cursor-pointer p-4 4k:pt-18 col-span-4 row-span-2 ${item.classname}`}
+                        className={` flex cursor-pointer row-span-2 z-20 pt-2 text-center justify-center-safe fhd:pt-4 4k:pt-10 ${item.classname}`}
                         onClick={() => setSelectedMenu(item.name)}
-                        style={{
-                            marginLeft: is4k
-                                ? (index === 0 ? "20px" : index === 2 ? "60px" : index === 3 ? "80px" : index === 4 ? "120px" : "0px")
-                                : (index === 0 ? "-30px" :  index === 1 ? "-30px" : index === 2 ? "-30px" : index === 3 ? "-30px" : index === 4 ? "-40px" : "0px")
-                        }}
+                        // style={{
+                        //     marginLeft: is4k
+                        //         ? (index === 0 ? "20px" : index === 2 ? "60px" : index === 3 ? "80px" : index === 4 ? "120px" : "0px")
+                        //         : (index === 0 ? "-30px" :  index === 1 ? "-30px" : index === 2 ? "-30px" : index === 3 ? "-30px" : index === 4 ? "-40px" : "0px")
+                        // }}
                     >
-                        <span className={` relative uppercase whitespace-nowrap ml-8 ${selectedMenu === item.name ? 'font-impact text-[#12100B] ' : 'font-aviano text-[#12100B]'} transition-colors duration-300 ease-in-out`}>
+                        <span className={`text-sm lg:text-base xl:text-[18px] fhd:text-2xl 4k:text-5xl relative uppercase whitespace-nowrap ${selectedMenu === item.name ? 'font-impact text-[#12100B] ' : 'font-aviano text-[#12100B]'} transition-colors duration-300 ease-in-out`}>
                             {item.name}
                         </span>
                     </div>

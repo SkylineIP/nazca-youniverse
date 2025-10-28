@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect } from 'react'
 import Image from "next/image";
+import Videos from '@/app/components/Video';
 import menu1 from "../../../../public/conceito/b-submenu-conceito-nazca-youniverse-6.png";
 import menu2 from "../../../../public/conceito/b-submenu-conceito-nazca-youniverse.png";
 import menu3 from "../../../../public/conceito/b-submenu-conceito-nazca-youniverse-1.png";
@@ -27,6 +28,15 @@ const Conceito = () => {
     }, [])
     return (
         <>
+            {selectedMenu === menu1 && (
+                <div  className='col-start-6 row-start-2 col-span-19 row-span-20 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000 cursor-pointer px-10'>
+                <Videos
+                    videoSrc='/conceito/Filme Conceito - optmized.mp4' // string path
+                    thumb=''
+                />
+
+                </div>
+            )}
             {selectedMenu === menu2 && (
                 showYoushops1 ? (
                     <Image
@@ -82,29 +92,28 @@ const Conceito = () => {
 
 
 
-            <div className='relative col-span-19 row-span-2 row-start-23 col-start-6'>
+            <div className='grid grid-cols-19 grid-rows-2 col-span-19 row-span-2 row-start-23 col-start-6'>
                 <Image
                     src={selectedMenu} // state now holds a string path
                     alt="Conceito"
-                    className='col-span-19 row-span-2 w-full h-full cursor-pointer'
+                    className='col-span-full row-span-2 cursor-pointer z-0'
 
                 />
-                <button className='absolute top-0 w-1/7 h-full' onClick={() => setSelectedMenu(menu1)}>
+                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[50px]' onClick={() => setSelectedMenu(menu1)}>
+                </button>
+                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[50px] ' onClick={() => setSelectedMenu(menu2)}>
 
                 </button>
-                <button className='absolute  top-0 4k:left-[470px] left-[240px] w-1/7 h-full ' onClick={() => setSelectedMenu(menu2)}>
+                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[50px] ' onClick={() => setSelectedMenu(menu3)}>
 
                 </button>
-                <button className='absolute  top-0 4k:left-[990px] right-[810px] w-1/7 h-full ' onClick={() => setSelectedMenu(menu3)}>
+                <button className='row-start-1 col-span-4 row-span-2 z-10 min-h-[50px] ' onClick={() => setSelectedMenu(menu4)}>
 
                 </button>
-                <button className='absolute  top-0 4k:right-[1080px] right-[540px] w-1/7 h-full ' onClick={() => setSelectedMenu(menu4)}>
+                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[50px] ' onClick={() => setSelectedMenu(menu5)}>
 
                 </button>
-                <button className='absolute  top-0 4k:right-[550px] right-70 w-1/7 h-full ' onClick={() => setSelectedMenu(menu5)}>
-
-                </button>
-                <button className='absolute  top-0 4k:right-20 right-10 w-1/7 h-full ' onClick={() => setSelectedMenu(menu6)}>
+                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[50px] ' onClick={() => setSelectedMenu(menu6)}>
 
                 </button>
             </div>

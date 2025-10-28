@@ -28,8 +28,8 @@ const HomeStudio = () => {
         setSideSelectedItem?.("home / studio");
     }, [])
     return (
-        <>
-            <div className='col-start-21 col-span-4 row-span-24 grid grid-cols-4 grid-rows-24'>
+        <div className='w-full h-screen row-span-24 col-span-19 grid grid-cols-19 grid-rows-24'>
+            <div className='col-start-13 row-start-1 col-span-7 row-span-22 grid grid-cols-7 grid-rows-22 z-0'>
                 {selectedItem === 'YouHome' && (
                     <>
                         <Image
@@ -44,7 +44,7 @@ const HomeStudio = () => {
                             <Image
                                 src={implantacaohome}
                                 alt="Implantação"
-                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-100'
+                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-100 !4k:object-right'
                                 width={960}
                                 height={500}
                                 onClick={() => {
@@ -54,7 +54,7 @@ const HomeStudio = () => {
                             <Image
                                 src={imagenshome}
                                 alt="Imagens"
-                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-300'
+                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-300 !4k:object-right'
                                 width={960}
                                 height={500}
                                 onClick={() => {
@@ -64,7 +64,7 @@ const HomeStudio = () => {
                             <Image
                                 src={plantashome}
                                 alt="Plantas"
-                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-500'
+                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-500 !4k:object-right'
                                 width={960}
                                 height={500}
                                 onClick={() => {
@@ -88,7 +88,7 @@ const HomeStudio = () => {
                             <Image
                                 src={implantacaoplex}
                                 alt="Plantas"
-                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-300'
+                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-300 4k:object-right'
                                 width={960}
                                 height={500}
                                 onClick={() => {
@@ -98,7 +98,7 @@ const HomeStudio = () => {
                             <Image
                                 src={imagensplex}
                                 alt="Imagens"
-                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-500'
+                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-500 4k:object-right'
                                 width={960}
                                 height={500}
                                 onClick={() => {
@@ -108,7 +108,7 @@ const HomeStudio = () => {
                             <Image
                                 src={plantasplex}
                                 alt="Plantas"
-                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-700'
+                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-700 4k:object-right'
                                 width={960}
                                 height={500}
                                 onClick={() => {
@@ -123,16 +123,16 @@ const HomeStudio = () => {
                         <Image
                             src={youstsudiologo}
                             alt="YouStudio Logo"
-                            className={`col-span-6 row-start-5 animate-fade-up animate-duration-[2000ms] duration-1000`}
+                            className={`col-span-6 row-span-2 col-start-1 row-start-4 animate-fade-up animate-duration-[2000ms] duration-1000`}
                             width={960}
                             height={200}
                             key={"youstsudiologo"}
                         />
-                        <div className='col-span-4 row-span-4 col-start-1 row-start-12 flex flex-col items-center justify-center gap-16'>
+                        <div className='relative col-span-6 row-span-10 col-start-2 row-start-9 flex flex-col items-center justify-center gap-16'>
                             <Image
                                 src={implantacaostudio}
                                 alt="Implantação"
-                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-100'
+                                className='object-contain right-0 cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-100 4k:object-right'
                                 width={960}
                                 height={500}
                                 onClick={() => {
@@ -142,7 +142,7 @@ const HomeStudio = () => {
                             <Image
                                 src={imagensstudio}
                                 alt="Imagens"
-                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-300'
+                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-300 4k:object-right'
                                 width={960}
                                 height={500}
                                 onClick={() => {
@@ -152,7 +152,7 @@ const HomeStudio = () => {
                             <Image
                                 src={plantas}
                                 alt="Plantas"
-                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-500'
+                                className=' object-contain cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out animate-fade-left animate-duration-[2000ms] duration-1000 animate-delay-500 4k:object-right'
                                 width={960}
                                 height={500}
                                 onClick={() => {
@@ -163,7 +163,7 @@ const HomeStudio = () => {
                     </>
                 )}
             </div>
-            <div className="col-start-6 col-span-15 row-span-24 grid relative">
+            <div className="col-start-1 row-start-6 col-span-12 row-span-20 grid grid-cols-12 relative z-0">
                 <Image
                     src={bgfachada}
                     alt="Home Studio"
@@ -176,15 +176,15 @@ const HomeStudio = () => {
                     onItemSelect={setSelectedItem}
                     selectedItem={selectedItem}
                 />
-                <Image
-                    src={touch}
-                    alt="Touch Icon"
-                    className={`col-start-1 row-start-1 4k:translate-x-[2270px] 4k:w-[800px] w-[400px] 4k:translate-y-[1850px] translate-x-[1070px] translate-y-[890px]`}
-                    width={800}
-                    height={200}
-                />
             </div>
-        </>
+            <Image
+                src={touch}
+                alt="Touch Icon"
+                className={`col-start-15 row-start-23 col-span-5 row-span-1 z-50`}
+                width={800}
+                height={200}
+            />
+        </div>
     )
 }
 

@@ -51,7 +51,7 @@ const Sidebar = () => {
     return null; // Não renderiza o sidebar se não estiver em uma das rotas especificadas
   }
   return (
-    <div className='col-span-5 row-span-24 grid grid-cols-5 grid-rows-24 border-r border-[#12100B] 4k:text-5xl text-[24px]'>
+    <div className='col-span-5 row-span-24 grid grid-cols-5 grid-rows-24 border-r border-[#12100B] text-sm lg:text-base xl:text-[18px] fhd:text-2xl 4k:text-5xl break-normal'>
       <Image
         src="/descanso/logoyouniverse.png"
         alt="Nazca Logo"
@@ -60,7 +60,7 @@ const Sidebar = () => {
         width={800}
         height={180}
       />
-      <div className='grid grid-cols-4 grid-rows-12 col-span-5 row-span-12 row-start-7'>
+      <div className='grid grid-cols-5 grid-rows-12 col-span-5 row-span-12 row-start-7'>
         {sidebarButtons.map((button, index) => (
           <div
             key={index}
@@ -76,7 +76,7 @@ const Sidebar = () => {
             }}
           >
             <div
-              className="absolute inset-0 transition-opacity duration-300 ease-in-out"
+              className="absolute inset-0 transition-opacity duration-300 ease-in-out z-0"
               style={{
                 backgroundImage: `url(/localizacao/outline.png)`,
                 backgroundRepeat: 'no-repeat',
@@ -85,7 +85,7 @@ const Sidebar = () => {
                 opacity: selectedItem === button.name ? 1 : 0,
               }}
             ></div>
-            <span className={`text-[#4A4F54] relative uppercase ${button.name === "parceiros" && "opacity-40 cursor-default"} ${selectedItem === button.name ? 'font-impact' : 'font-aviano'} `}>
+            <span className={`text-[#4A4F54] relative uppercase z-10 ${button.name === "parceiros" && "opacity-40 cursor-default"} ${selectedItem === button.name ? 'font-impact' : 'font-aviano'} `}>
               {button.name}
             </span>
           </div>

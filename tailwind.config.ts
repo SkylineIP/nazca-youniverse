@@ -42,6 +42,7 @@ export default {
         tablet: { min: "601px", max: "900px" },
         mobile: { max: "600px" },
         '4k': { min: '3840px' },
+        'fhd': { min: "1535px", max: "1920px" },
       },
       animation: {
         'spin-slow': 'spin 10s linear infinite',
