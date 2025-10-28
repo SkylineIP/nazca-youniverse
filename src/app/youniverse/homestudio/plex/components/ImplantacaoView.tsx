@@ -91,17 +91,17 @@ const ImplantacaoView = () => {
                     Youstudio/YOuplex
                 </span>
             </span>
-            <div className="relative col-start-8 col-span-15 row-start-5 row-span-13">
+            <div className="relative col-start-7 col-span-9 row-start-8 row-span-8">
                 <Image
                     src={implantacao}
                     alt="Rooftop"
-                    className={`w-full h-full object-contain animate-fade-up animate-duration-[2000ms] duration-1000 transition-transform ease-in-out ${menuSelected !== "" ? "scale-[70%] -translate-x-50 4k:scale-[70%] 4k:-translate-x-100" : ""}`}
-                    width={3840}
-                    height={2160}
+                    className={` object-contain animate-fade-up animate-duration-[2000ms] duration-1000 transition-transform ease-in-out 
+                        ${menuSelected === "" ? "scale-[130%] translate-x-50 4k:scale-[130%] 4k:translate-x-140" : ""}`}
+                    fill
                 />
                 {selectedMenuButton && (
                     <button
-                        className='object-contain 4k:w-[1020px] w-[400px] transform 4k:translate-x-[1600px] translate-x-[890px] 4k:-translate-y-[1000px] -translate-y-[430px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000 ease-in-out'
+                        className='object-contain 4k:w-[1020px] w-[400px] transform 4k:translate-x-[1600px] translate-x-[890px] desktopmini:translate-x-[540px] desktopmini:-translate-y-10 4k:-translate-y-[50px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000'
                         onClick={() => {
                             if (setAbrirImagensTelaCheia) {
                                 const imagesForFullscreen = expImages.map(img => ({ src: img.image as unknown as StaticImageData, alt: img.name }));
@@ -131,9 +131,9 @@ const ImplantacaoView = () => {
                         className="cursor-pointer transition-all ease-in-out animate-fade-up duration-1000"
                     >
                         <span
-                            className={`relative text-xl 4k:text-3xl uppercase font-aviano px-4 py-2 transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 4k:after:right-[-25px] 4k:after:border-t-[25px] 4k:after:border-b-[25px] 4k:after:border-l-[25px] after:right-[-20px] after:border-t-[20px] after:border-b-[20px] after:border-l-[20px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 ${menuSelected === button.name
-                                ? "bg-[#939598] text-white after:border-l-[#939598]"
-                                : "text-black after:border-l-transparent"}`}
+                            className={`relative text-xl desktopmini:text-sm 4k:text-3xl uppercase font-aviano px-4 py-2 transition-colors duration-300 ease-in-out ${menuSelected === button.name
+                                ? "bg-[#939598] text-white "
+                                : "text-black"}`}
                         >
                             {button.name}
                         </span>

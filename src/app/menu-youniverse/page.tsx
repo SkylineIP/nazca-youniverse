@@ -34,8 +34,8 @@ const MenuYou = () => {
                     router.push('/youniverse/homestudio')
                 }} src="/menu/homestudio.png" key={"homestudio"} alt="Home Studio" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out animate-fade-right animate-delay-1000 duration-1000' width={3840} height={2160} />
                 <Image onClick={() => {
-                    // router.push('/youniverse/parceiros')
-                }} src="/menu/parceiros.png" key={"parceiros"} alt="Parceiros" className='transition-transform blur-xs duration-300 ease-in-out animate-fade-left animate-delay-[1200ms] duration-1000' width={3840} height={2160} />
+                    router.push('/youniverse/parceiros')
+                }} src="/menu/parceiros.png" key={"parceiros"} alt="Parceiros" className='hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out animate-fade-left animate-delay-[1200ms] duration-1000' width={3840} height={2160} />
                 <div className='flex w-full justify-center items-center gap-4'>
                     <Image onClick={() => {
                         router.push('/')

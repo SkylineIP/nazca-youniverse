@@ -40,7 +40,7 @@ const HomeStudio = () => {
                             height={500}
                             key={"youhomelogo"}
                         />
-                        <div className='col-span-4 row-span-4 col-start-1 row-start-12 flex flex-col items-center justify-center gap-16'>
+                        <div className='relative col-span-6 row-span-10 col-start-2 row-start-9 flex flex-col items-center justify-center gap-16'>
                             <Image
                                 src={implantacaohome}
                                 alt="Implantação"
@@ -84,7 +84,7 @@ const HomeStudio = () => {
                             height={500}
                             key={"youplexlogo"}
                         />
-                        <div className='col-span-4 row-span-4 col-start-1 row-start-12 flex flex-col items-center justify-center gap-16'>
+                        <div className='relative col-span-6 row-span-10 col-start-2 row-start-9 flex flex-col items-center justify-center gap-16'>
                             <Image
                                 src={implantacaoplex}
                                 alt="Plantas"

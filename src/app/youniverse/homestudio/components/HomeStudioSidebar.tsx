@@ -51,7 +51,7 @@ const HomeStudioSidebar = ({ logo, buttons, selectedItem, onSelectItem, color }:
               objectFit="contain"
               className={`transition-opacity duration-300 ease-in-out ${selectedItem === button.value ? 'opacity-100' : 'opacity-0'}`}
             />
-            <span className={`text-[#4A4F54] relative uppercase ${selectedItem === button.value ? 'font-impact' : 'font-aviano'} `}>
+            <span className={`text-[#4A4F54] desktopmini:text-lg relative uppercase ${selectedItem === button.value ? 'font-impact' : 'font-aviano'} `}>
               {button.name}
             </span>
           </div>
@@ -69,13 +69,14 @@ const HomeStudioSidebar = ({ logo, buttons, selectedItem, onSelectItem, color }:
             '--arrow-color': color 
           } as React.CSSProperties}
           className={`
-                            relative px-8 py-2 4k:py-4 h-full w-full 
-                            text-2xl 4k:text-5xl uppercase font-impact 
+                            relative px-8 py-2 4k:py-4 desktopmini:py-1 h-full w-full 
+                            text-2xl 4k:text-5xl desktopmini:text-lg uppercase font-impact 
                             text-white
                             transition-colors duration-300 ease-in-out
-                            after:content-[''] after:absolute after:top-0 4k:after:right-[-45px] after:right-[-21px] after:border-t-[21px] after:border-l-[21px] after:border-b-[21px]
-                            after:w-0 after:h-0 tracking-[8px]
-                            4k:after:border-t-[45px] 4k:after:border-b-[45px] 4k:after:border-l-[45px]
+                            after:content-[''] after:absolute after:top-0 
+                            after:right-[-21px] after:border-t-[21px] after:border-l-[21px] after:border-b-[21px] after:w-0 after:h-0 tracking-[8px]
+                            4k:after:right-[-45px] 4k:after:border-t-[45px] 4k:after:border-b-[45px] 4k:after:border-l-[45px]
+                            desktopmini:after:right-[-16px] desktopmini:after:border-t-[16px] desktopmini:after:border-b-[16px] desktopmini:after:border-l-[16px]
                             after:border-t-transparent after:border-b-transparent after:border-l-[var(--arrow-color)]
                             `}
         >

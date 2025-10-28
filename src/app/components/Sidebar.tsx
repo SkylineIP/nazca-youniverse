@@ -1,5 +1,5 @@
 'use client'
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from "next/image";
 import { useContextDefault } from '@/context/Context'
 import { usePathname, useRouter } from 'next/navigation'
@@ -46,7 +46,7 @@ const Sidebar = () => {
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
-  
+
   if (!underMenuSidebar) {
     return null; // Não renderiza o sidebar se não estiver em uma das rotas especificadas
   }
@@ -67,12 +67,10 @@ const Sidebar = () => {
             style={{
               animationDelay: `${index * 0.4}s`,
             }}
-            className={`row-span-2 col-span-4 col-start-2 flex ${button.name === "parceiros" && "opacity-40 cursor-default"} items-center pr-16 justify-center cursor-pointer transition-transform duration-300 ease-in-out animate-fade-right duration-1000 relative`}
+            className={`row-span-2 col-span-4 col-start-2 flex items-center pr-16 justify-center cursor-pointer transition-transform duration-300 ease-in-out animate-fade-right duration-1000 relative`}
             onClick={() => {
-              if (button.name !== "parceiros") {
-                setSelectedItem?.(button.name)
-                router.push(button.link)
-              }
+              setSelectedItem?.(button.name)
+              router.push(button.link)
             }}
           >
             <div
@@ -85,7 +83,7 @@ const Sidebar = () => {
                 opacity: selectedItem === button.name ? 1 : 0,
               }}
             ></div>
-            <span className={`text-[#4A4F54] relative uppercase z-10 ${button.name === "parceiros" && "opacity-40 cursor-default"} ${selectedItem === button.name ? 'font-impact' : 'font-aviano'} `}>
+            <span className={`text-[#4A4F54] relative uppercase z-10 ${selectedItem === button.name ? 'font-impact' : 'font-aviano'} `}>
               {button.name}
             </span>
           </div>

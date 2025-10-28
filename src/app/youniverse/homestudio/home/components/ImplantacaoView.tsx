@@ -71,10 +71,7 @@ const ImplantacaoView = () => {
     const expanded6pav15 = "/homestudio/implantacao/bolotario6/expImages/15.png";
     const expanded6pav16 = "/homestudio/implantacao/bolotario6/expImages/16.png";
 
-    const submenuButtons = [
-        { name: 'rooftop', outline: outline1, classname: '' },
-        { name: '6º pavimento', outline: outline2, classname: '' },
-    ]
+
     const menuButtons = [
         { name: "1 hall social", image: image1 },
         { name: "2 fitness", image: image2 },
@@ -195,17 +192,21 @@ const ImplantacaoView = () => {
 
     const [menuSelected, setMenuSelected] = useState("");
     const [menuToMap, setMenuToMap] = useState(menuButtons);
-    const [submenuSelected, setSubmenuSelected] = useState(submenuButtons[0].name);
     const prevMenuSelectedRef = useRef<string>("");
     const context = useContextDefault()
     const setAbrirImagensTelaCheia = context?.setAbrirImagensTelaCheia;
 
 
+    const selectedMenuButton = menuToMap.find(button => button.name === menuSelected)?.image;
+    const submenuButtons = [
+        { name: 'rooftop', outline: outline1, classname: `col-start-3 row-span-2 col-span-2 ${selectedMenuButton === "rooftop" ? '' : "translate-x-10"}` },
+        { name: '6º pavimento', outline: outline2, classname: `col-start-6 row-span-2 col-span-6 ${selectedMenuButton === "6º pavimento" ? '' : "translate-x-15"}` },
+    ]
+    const [submenuSelected, setSubmenuSelected] = useState(submenuButtons[0].name);
     const svgViewBoxesFinal = submenuSelected === 'rooftop' ? svgViewBoxes : svg6pavViewBoxes;
     const toViewBox = svgViewBoxesFinal[menuSelected];
     const prevMenuSelected = prevMenuSelectedRef.current;
     const fromViewBox = (prevMenuSelected && svgViewBoxesFinal[prevMenuSelected]) || toViewBox;
-    const selectedMenuButton = menuToMap.find(button => button.name === menuSelected)?.image;
 
     useEffect(() => {
         prevMenuSelectedRef.current = menuSelected;
@@ -216,7 +217,7 @@ const ImplantacaoView = () => {
             <span className='col-start-7 col-span-7 uppercase row-start-3 text-4xl 4k:text-8xl text-[#414042] font-impact animate-fade-down animate-duration-[2000ms] duration-1000'>
                 {submenuSelected === 'rooftop' ? 'Implantação do Rooftop ' : "Implantação do 6º pavimento"}
             </span>
-            <div className="relative col-start-8 col-span-15 row-start-5 row-span-13">
+            <div className="relative col-start-7 col-span-9 row-start-7 row-span-8">
                 <Image
                     src={submenuSelected === 'rooftop' ? implantacao : implantacao6}
                     alt="Rooftop"
@@ -224,15 +225,14 @@ const ImplantacaoView = () => {
                     w-full h-full object-contain 
                     animate-fade-up animate-duration-[2000ms] 
                     duration-1000 transition-transform ease-in-out
-                    ${menuSelected !== "" ? "scale-[70%] -translate-x-50 4k:scale-[70%] 4k:-translate-x-100" : ""}
+                    ${menuSelected === "" ? "scale-[130%] translate-x-50  4k:scale-[130%] 4k:translate-x-150" : ""}
                     `}
 
-                    width={3840}
-                    height={2160}
+                    fill
                 />
                 {selectedMenuButton && (
                     <button
-                        className='object-contain 4k:w-[1020px] w-[400px] transform 4k:translate-x-[1600px] translate-x-[890px] 4k:-translate-y-[1000px] -translate-y-[430px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000'
+                        className='object-contain 4k:w-[1020px] w-[400px] transform 4k:translate-x-[1600px] translate-x-[890px] desktopmini:translate-x-[540px] desktopmini:-translate-y-10 4k:-translate-y-[50px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000'
                         onClick={() => {
                             const imageSet = submenuSelected === 'rooftop' ? rooftopExpImages : pavimento6ExpImages;
                             const expImageName = menuSelected.split(" ").slice(1).join(" ");
@@ -272,9 +272,12 @@ const ImplantacaoView = () => {
                             className="cursor-pointer transition-all ease-in-out animate-fade-up duration-1000"
                         >
                             <span
-                                className={`relative text-xl 4k:text-3xl uppercase font-aviano px-4 py-2 transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 4k:after:right-[-25px] 4k:after:border-t-[25px] 4k:after:border-b-[25px] 4k:after:border-l-[25px] after:right-[-20px] after:border-t-[20px] after:border-b-[20px] after:border-l-[20px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 ${menuSelected === button.name
-                                    ? "bg-[#A39126] text-white after:border-l-[#A39126]"
-                                    : "text-black after:border-l-transparent"}`}
+                                className={`relative text-xl desktopmini:text-sm  rounded-md 4k:text-3xl uppercase font-aviano px-4 py-2 transition-colors duration-300 ease-in-out
+                                    ${menuSelected === button.name
+                                        ? "bg-[#A39126] text-white" // Removed after:border-l-[#A39126]
+                                        : "text-black" // Removed after:border-l-transparent
+                                    }`
+                                }
                             >
                                 {button.name}
                             </span>
@@ -292,9 +295,12 @@ const ImplantacaoView = () => {
                             className="cursor-pointer transition-all ease-in-out animate-fade-up duration-1000"
                         >
                             <span
-                                className={`relative text-md 4k:text-3xl uppercase font-aviano px-4 py-2 transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 4k:after:right-[-25px] 4k:after:border-t-[25px] 4k:after:border-b-[25px] 4k:after:border-l-[25px] after:right-[-17px] after:border-t-[17px] after:border-b-[17px] after:border-l-[17px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 ${menuSelected === button.name
-                                    ? "bg-[#A39126] text-white after:border-l-[#A39126]"
-                                    : "text-black after:border-l-transparent"}`}
+                                className={`relative text-xl desktopmini:text-sm  rounded-md 4k:text-3xl uppercase font-aviano px-4 py-1 transition-colors duration-300 ease-in-out
+                                    ${menuSelected === button.name
+                                        ? "bg-[#A39126] text-white" // Removed after:border-l-[#A39126]
+                                        : "text-black" // Removed after:border-l-transparent
+                                    }`
+                                }
                             >
                                 {button.name}
                             </span>
@@ -306,11 +312,11 @@ const ImplantacaoView = () => {
             <Image
                 src={touch}
                 alt="Touch"
-                className='absolute bottom-0 4k:bottom-10 right-4 w-[350px] 4k:w-[800px] h-[150px] object-contain animate-fade animate-delay-500 duration-1000'
+                className='absolute bottom-0 4k:bottom-10 right-4 w-[350px] 4k:w-[800px] h-[150px] desktopmini:h-[90px] desktopmini:w-[250px] desktopmini:bottom-5 object-contain animate-fade animate-delay-500 duration-1000'
                 width={350}
                 height={150}
             />
-            <div className='relative col-span-19 row-span-2 row-start-23 col-start-6 flex justify-start items-center gap-58 px-56'>
+            <div className='relative col-span-19 row-span-2 row-start-23 col-start-6 grid grid-cols-19 grid-rows-2'>
                 {submenuButtons.map(item => (
                     <div
                         key={item.name + "-bg"}
@@ -328,10 +334,8 @@ const ImplantacaoView = () => {
                     <div
                         key={item.name}
                         className={`
-                            relative cursor-pointer p-4
-                            ${item.name === 'rooftop'
-                                ? '4k:ml-[16rem]'
-                                : '4k:ml-[15rem]'}
+                            relative cursor-pointer p-4 flex items-center justify-center
+                            ${item.classname}
                             `}
                         onClick={() => { setSubmenuSelected(item.name); setMenuSelected(""); setMenuToMap(item.name === 'rooftop' ? menuButtons : menu6implantacao) }}
                     >

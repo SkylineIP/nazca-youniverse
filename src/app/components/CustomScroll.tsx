@@ -61,7 +61,7 @@ export default function ScrollSlider({
             <div
                 ref={scrollRef}
                 onScroll={handleScroll}
-                className={`flex ${orientation === "vertical" ? "flex-col overflow-y-scroll" : "flex-row overflow-x-scroll"} no-scrollbar p-4 h-full scroll-smooth`}
+                className={`flex ${orientation === "vertical" ? "flex-col overflow-y-scroll" : "flex-row overflow-x-scroll"} no-scrollbar p-4 desktopmini:p-0 h-full scroll-smooth`}
             >
                 {images.map((img, index) => (
                     <button

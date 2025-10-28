@@ -58,14 +58,14 @@ const PlantasView = () => {
                 key={selectedPlantaKey + currentPlantaImageIndex}
                 src={selectedPlanta.plantas[currentPlantaImageIndex]}
                 alt="plantas"
-                className='object-contain col-span-10 4k:translate-x-[800px] row-span-14 col-start-6 row-start-6 translate-x-[380px] relative animate-fade-down animate-duration-[2000ms] duration-1000 z-10'
+                className='object-contain col-span-10 4k:translate-x-[800px] desktopmini:translate-x-[270px] row-span-14 col-start-6 row-start-6 translate-x-[380px] relative animate-fade-down animate-duration-[2000ms] duration-1000 z-10'
                 width={3840}
                 height={2160}
             />
             {selectedPlanta.plantas.length > 1 && (
                 <button
                     onClick={() => setCurrentPlantaImageIndex(prev => (prev + 1) % selectedPlanta.plantas.length)}
-                    className="absolute z-20 bottom-1/6 right-0"
+                    className="absolute z-20 bottom-1/6 right-0 desktopmini:bottom-25"
                 >
                     <Image
                         src={currentPlantaImageIndex === 0 ? "/homestudio/buttons/b-ver-opcao-decorado.png" : "/homestudio/buttons/b-voltar.png"}

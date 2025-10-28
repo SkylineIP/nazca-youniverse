@@ -85,23 +85,28 @@ const ImplantacaoView = () => {
     const selectedMenuButton = menuButtons.find(button => button.name === menuSelected)?.image;
     return (
         <>
-            <span className='col-start-7 col-span-8 uppercase row-start-3 text-5xl 4k:text-8xl text-[#414042] font-impact animate-fade-down animate-duration-[2000ms] duration-1000'>
+            <span className='col-start-7 col-span-8 uppercase row-start-2 text-5xl 4k:text-8xl text-[#414042] font-impact animate-fade-down animate-duration-[2000ms] duration-1000'>
                 Implantação do 3º Pavimento
                 <span className='block text-xl 4k:text-5xl mt-2 text-right font-aviano'>
-                    Youstudio/YOuplex
+                    Youstudio/Youplex
                 </span>
             </span>
-            <div className="relative col-start-8 col-span-15 row-start-5 row-span-13">
+            <div className="relative col-start-7 col-span-9 row-start-7 row-span-8">
                 <Image
                     src={implantacao}
                     alt="Rooftop"
-                    className={`w-full h-full object-contain animate-fade-up animate-duration-[2000ms] duration-1000 transition-transform ease-in-out ${menuSelected !== "" ? "scale-[70%] -translate-x-50 4k:scale-[70%] 4k:-translate-x-100" : ""}`}
-                    width={3840}
-                    height={2160}
+                    className={`
+                    w-full h-full object-contain 
+                    animate-fade-up animate-duration-[2000ms] 
+                    duration-1000 transition-transform ease-in-out
+                    ${menuSelected === "" ? "scale-[130%] translate-x-50  4k:scale-[130%] 4k:translate-x-150" : ""}
+                    `}
+
+                    fill
                 />
                 {selectedMenuButton && (
                     <button
-                        className='object-contain  4k:w-[1020px] w-[400px] transform 4k:translate-x-[1600px] translate-x-[890px] 4k:-translate-y-[1000px] -translate-y-[430px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000'
+                        className='object-contain 4k:w-[1020px] w-[400px] transform 4k:translate-x-[1600px] translate-x-[890px] desktopmini:translate-x-[540px] desktopmini:-translate-y-10 4k:-translate-y-[50px] transition-transform animate-fade-up animate-duration-[2000ms] duration-1000'
                         onClick={() => {
                             if (setAbrirImagensTelaCheia) {
                                 const imagesForFullscreen = expImages.map(img => ({ src: img.image as unknown as StaticImageData, alt: img.name }));
@@ -131,17 +136,11 @@ const ImplantacaoView = () => {
                         className="cursor-pointer transition-all ease-in-out animate-fade-up duration-1000"
                     >
                         <span
-                            className={`relative text-xl 4k:text-3xl uppercase font-aviano px-4 py-2 4k:px-8 4k:py-4 
-        transition-colors duration-300 ease-in-out 
-        after:content-[''] after:absolute after:top-0 
-        after:right-[-20px] 4k:after:right-[-33px] 
-        after:border-t-[20px] after:border-b-[20px] after:border-l-[20px] 
-        4k:after:border-t-[33px] 4k:after:border-b-[33px] 4k:after:border-l-[33px] 
-        after:border-t-transparent after:border-b-transparent 
-        after:transition-colors after:ease-in-out after:duration-300 
+                            className={`relative text-xl desktopmini:text-sm 4k:text-3xl uppercase font-aviano px-4 py-2 4k:px-8 4k:py-4 
+        transition-colors duration-300 ease-in-out rounded-lg 
         ${menuSelected === button.name
-                                    ? "bg-[#CC654B] text-white after:border-l-[#CC654B]"
-                                    : "text-black after:border-l-transparent"}`}
+                                    ? "bg-[#CC654B] text-white "
+                                    : "text-black"}`}
                         >
                             {button.name}
                         </span>
@@ -152,7 +151,7 @@ const ImplantacaoView = () => {
             <Image
                 src={touch}
                 alt="Touch"
-                className='absolute bottom-20 right-4 object-contain animate-fade animate-delay-500 duration-1000 4k:w-[800px] w-[400px]'
+                className='absolute bottom-20 desktopmini:bottom-10 right-4 object-contain animate-fade animate-delay-500 duration-1000 4k:w-[800px] w-[400px]'
                 width={800}
                 height={250}
             />
