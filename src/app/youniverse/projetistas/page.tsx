@@ -57,7 +57,7 @@ const ProjetistasPage = () => {
                     height={2160}
                 />
             )}
-            {selectedMenu === 'Carlos' && (
+            {selectedMenu === 'Carlos Rossi' && (
                 <Image
                     src={carlos}
                     alt="Carlos Rossi"
