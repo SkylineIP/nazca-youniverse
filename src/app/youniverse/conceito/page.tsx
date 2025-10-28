@@ -92,28 +92,28 @@ const Conceito = () => {
 
 
 
-            <div className='grid grid-cols-19 grid-rows-2 col-span-19 row-span-2 row-start-23 col-start-6'>
+            <div className='grid grid-cols-19 grid-rows-2 col-span-19 row-span-2 row-end-25 col-start-6'>
                 <Image
                     src={selectedMenu} // state now holds a string path
                     alt="Conceito"
                     className='col-span-full row-span-2 cursor-pointer z-0'
 
                 />
-                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[50px]' onClick={() => setSelectedMenu(menu1)}>
+                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[100px] 4k:min-h-[200px] 4k:row-end-3' onClick={() => setSelectedMenu(menu1)}>
                 </button>
-                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[50px] ' onClick={() => setSelectedMenu(menu2)}>
+                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[100px] 4k:min-h-[200px] 4k:row-end-3' onClick={() => setSelectedMenu(menu2)}>
 
                 </button>
-                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[50px] ' onClick={() => setSelectedMenu(menu3)}>
+                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[100px] 4k:min-h-[200px] 4k:row-end-3' onClick={() => setSelectedMenu(menu3)}>
 
                 </button>
-                <button className='row-start-1 col-span-4 row-span-2 z-10 min-h-[50px] ' onClick={() => setSelectedMenu(menu4)}>
+                <button className='row-start-1 col-span-4 row-span-2 z-10 min-h-[100px] 4k:min-h-[200px] 4k:row-end-3' onClick={() => setSelectedMenu(menu4)}>
 
                 </button>
-                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[50px] ' onClick={() => setSelectedMenu(menu5)}>
+                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[100px] 4k:min-h-[200px] 4k:row-end-3' onClick={() => setSelectedMenu(menu5)}>
 
                 </button>
-                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[50px] ' onClick={() => setSelectedMenu(menu6)}>
+                <button className='row-start-1 col-span-3 row-span-2 z-10 min-h-[100px] 4k:min-h-[200px] 4k:row-end-3' onClick={() => setSelectedMenu(menu6)}>
 
                 </button>
             </div>
