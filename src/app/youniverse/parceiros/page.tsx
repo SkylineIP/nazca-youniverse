@@ -64,7 +64,7 @@ const ParceirosPage = () => {
                         }}
                     ></div>
                 ))}
-                {menuItems.map((item, index) => (
+                {menuItems.map((item) => (
                     <div
                         key={item.name}
                         className={`relative cursor-pointer p-4 flex items-center justify-center-safe ${item.classname}`}

@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Image from "next/image";
 import { useContextDefault } from '@/context/Context';
 
@@ -28,15 +28,6 @@ const ProjetistasPage = () => {
     useEffect(() => {
         setSelectedItem?.("Projetistas");
     }, [])
-    const [is4k, setIs4k] = useState(false);
-
-    useEffect(() => {
-        const check = () => setIs4k(window.innerWidth >= 3840);
-        check();
-        window.addEventListener('resize', check);
-        return () => window.removeEventListener('resize', check);
-        
-    }, []);
     return (
         <>
             {selectedMenu === 'João Armentano' && (
@@ -99,7 +90,7 @@ const ProjetistasPage = () => {
                         }}
                     ></div>
                 ))}
-                {menuItems.map((item, index) => (
+                {menuItems.map((item) => (
                     <div
                         key={item.name}
                         className={` flex cursor-pointer row-span-2 z-20 pt-2 text-center justify-center-safe fhd:pt-4 4k:pt-10 ${item.classname}`}
