@@ -51,17 +51,17 @@ const ImplantacaoView = () => {
         { name: "11 lavanderia", image: image11 },
     ]
     const svgViewBoxes: { [key: string]: string } = {
-        "1 hall social": "1335 -133 400 970",
-        "2 espaço gourmet": "968 -310 400 970",
-        "3 fit studio": "1105 -353 400 970",
-        "4 repouso": "1425 -445 400 970",
-        "5 piscina aquecida": "1555 -380 400 970",
-        "6 sauna": "1355 -433 400 970",
-        "7 ducha": "1332 -375 400 970",
-        "8 sanitários": "1302 -240 400 970",
-        "9 reunião": "1480 -230 400 970",
-        "10 coworking": "1620 -150 400 970",
-        "11 lavanderia": "1630 -5 400 970",
+        "1 hall social": "1086 -100 400 970",
+        "2 espaço gourmet": "538 -340 400 970",
+        "3 fit studio": "750 -405 400 970",
+        "4 repouso": "1105 -520 400 970",
+        "5 piscina aquecida": "1390 -425 400 970",
+        "6 sauna": "1100 -520 400 970",
+        "7 ducha": "1070 -435 400 970",
+        "8 sanitários": "1112 170 400 970",
+        "9 reunião": "1270 -220 400 970",
+        "10 coworking": "1460 -100 400 970",
+        "11 lavanderia": "1490 70 400 970",
     };
 
     const expImages = [

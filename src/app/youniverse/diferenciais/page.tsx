@@ -10,13 +10,14 @@ const DiferenciaisPage = () => {
     setSelectedItem?.("diferenciais");
   }, [])
   return (
-    <Image
-      src="/diferenciais/diferenciais-youniverse-nazca.png"
-      alt="Diferenciais"
-      className='col-start-6 col-span-19 row-start-3 row-span-24 w-full h-full object-contain animate-fade-down animate-duration-[2000ms] duration-1000'
-      width={3840}
-      height={2160}
-    />
+    <div className="col-span-19 row-span-24 col-start-6 relative"> 
+      <Image
+        src="/diferenciais/diferenciais-youniverse-nazca.png"
+        alt="Diferenciais"
+        className='object-contain animate-fade-down animate-duration-[2000ms] duration-1000'
+        fill
+      />
+    </div>
   )
 }
 

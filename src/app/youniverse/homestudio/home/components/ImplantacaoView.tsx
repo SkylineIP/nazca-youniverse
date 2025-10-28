@@ -147,18 +147,18 @@ const ImplantacaoView = () => {
         { name: "26 compartilhamento", image: bolotario25 },
     ];
     const svgViewBoxes: { [key: string]: string } = {
-        "1 hall social": "1390 -263 400 970",
-        "2 fitness": "910 -120 400 970",
-        "3 piscina com raia": "1264 -463 400 970",
-        "4 spa externo": "820 -463 400 970",
-        "5 solarium": "949 -353 400 970",
-        "6 banheiros": "1085 -335 400 970",
-        "7 descanso": "1564 -163 400 970",
-        "8 massagem": "1640 -93 400 970",
-        "9 sauna úmida": "1686 -173 400 970",
-        "10 spa interno": "1682 -253 400 970",
-        "11 fitness outdoor": "1070 13 400 970",
-        "12 jardim": "640 -230 400 970",
+        "1 hall social": "1150 -283 400 970",
+        "2 fitness": "480 -70 400 970",
+        "3 piscina com raia": "960 -563 400 970",
+        "4 spa externo": "350 -553 400 970",
+        "5 solarium": "532 -403 400 970",
+        "6 banheiros": "1025 -385 400 970",
+        "7 descanso": "1384 -143 400 970",
+        "8 massagem": "1490 -43 400 970",
+        "9 sauna úmida": "1546 -163 400 970",
+        "10 spa interno": "1546 -273 400 970",
+        "11 fitness outdoor": "700 110 400 970",
+        "12 jardim": "1680 -230 400 970",
     };
 
     const svg6pavViewBoxes: { [key: string]: string } = {

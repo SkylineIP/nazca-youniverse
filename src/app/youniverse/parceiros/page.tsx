@@ -1,6 +1,7 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from "next/image";
+import { useContextDefault } from '@/context/Context';
 
 const ParceirosPage = () => {
     const impacto = "/parceiros/impacto.png";
@@ -10,13 +11,18 @@ const ParceirosPage = () => {
     const outline1 = "/parceiros/outline1.png";
     const outline2 = "/parceiros/outline2.png";
     const outline3 = "/parceiros/outline3.png";
+    const context = useContextDefault();
 
     const [selectedMenu, setSelectedMenu] = React.useState('Impacto Engenharia');
     const menuItems = [
         { name: 'Impacto Engenharia', outline: outline1, classname: `col-start-3 col-span-6 ${selectedMenu === "Impacto Engenharia" ? ' -translate-x-5' : ""}` },
-        { name: 'Apex', outline: outline2, classname: `col-start-9 col-span-6 -translate-x-10 ${selectedMenu === "Apex" ? ' -translate-x-10' : ""}`},
-        { name: 'Nazca', outline: outline3, classname: `col-start-15 col-span-6 -translate-x-15 ${selectedMenu === "Nazca" ? ' -translate-x-15' : ""}`},
+        { name: 'Apex', outline: outline2, classname: `col-start-9 col-span-6 -translate-x-10 ${selectedMenu === "Apex" ? ' -translate-x-10' : ""}` },
+        { name: 'Nazca', outline: outline3, classname: `col-start-15 col-span-6 -translate-x-15 ${selectedMenu === "Nazca" ? ' -translate-x-15' : ""}` },
     ];
+    const { setSelectedItem: setSideSelectedItem } = context || {};
+    useEffect(() => {
+        setSideSelectedItem?.("parceiros");
+    }, [])
     return (
         <>
             {selectedMenu === 'Impacto Engenharia' && (
