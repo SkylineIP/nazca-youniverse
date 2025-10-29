@@ -1,7 +1,8 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from "next/image";
 import GoogleMap from '@/app/components/GoogleMaps';
+import { useContextDefault } from '@/context/Context';
 
 const LocalizacaoPage = () => {
   const proximidades = "/localizacao/proximidades.png";
@@ -9,6 +10,11 @@ const LocalizacaoPage = () => {
   const outline1 = "/localizacao/outline1.png";
   const outline2 = "/localizacao/outline2.png";
   const outline3 = "/localizacao/outline3.png";
+  const context = useContextDefault();
+  const { setSelectedItem: setSelectedItem } = context || {};
+  useEffect(() => {
+    setSelectedItem?.("Localização");
+  }, [])
 
   const [selectedMenu, setSelectedMenu] = React.useState('Proximidades');
   const menuItems = [
