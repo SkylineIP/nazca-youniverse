@@ -31,8 +31,8 @@ const Conceito = () => {
             {selectedMenu === menu1 && (
                 <div  className='col-start-6 row-start-2 col-span-19 row-span-20 w-full h-full animate-fade-down animate-duration-[2000ms] duration-1000 cursor-pointer px-10'>
                 <Videos
-                    videoSrc='/conceito/Filme Conceito - optmized.mp4' // string path
-                    thumb=''
+                    videoSrc='https://j93xxrxs66dpumli.public.blob.vercel-storage.com/Filme%20Conceito%20Youniverse-f1YZ94IK1J9OcyXvc14d7jnAtFDpiA.mp4' // string path
+                    thumb='/conceito/thumb.jpg'
                 />
 
                 </div>
