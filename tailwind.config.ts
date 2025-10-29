@@ -15,7 +15,7 @@ export default {
         foreground: "var(--foreground)",
         institucional: "var(--institucional)",
         greenInstitucional: "var(--greenInstitucional)"
-        
+
       },
       gridTemplateColumns: {
         '24': 'repeat(24, minmax(0, 1fr))',
@@ -28,9 +28,9 @@ export default {
         aviano: ['aviano-sans'],
         impact: ['impact'],
       },
-      backgroundImage: {  
+      backgroundImage: {
         'descanso': "url('/descanso/bg.jpg')",
-        'descanso-home' : "url('/descanso/bg-home.png')",
+        'descanso-home': "url('/descanso/bg-home.png')",
         'conceito': "url('/conceito/bg.jpg')",
       },
       backgroundSize: {
@@ -44,7 +44,13 @@ export default {
         '4k': { min: '3840px' },
         'fhd': { min: "1535px", max: "1920px" },
       },
+      keyframes: {
+        "fade-in": { "0%": { opacity: 0 }, "100%": { opacity: 1 } },
+        "fade-out": { "0%": { opacity: 1 }, "100%": { opacity: 0 } },
+      },
       animation: {
+        "fade-in": "fade-in 0.5s ease-in-out",
+        "fade-out": "fade-out 0.5s ease-in-out",
         'spin-slow': 'spin 10s linear infinite',
         'spin-slower': 'spin 8s linear infinite',
       },

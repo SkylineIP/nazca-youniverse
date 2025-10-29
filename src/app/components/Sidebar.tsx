@@ -7,6 +7,8 @@ import { usePathname, useRouter } from 'next/navigation'
 const Sidebar = () => {
   const context = useContextDefault();
   const { selectedItem: selectedItem, setSelectedItem: setSelectedItem } = context || {};
+  const [showPopup, setShowPopup] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const toggleSound = context?.toogleSound
@@ -25,6 +27,19 @@ const Sidebar = () => {
     const noQuery = p.split(/[?#]/)[0];
     return noQuery !== '/' && noQuery.endsWith('/') ? noQuery.slice(0, -1) : noQuery;
   }
+
+  const handlePopupClick = () => {
+    if (showPopup) {
+      setIsClosing(true);
+      setTimeout(() => {
+        setShowPopup(false);
+        setIsClosing(false);
+      }, 400); // match animation duration (ms)
+    } else {
+      setShowPopup(true);
+    }
+  };
+
 
   const safePath = normalize(pathname);
 
@@ -94,11 +109,25 @@ const Sidebar = () => {
       </div>
       <div className='col-span-3 row-span-1 flex col-start-2 row-start-23 justify-center items-center gap-4'>
         <Image width={buttonSize} height={buttonSize} onClick={() => router.push('/menu-youniverse')} src="/util/b-home-youniverse-nazca.svg" key={"home"} alt="Home" className={` hover:scale-105 ${is4k ? "width-[90px] height-[90px]" : "width-[60px] height-[60px]"} transition-transform cursor-pointer duration-300 ease-in-out mx-2 animate-fade-up animate-delay-100 duration-1000`} />
-        <Image width={buttonSize} height={buttonSize} src="/util/b-duvida-youniverse-nazca.svg" key={"duvida"} alt="Dúvidas" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-300 duration-1000' />
+        <Image width={buttonSize} height={buttonSize} onClick={() => {
+          handlePopupClick();
+        }} src="/util/b-duvida-youniverse-nazca.svg" key={"duvida"} alt="Dúvidas" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-300 duration-1000' />
         <Image width={buttonSize} height={buttonSize} onClick={() => {
           toggleSound?.()
           console.log("Sound toggled:", sound);
         }} src={soundButton} key={"som"} alt="Som" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-500 duration-1000' />
+        {showPopup && (
+          <div
+            className={`absolute w-[20%] h-[20%] bottom-[10%] ${isClosing ? "animate-fade-out" : "animate-fade-in"}`}
+          >
+            <Image
+              src="/util/popup.svg"
+              alt="Popup Dúvidas"
+              className="object-contain"
+              fill
+            />
+          </div>
+        )}
       </div>
     </div>
   )
