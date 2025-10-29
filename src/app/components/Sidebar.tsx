@@ -10,6 +10,7 @@ const Sidebar = () => {
   const router = useRouter();
   const pathname = usePathname();
   const toggleSound = context?.toogleSound
+  const sound = context?.sound
   const sidebarRoutes = [
     '/youniverse/localizacao',
     '/youniverse/projetistas',
@@ -50,6 +51,8 @@ const Sidebar = () => {
   if (!underMenuSidebar) {
     return null; // Não renderiza o sidebar se não estiver em uma das rotas especificadas
   }
+
+  const soundButton = sound ? "/util/b-som-youniverse-nazca.svg" : "/util/b-som-released-youniverse-nazca.svg"
   return (
     <div className='col-span-5 row-span-24 grid grid-cols-5 grid-rows-24 border-r border-[#12100B] text-sm lg:text-base xl:text-[18px] fhd:text-2xl 4k:text-5xl break-normal'>
       <Image
@@ -94,7 +97,8 @@ const Sidebar = () => {
         <Image width={buttonSize} height={buttonSize} src="/util/b-duvida-youniverse-nazca.svg" key={"duvida"} alt="Dúvidas" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-300 duration-1000' />
         <Image width={buttonSize} height={buttonSize} onClick={() => {
           toggleSound?.()
-        }} src="/util/b-som-youniverse-nazca.svg" key={"som"} alt="Som" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-500 duration-1000' />
+          console.log("Sound toggled:", sound);
+        }} src={soundButton} key={"som"} alt="Som" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-500 duration-1000' />
       </div>
     </div>
   )
