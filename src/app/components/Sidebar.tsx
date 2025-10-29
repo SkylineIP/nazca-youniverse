@@ -118,6 +118,13 @@ const Sidebar = () => {
         }} src={soundButton} key={"som"} alt="Som" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-500 duration-1000' />
         {showPopup && (
           <div
+            onClick={() => {
+              setIsClosing(true);
+              setTimeout(() => {
+                setShowPopup(false);
+                setIsClosing(false);
+              }, 400);
+            }}
             className={`absolute w-[20%] h-[20%] bottom-[10%] ${isClosing ? "animate-fade-out" : "animate-fade-in"}`}
           >
             <Image
