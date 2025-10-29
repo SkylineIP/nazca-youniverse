@@ -90,7 +90,7 @@ const Sidebar = () => {
         ))}
       </div>
       <div className='col-span-3 row-span-1 flex col-start-2 row-start-23 justify-center items-center gap-4'>
-        <Image width={buttonSize} height={buttonSize} onClick={() => router.push('/')} src="/util/b-home-youniverse-nazca.svg" key={"home"} alt="Home" className={` hover:scale-105 ${is4k ? "width-[90px] height-[90px]" : "width-[60px] height-[60px]"} transition-transform cursor-pointer duration-300 ease-in-out mx-2 animate-fade-up animate-delay-100 duration-1000`} />
+        <Image width={buttonSize} height={buttonSize} onClick={() => router.push('/menu-youniverse')} src="/util/b-home-youniverse-nazca.svg" key={"home"} alt="Home" className={` hover:scale-105 ${is4k ? "width-[90px] height-[90px]" : "width-[60px] height-[60px]"} transition-transform cursor-pointer duration-300 ease-in-out mx-2 animate-fade-up animate-delay-100 duration-1000`} />
         <Image width={buttonSize} height={buttonSize} src="/util/b-duvida-youniverse-nazca.svg" key={"duvida"} alt="Dúvidas" className=' hover:scale-105 transition-transform cursor-pointer duration-300 ease-in-out mx-2  animate-fade-up animate-delay-300 duration-1000' />
         <Image width={buttonSize} height={buttonSize} onClick={() => {
           toggleSound?.()

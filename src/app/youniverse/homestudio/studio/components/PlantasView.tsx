@@ -10,14 +10,10 @@ const PlantasView = () => {
     const handleSliderChange = (_: Event, newValue: number | number[]) => {
         if (!scrollRef.current) return;
         const value = Array.isArray(newValue) ? newValue[0] : newValue;
-
         const { scrollWidth, clientWidth } = scrollRef.current;
         const maxScroll = scrollWidth - clientWidth;
-
-        // Prevent thumb overflow by reserving half width on both sides
         const offsetPercent = (thumbWidth / 2 / clientWidth) * 100;
         const clampedValue = Math.min(Math.max(value, offsetPercent), 100 - offsetPercent);
-
         scrollRef.current.scrollLeft = (clampedValue / 100) * maxScroll;
         setScrollValue(clampedValue);
     };
@@ -27,16 +23,12 @@ const PlantasView = () => {
         const { scrollLeft, scrollWidth, clientWidth } = e.currentTarget;
         const maxScroll = scrollWidth - clientWidth;
         const rawPercentage = (scrollLeft / maxScroll) * 100;
-
-        // Apply same clamping for consistency
         const offsetPercent = (thumbWidth / 2 / clientWidth) * 100;
         const clampedPercentage = Math.min(Math.max(rawPercentage, offsetPercent), 100 - offsetPercent);
-
         setScrollValue(clampedPercentage);
     };
     const [selectedPlantaKey, setSelectedPlantaKey] = useState<PlantasYouHomeKey>(plantasYouHomeButtons[0].frameKey as PlantasYouHomeKey);
     const [currentPlantaImageIndex, setCurrentPlantaImageIndex] = useState(0);
-
     const selectedPlanta = plantasYouStudio[selectedPlantaKey];
     useEffect(() => {
         setCurrentPlantaImageIndex(0);

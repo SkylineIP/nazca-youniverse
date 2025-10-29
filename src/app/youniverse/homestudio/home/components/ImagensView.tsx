@@ -45,7 +45,7 @@ const ImagensView = () => {
                 </button>
                 <span
                     className={`text-3xl 4k:text-6xl uppercase tracking-widest font-impact px-8 py-4 4k:px-16 4k:py-8 transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:top-0 after:right-[-34px] 4k:after:right-[-62px] after:border-t-[34px] after:border-b-[34px] after:border-l-[34px] 4k:after:border-t-[62px] 4k:after:border-b-[62px] 4k:after:border-l-[62px] after:border-t-transparent after:border-b-transparent after:transition-colors after:ease-in-out after:duration-300 
-                    bg-[#A39126] text-white after:border-l-[#A39126] absolute top-48 left-0`}
+                    bg-[#A39126] text-white after:border-l-[#A39126] absolute top-18 left-0`}
                 >
                     {imageIndexToShow !== null ? expandedYouHomeImages[imageIndexToShow].alt : expandedYouHomeImages[0].alt}
                 </span>

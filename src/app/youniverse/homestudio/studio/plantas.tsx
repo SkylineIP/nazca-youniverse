@@ -23,6 +23,23 @@ const bplanta3993 = "/homestudio/youstudio/plantas/b-planta-39-93-youstudio-youn
 const bplanta3994_2 = "/homestudio/youstudio/plantas/b-planta-39-94-2-youstudio-youniverse.png";
 const bplanta3994 = "/homestudio/youstudio/plantas/b-planta-39-94-youstudio-youniverse.png";
 
+const bplanta4483 = "/homestudio/youstudio/plantas/b-planta-44-83-2-youstudio-youniverse.png"; 
+const bplanta4747 = "/homestudio/youstudio/plantas/b-planta-47-47-2-youstudio-youniverse.png"; 
+const bplanta4920 = "/homestudio/youstudio/plantas/b-planta-49-20-2-youstudio-youniverse.png"; 
+const bplanta5276 = "/homestudio/youstudio/plantas/b-planta-52-76-2-youstudio-youniverse.png"; 
+const bplanta4661 = "/homestudio/youstudio/plantas/b-planta-46-61-2-youstudio-youniverse.png"; 
+const bplanta5878 = "/homestudio/youstudio/plantas/b-planta-58-78-2-youstudio-youniverse.png"; 
+const bplanta5607 = "/homestudio/youstudio/plantas/b-planta-56-07-2-youstudio-youniverse.png";
+const bplanta6071 = "/homestudio/youstudio/plantas/b-planta-56-07-2-youstudio-youniverse-1.png";
+const bplanta4483_2 = "/homestudio/youstudio/plantas/b-planta-44-83-3-youstudio-youniverse.png";
+const bplanta4747_2 = "/homestudio/youstudio/plantas/b-planta-47-47-3-youstudio-youniverse.png";
+const bplanta4920_2 = "/homestudio/youstudio/plantas/b-planta-49-20-3-youstudio-youniverse.png";
+const bplanta5276_2 = "/homestudio/youstudio/plantas/b-planta-52-76-3-youstudio-youniverse.png";
+const bplanta4661_2 = "/homestudio/youstudio/plantas/b-planta-52-76-3-youstudio-youniverse-1.png";
+const bplanta5110 = "/homestudio/youstudio/plantas/b-planta-51-10-3-youstudio-youniverse.png";
+const bplanta5607_2 = "/homestudio/youstudio/plantas/b-planta-56-07-3-youstudio-youniverse.png";
+const bplanta6056 = "/homestudio/youstudio/plantas/b-planta-60-56-3-youstudio-youniverse.png";
+
 export const plantasYouHomeButtons = [
   { buttonImage: bplanta3982, frameKey: "39-82" },
   { buttonImage: bplanta3924, frameKey: "39-24" },
@@ -32,7 +49,6 @@ export const plantasYouHomeButtons = [
   { buttonImage: bplanta3993, frameKey: "39-93" },
   { buttonImage: bplanta3963, frameKey: "39-63" },
   { buttonImage: bplanta3923, frameKey: "39-23" },
-  //3982
   { buttonImage: bplanta3982_2, frameKey: "39-82-esquerda" },
   { buttonImage: bplanta3924_2, frameKey: "39-24-esquerda" },
   { buttonImage: bplanta3994_2, frameKey: "39-94-esquerda" },
@@ -41,22 +57,22 @@ export const plantasYouHomeButtons = [
   { buttonImage: bplanta3993_2, frameKey: "39-93-esquerda" },
   { buttonImage: bplanta3963_2, frameKey: "39-63-esquerda" },
   { buttonImage: bplanta3923_2, frameKey: "39-23-esquerda" },
-  //4483
-  //4747
-  //4920
-  //5276
-  //4661
-  //5878
-  //5607
-  //6071
-  //4483 esq
-  //4747 esq
-  //4920 esq
-  //5276 esq
-  //4661 esq
-  //5110 esq
-  //5607 esq
-  //6071 esq
+  { buttonImage: bplanta4483, frameKey: "garden-01" },
+  { buttonImage: bplanta4747, frameKey: "garden-02" },
+  { buttonImage: bplanta4920, frameKey: "garden-03" },
+  { buttonImage: bplanta5276, frameKey: "garden-04" },
+  { buttonImage: bplanta4661, frameKey: "garden-05" },
+  { buttonImage: bplanta5878, frameKey: "garden-06" },
+  { buttonImage: bplanta5607, frameKey: "garden-07" },
+  { buttonImage: bplanta6071, frameKey: "garden-08" },
+  { buttonImage: bplanta4483_2, frameKey: "garden-09" },
+  { buttonImage: bplanta4747_2, frameKey: "garden-10" },
+  { buttonImage: bplanta4920_2, frameKey: "garden-11" },
+  { buttonImage: bplanta5276_2, frameKey: "garden-12" },
+  { buttonImage: bplanta4661_2, frameKey: "garden-13" },
+  { buttonImage: bplanta5110, frameKey: "garden-14" },
+  { buttonImage: bplanta5607_2, frameKey: "garden-15" },
+  { buttonImage: bplanta6056, frameKey: "garden-16" },
 ];
 
 
@@ -134,6 +150,40 @@ const img3994Opcao = "/homestudio/youstudio/plantas/img-planta-39-94-opcao.png";
 const img39942 = "/homestudio/youstudio/plantas/img-planta-39-94-2.png";
 const img39942Opcao = "/homestudio/youstudio/plantas/img-planta-39-94-2-opcao.png";
 
+const framegarden01 = "/homestudio/youstudio/plantas/garden/planta-garden-01-youstudio.png";
+const framegarden02 = "/homestudio/youstudio/plantas/garden/planta-garden-02-youstudio.png";
+const framegarden03 = "/homestudio/youstudio/plantas/garden/planta-garden-03-youstudio.png";
+const framegarden04 = "/homestudio/youstudio/plantas/garden/planta-garden-04-youstudio.png";
+const framegarden05 = "/homestudio/youstudio/plantas/garden/planta-garden-05-youstudio.png";
+const framegarden06 = "/homestudio/youstudio/plantas/garden/planta-garden-06-youstudio.png";
+const framegarden07 = "/homestudio/youstudio/plantas/garden/planta-garden-07-youstudio.png";
+const framegarden08 = "/homestudio/youstudio/plantas/garden/planta-garden-08-youstudio.png";
+const framegarden09 = "/homestudio/youstudio/plantas/garden/planta-garden-09-youstudio.png";
+const framegarden10 = "/homestudio/youstudio/plantas/garden/planta-garden-10-youstudio.png";
+const framegarden11 = "/homestudio/youstudio/plantas/garden/planta-garden-11-youstudio.png";
+const framegarden12 = "/homestudio/youstudio/plantas/garden/planta-garden-12-youstudio.png";
+const framegarden13 = "/homestudio/youstudio/plantas/garden/planta-garden-13-youstudio.png";
+const framegarden14 = "/homestudio/youstudio/plantas/garden/planta-garden-14-youstudio.png";
+const framegarden15 = "/homestudio/youstudio/plantas/garden/planta-garden-15-youstudio.png";
+const framegarden16 = "/homestudio/youstudio/plantas/garden/planta-garden-16-youstudio.png";
+
+const garden01 = "/homestudio/youstudio/plantas/garden/img-planta-garden-01.png";
+const garden02 = "/homestudio/youstudio/plantas/garden/img-planta-garden-02.png";
+const garden03 = "/homestudio/youstudio/plantas/garden/img-planta-garden-03.png";
+const garden04 = "/homestudio/youstudio/plantas/garden/img-planta-garden-04.png";
+const garden05 = "/homestudio/youstudio/plantas/garden/img-planta-garden-05.png";
+const garden06 = "/homestudio/youstudio/plantas/garden/img-planta-garden-06.png";
+const garden07 = "/homestudio/youstudio/plantas/garden/img-planta-garden-07.png";
+const garden08 = "/homestudio/youstudio/plantas/garden/img-planta-garden-08.png";
+const garden09 = "/homestudio/youstudio/plantas/garden/img-planta-garden-09.png";
+const garden10 = "/homestudio/youstudio/plantas/garden/img-planta-garden-10.png";
+const garden11 = "/homestudio/youstudio/plantas/garden/img-planta-garden-11.png";
+const garden12 = "/homestudio/youstudio/plantas/garden/img-planta-garden-12.png";
+const garden13 = "/homestudio/youstudio/plantas/garden/img-planta-garden-13.png";
+const garden14 = "/homestudio/youstudio/plantas/garden/img-planta-garden-14.png";
+const garden15 = "/homestudio/youstudio/plantas/garden/img-planta-garden-15.png";
+const garden16 = "/homestudio/youstudio/plantas/garden/img-planta-garden-16.png";
+
 
 // Object linking frames to variants - YouStudio
 export const plantasYouStudio = {
@@ -200,6 +250,70 @@ export const plantasYouStudio = {
   "39-94-esquerda": {
     frame: frame39942,
     plantas: [img39942, img39942Opcao],
+  },
+  "garden-01": {
+    frame: framegarden01,
+    plantas: [garden01],
+  },
+  "garden-02": {
+    frame: framegarden02,
+    plantas: [garden02],
+  },
+  "garden-03": {
+    frame: framegarden03,
+    plantas: [garden03],
+  },
+  "garden-04": {
+    frame: framegarden04,
+    plantas: [garden04],
+  },
+  "garden-05": {
+    frame: framegarden05,
+    plantas: [garden05],
+  },
+  "garden-06": {
+    frame: framegarden06,
+    plantas: [garden06],
+  },
+  "garden-07": {
+    frame: framegarden07,
+    plantas: [garden07],
+  },
+  "garden-08": {
+    frame: framegarden08,
+    plantas: [garden08],
+  },
+  "garden-09": {
+    frame: framegarden09,
+    plantas: [garden09],
+  },
+  "garden-10": {
+    frame: framegarden10,
+    plantas: [garden10],
+  },
+  "garden-11": {
+    frame: framegarden11,
+    plantas: [garden11],
+  },
+  "garden-12": {
+    frame: framegarden12,
+    plantas: [garden12],
+  },
+  "garden-13": {
+    frame: framegarden13,
+    plantas: [garden13],
+  },
+  "garden-14": {
+    frame: framegarden14,
+    plantas: [garden14],
+  },
+  "garden-15": {
+    frame: framegarden15,
+    plantas: [garden15],
+  },
+  "garden-16": {
+    frame: framegarden16,
+    plantas: [garden16],
   },
 };
 export type PlantasYouHomeKey = keyof typeof plantasYouStudio;

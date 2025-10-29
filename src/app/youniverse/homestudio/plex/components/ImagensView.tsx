@@ -77,7 +77,7 @@ const ImagensView = () => {
                 after:border-t-transparent after:border-b-transparent 
                 after:transition-colors after:ease-in-out after:duration-300 
                 bg-[#939598] text-white after:border-l-[#939598] 
-                absolute top-48 left-0`}
+                absolute top-18 left-0`}
                 >
                     {images[currentIndexToShow].alt}
                 </span>

@@ -162,32 +162,32 @@ const ImplantacaoView = () => {
     };
 
     const svg6pavViewBoxes: { [key: string]: string } = {
-        "1 hall social": "1030 -400 400 970",
-        "2 salão de jogos teen": "760 -453 400 970",
-        "3 hub de jogos": "830 -483 400 970",
-        "4 pet care": "1015 -445 400 970",
-        "5 salão de festas": "1102 -488 400 970",
-        "6 lavanderia": "1175 -480 400 970",
-        "7 sanitários": "830 -300 400 970",
-        "8 wine lounge": "785 -315 400 970",
-        "9 uso do condomínio": "870 -310 400 970",
-        "10 sala de reunião": "900 -310 400 970",
-        "11 coworking": "970 -320 400 970",
-        "12 espaço gourmet": "1078 -318 400 970",
-        "13 brinquedoteca": "1120 -300 400 970",
-        "14 praça": "1215 -305 400 970",
-        "15 pet place": "1120 -203 400 970",
-        "16 playground": "1220 -130 400 970",
-        "17 grill space": "1335 -20 400 970",
-        "18 quadra recreativa": "1505 5 400 970",
-        "19 piscina adulto": "1490 -263 400 970",
-        "20 pool house": "1580 -103 400 970",
-        "21 spa": "1530 -163 400 970",
-        "22 solarium": "1400 -200 400 970",
-        "23 piscina infantil": "1298 -263 400 970",
-        "24 deck molhado": "1635 -233 400 970",
+        "1 hall social": "640 -480 400 970",
+        "2 salão de jogos teen": "250 -553 400 970",
+        "3 hub de jogos": "360 -593 400 970",
+        "4 pet care": "620 -545 400 970",
+        "5 salão de festas": "740 -598 400 970",
+        "6 lavanderia": "850 -590 400 970",
+        "7 sanitários": "830 -500 400 970",
+        "8 wine lounge": "295 -355 400 970",
+        "9 uso do condomínio": "410 -360 400 970",
+        "10 sala de reunião": "450 -360 400 970",
+        "11 coworking": "555 -361 400 970",
+        "12 espaço gourmet": "710 -361 400 970",
+        "13 brinquedoteca": "770 -340 400 970",
+        "14 praça": "910 -345 400 970",
+        "15 pet place": "770 -203 400 970",
+        "16 playground": "910 -90 400 970",
+        "17 grill space": "1070 50 400 970",
+        "18 quadra recreativa": "1315 90 400 970",
+        "19 piscina adulto": "1300 -283 400 970",
+        "20 pool house": "1430 -63 400 970",
+        "21 spa": "1360 -140 400 970",
+        "22 solarium": "1160 -200 400 970",
+        "23 piscina infantil": "1020 -283 400 970",
+        "24 deck molhado": "1505 -243 400 970",
         "25 minimercado": "1170 -363 400 970",
-        "26 compartilhamento": "830 -253 400 970",
+        "26 compartilhamento": "360 -273 400 970",
     };
 
     const [menuSelected, setMenuSelected] = useState("");
@@ -291,7 +291,10 @@ const ImplantacaoView = () => {
                     {menu6implantacao.map((button, index) => (
                         <button
                             key={index}
-                            onClick={() => { setMenuSelected(button.name); }}
+                            onClick={() => { 
+                                if (button.name === "25 minimercado") return; // Prevent selection
+                                setMenuSelected(button.name);
+                             }}
                             className="cursor-pointer transition-all ease-in-out animate-fade-up duration-1000"
                         >
                             <span
@@ -299,7 +302,9 @@ const ImplantacaoView = () => {
                                     ${menuSelected === button.name
                                         ? "bg-[#A39126] text-white" // Removed after:border-l-[#A39126]
                                         : "text-black" // Removed after:border-l-transparent
-                                    }`
+                                    }
+                                    ${button.name === "25 minimercado" && "cursor-default opacity-30"}
+                                `
                                 }
                             >
                                 {button.name}
